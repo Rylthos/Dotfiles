@@ -1,0 +1,17 @@
+# Neovim
+nvim/lazy-lock.json
+nvim/.netrwhist
+nvim/undodir/**
+
+# Awesome
+awesome/weatherapi.lua
+
+# Fish
+fish/fish_variables
+
+# Picom
+picom/picom.conf
+
+# kitty
+kitty/kitty.conf
+kitty/kitty.conf.bak
