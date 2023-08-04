@@ -1,13 +1,4 @@
 # Setup
-
-## General
-To install the Terminal
-```Console
-$ ./term_setup.sh
-```
-
-Both Awesome, Alacritty, Picom and Nitrogen are not installed by executing this command
-
 ## Neovim
 ### Requirements
     Neovim
@@ -16,4 +7,4 @@ Both Awesome, Alacritty, Picom and Nitrogen are not installed by executing this 
 
     Neovim Python module
 
-Run :PackerInstall
+Run :UpdateRemotePlugins after all plugins are installed
