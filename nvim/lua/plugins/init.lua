@@ -48,6 +48,8 @@ return {
 
     'nvim-tree/nvim-web-devicons',
 
+    'norcalli/nvim-colorizer.lua',
+
     {
         'nvim-lualine/lualine.nvim',
         dependencies = {
