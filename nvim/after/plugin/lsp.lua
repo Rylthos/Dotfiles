@@ -4,7 +4,9 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
     'cmake',
-    'clangd'
+    'clangd',
+    'jdtls',
+    'ocaml-lsp'
 })
 
 local cmp = require('cmp')
