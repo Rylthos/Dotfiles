@@ -6,7 +6,7 @@ lsp.ensure_installed({
     'cmake',
     'clangd',
     'jdtls',
-    'ocaml-lsp'
+    'texlab'
 })
 
 local cmp = require('cmp')
@@ -34,3 +34,7 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+vim.diagnostic.config({ virtual_text=false })
+require("lsp_lines").setup()
+vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle)

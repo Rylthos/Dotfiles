@@ -1,7 +1,7 @@
 return {
     {
         "nvim-telescope/telescope.nvim", 
-        version = "0.1.0",
+        version = "0.1.4",
         dependencies = {
             "nvim-lua/plenary.nvim"
         }
@@ -14,7 +14,6 @@ return {
         }
     },
 
-
     {
         'VonHeikemen/lsp-zero.nvim',
         dependencies = {
@@ -22,6 +21,9 @@ return {
             'neovim/nvim-lspconfig',
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
+            {
+                'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+            },
 
             -- Autocompletion
             'hrsh7th/nvim-cmp',
@@ -94,6 +96,15 @@ return {
     {
         'christoomey/vim-tmux-navigator',
         lazy = false,
+    },
+
+    'lervag/vimtex',
+
+    'stevearc/vim-arduino',
+
+    {
+        'kylechui/nvim-surround',
+        version = "*"
     },
 
     -- Themes
