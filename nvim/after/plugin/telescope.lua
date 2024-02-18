@@ -1,32 +1,33 @@
-local builtin = require('telescope.builtin')
-local actions = require('telescope.actions')
+local builtin = require("telescope.builtin")
+local actions = require("telescope.actions")
 
-vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-vim.keymap.set('n', '<leader>ps', function()
-    builtin.grep_string({ search = vim.fn.input("Grep > ") })
+vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
+vim.keymap.set("n", "<C-p>", builtin.git_files, {})
+vim.keymap.set("n", "<leader>ps", function()
+	builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)
-vim.keymap.set('n', '<leader>ts', builtin.treesitter, {})
-vim.keymap.set('n', '<leader>tm', builtin.marks, {})
+vim.keymap.set("n", "<leader>ts", builtin.treesitter, {})
+vim.keymap.set("n", "<leader>tm", builtin.marks, {})
 
-require('telescope').setup {
-    defaults = {
-        mappings = {
-            i = {
-                ['jk'] = actions.close,
-                ['<C-q>'] = actions.send_to_qflist,
-            },
-            n = {
-                ['jk'] = actions.close
-            }
-        }
-    },
-    extensions = {
-        template = {
+require("telescope").setup({
+	defaults = {
+		mappings = {
+			i = {
+				["jk"] = actions.close,
+				["<C-q>"] = actions.send_to_qflist,
+			},
+			n = {
+				["jk"] = actions.close,
+			},
+		},
+	},
+	extensions = {
+		template = {},
+	},
+	file_ignore_patterns = {
+		"vendor",
+	},
+})
 
-        }
-    }
-}
-
-require('telescope').load_extension('template')
-vim.keymap.set('n', '<leader>tT', require'telescope'.extensions.template.template, {})
+require("telescope").load_extension("template")
+vim.keymap.set("n", "<leader>tT", require("telescope").extensions.template.template, {})

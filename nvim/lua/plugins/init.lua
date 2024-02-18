@@ -1,147 +1,170 @@
 return {
-    {
-        "nvim-telescope/telescope.nvim", 
-        version = "0.1.4",
-        dependencies = {
-            "nvim-lua/plenary.nvim"
-        }
-    },
+	{
+		"nvim-telescope/telescope.nvim",
+		version = "0.1.4",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+	},
 
-    {
-        "killer29018/template.nvim",
-        dependencies = {
-            "nvim-telescope/telescope.nvim",
-        }
-    },
+	{
+		"killer29018/template.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+		},
+	},
 
-    {
-        'VonHeikemen/lsp-zero.nvim',
-        dependencies = {
-            -- LSP Support
-            'neovim/nvim-lspconfig',
-            'williamboman/mason.nvim',
-            'williamboman/mason-lspconfig.nvim',
-            {
-                'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
-            },
+	{
+		"VonHeikemen/lsp-zero.nvim",
+		dependencies = {
+			-- LSP Support
+			"neovim/nvim-lspconfig",
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			{
+				"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+			},
 
-            -- Autocompletion
-            'hrsh7th/nvim-cmp',
-            'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-path',
-            'saadparwaiz1/cmp_luasnip',
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-nvim-lua',
+			-- Autocompletion
+			"hrsh7th/nvim-cmp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-nvim-lua",
 
-            -- Snippets
-            'L3MON4D3/LuaSnip',
-            'rafamadriz/friendly-snippets',
-        }
-    },
+			-- Formatter,
+			"stevearc/conform.nvim",
 
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate'
-    },
+			-- Snippets
+			"L3MON4D3/LuaSnip",
+			"rafamadriz/friendly-snippets",
+		},
+	},
 
-    'nvim-treesitter/playground',
-    'mbbill/undotree',
-    'tpope/vim-fugitive',
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+	},
 
-    'nvim-tree/nvim-web-devicons',
+	"nvim-treesitter/playground",
+	"mbbill/undotree",
 
-    'norcalli/nvim-colorizer.lua',
+	"nvim-tree/nvim-web-devicons",
 
-    {
-        'nvim-lualine/lualine.nvim',
-        dependencies = {
-            'nvim-tree/nvim-web-devicons'
-        }
-    },
+	"norcalli/nvim-colorizer.lua",
 
-    {
-        'mg979/vim-visual-multi',
-        branch = 'master'
-    },
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
 
-    'karb94/neoscroll.nvim',
+	{
+		"mg979/vim-visual-multi",
+		branch = "master",
+	},
 
-    'echasnovski/mini.comment',
+	"karb94/neoscroll.nvim",
 
-    'echasnovski/mini.move',
+	"echasnovski/mini.comment",
 
-    'echasnovski/mini.pairs',
+	"echasnovski/mini.move",
 
-    'derekwyatt/vim-fswitch',
+	"echasnovski/mini.pairs",
 
-    {
-        'nvim-tree/nvim-tree.lua',
-        dependencies = {
-            'nvim-tree/nvim-web-devicons',
-        },
-        tag = 'nightly'
-    },
+	"derekwyatt/vim-fswitch",
 
-    'sheerun/vim-polyglot',
+	{
+		"nvim-tree/nvim-tree.lua",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		tag = "nightly",
+	},
 
-    'chentoast/marks.nvim',
+	"sheerun/vim-polyglot",
 
-    {
-        'iamcco/markdown-preview.nvim',
-        build = function()
-            vim.fn["mkdp#util#install"]()
-        end
-    },
+	"chentoast/marks.nvim",
 
-    {
-        'christoomey/vim-tmux-navigator',
-        lazy = false,
-    },
+	{
+		"iamcco/markdown-preview.nvim",
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	},
 
-    'lervag/vimtex',
+	{
+		"christoomey/vim-tmux-navigator",
+		lazy = false,
+	},
 
-    'stevearc/vim-arduino',
+	"lervag/vimtex",
 
-    {
-        'kylechui/nvim-surround',
-        version = "*"
-    },
+	"stevearc/vim-arduino",
 
-    -- Themes
-    -- {
-    --     'rose-pine/neovim',
-    --     name = 'rose-pine',
-    -- },
+	{
+		"kylechui/nvim-surround",
+		version = "*",
+	},
 
-    -- {
-    --     'folke/tokyonight.nvim',
-    --     name = 'tokyonight'
-    -- },
+	-- Themes
+	-- {
+	--     'rose-pine/neovim',
+	--     name = 'rose-pine',
+	-- },
 
-    {
-        'EdenEast/nightfox.nvim',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            vim.cmd([[colorscheme carbonfox]])
-        end
-    },
+	-- {
+	--     'folke/tokyonight.nvim',
+	--     name = 'tokyonight'
+	-- },
 
-    -- {
-    --     'uloco/bluloco.nvim',
-    --     name = 'bluloco',
-    --     dependencies = {
-    --         'rktjmp/lush.nvim'
-    --     }
-    -- },
+	-- {
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.cmd([[colorscheme carbonfox]])
+	-- 	end,
+	-- },
 
-    -- {
-    --     'sainnhe/everforest',
-    --     name = 'everforest'
-    -- },
+	-- {
+	--     'uloco/bluloco.nvim',
+	--     name = 'bluloco',
+	--     dependencies = {
+	--         'rktjmp/lush.nvim'
+	--     }
+	-- },
 
-    -- {
-    --     'sainnhe/sonokai',
-    --     name = 'sonokai'
-    -- },
+	-- {
+	--     'sainnhe/everforest',
+	--     name = 'everforest',
+	--     config = function()
+	--         vim.cmd([[colorscheme everforest]])
+	--     end
+	-- },
+	-- {
+	-- 	"Alexis12119/nightly.nvim",
+	-- 	config = function()
+	-- 		vim.cmd([[colorscheme nightly]])
+	-- 	end,
+	-- },
+	{
+		"rebelot/kanagawa.nvim",
+		config = function()
+			require("kanagawa").setup({
+				theme = "wave",
+				background = {
+					dark = "wave",
+				},
+			})
+			vim.cmd([[colorscheme kanagawa]])
+		end,
+	},
+
+	-- {
+	--     'sainnhe/sonokai',
+	--     name = 'sonokai'
+	-- },
 }
