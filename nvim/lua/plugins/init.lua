@@ -4,13 +4,8 @@ return {
 		version = "0.1.4",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-		},
-	},
-
-	{
-		"killer29018/template.nvim",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
+			"andrew-george/telescope-themes",
+			"killer29018/template.nvim",
 		},
 	},
 
@@ -110,61 +105,8 @@ return {
 	},
 
 	-- Themes
-	-- {
-	--     'rose-pine/neovim',
-	--     name = 'rose-pine',
-	-- },
-
-	-- {
-	--     'folke/tokyonight.nvim',
-	--     name = 'tokyonight'
-	-- },
-
-	-- {
-	-- 	"EdenEast/nightfox.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		vim.cmd([[colorscheme carbonfox]])
-	-- 	end,
-	-- },
-
-	-- {
-	--     'uloco/bluloco.nvim',
-	--     name = 'bluloco',
-	--     dependencies = {
-	--         'rktjmp/lush.nvim'
-	--     }
-	-- },
-
-	-- {
-	--     'sainnhe/everforest',
-	--     name = 'everforest',
-	--     config = function()
-	--         vim.cmd([[colorscheme everforest]])
-	--     end
-	-- },
-	-- {
-	-- 	"Alexis12119/nightly.nvim",
-	-- 	config = function()
-	-- 		vim.cmd([[colorscheme nightly]])
-	-- 	end,
-	-- },
-	{
-		"rebelot/kanagawa.nvim",
-		config = function()
-			require("kanagawa").setup({
-				theme = "wave",
-				background = {
-					dark = "wave",
-				},
-			})
-			vim.cmd([[colorscheme kanagawa]])
-		end,
-	},
-
-	-- {
-	--     'sainnhe/sonokai',
-	--     name = 'sonokai'
-	-- },
+	"folke/tokyonight.nvim",
+	"EdenEast/nightfox.nvim",
+	"Alexis12119/nightly.nvim",
+	{ "catppuccin/nvim", name = "catppuccin" },
 }

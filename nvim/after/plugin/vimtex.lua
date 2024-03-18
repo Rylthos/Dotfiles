@@ -1,29 +1,35 @@
 vim.g.vimtex_compiler_latexmk = {
-    options = {
-        '-verbose',
-        '-file-line-error',
-        '-synctex=1',
-        '-interaction=nonstopmode',
-        '-lualatex',
-        '-shell-escape'
-    }
+	options = {
+		"-verbose",
+		"-file-line-error",
+		"-synctex=1",
+		"-interaction=nonstopmode",
+		"-lualatex",
+		"-shell-escape",
+	},
 }
 
-local vim_leader = ','
-vim.keymap.set("n", vim_leader.."ce", "<plug>(vimtex-env-surround-line)")
-vim.keymap.set("n", vim_leader.."ce", "<Plug>(vimtex-env-surround-line)")
-vim.keymap.set("v", vim_leader.."ce", "<Plug>(vimtex-env-surround-visual)")
+local vim_leader = ","
+vim.keymap.set("n", vim_leader .. "ce", "<plug>(vimtex-env-surround-line)")
+vim.keymap.set("n", vim_leader .. "ce", "<Plug>(vimtex-env-surround-line)")
+vim.keymap.set("v", vim_leader .. "ce", "<Plug>(vimtex-env-surround-visual)")
 
-vim.keymap.set("n", vim_leader.."cf", "<Plug>(vimtex-compile)")
+vim.keymap.set("n", vim_leader .. "cf", "<Plug>(vimtex-compile)")
 
-vim.keymap.set("n", vim_leader.."cc", "<Plug>(vimtex-cmd-create)")
-vim.keymap.set("v", vim_leader.."cc", "<Plug>(vimtex-cmd-create)")
+vim.keymap.set("n", vim_leader .. "cc", "<Plug>(vimtex-cmd-create)")
+vim.keymap.set("v", vim_leader .. "cc", "<Plug>(vimtex-cmd-create)")
 
-vim.keymap.set("n", vim_leader.."cd", "<Plug>(vimtex-cmd-delete)")
-vim.keymap.set("v", vim_leader.."cd", "<Plug>(vimtex-cmd-delete)")
+vim.keymap.set("n", vim_leader .. "dc", "<Plug>(vimtex-cmd-delete)")
+vim.keymap.set("v", vim_leader .. "dc", "<Plug>(vimtex-cmd-delete)")
 
-vim.keymap.set("n", vim_leader.."tb", "<Plug>(vimtex-delim-toggle-modifier)")
-vim.keymap.set("v", vim_leader.."tb", "<Plug>(vimtex-delim-toggle-modifier)")
+vim.keymap.set("n", vim_leader .. "de", "<Plug>(vimtex-env-delete)")
+vim.keymap.set("v", vim_leader .. "de", "<Plug>(vimtex-env-delete)")
+
+vim.keymap.set("n", vim_leader .. "tb", "<Plug>(vimtex-delim-toggle-modifier)")
+vim.keymap.set("v", vim_leader .. "tb", "<Plug>(vimtex-delim-toggle-modifier)")
+
+vim.keymap.set("n", vim_leader .. "tsc", "<Plug>(vimtex-cmd-toggle-star)")
+vim.keymap.set("n", vim_leader .. "tse", "<Plug>(vimtex-env-toggle-star)")
 
 -- vim.g.vimtex_compiler_generic = { "command": "lualatex --shell-escape" }
 
