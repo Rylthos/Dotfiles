@@ -6,6 +6,11 @@ let
 in {
     options.modules.waybar = { enable = mkEnableOption "waybar"; };
     config = mkIf cfg.enable {
+        home.packages = with pkgs; [
+            pamixer
+            pavucontrol
+        ];
+
         programs.waybar = {
             enable = true;
 

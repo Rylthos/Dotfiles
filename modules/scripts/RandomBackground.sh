@@ -11,6 +11,8 @@ load_wallpapers() {
     wallpapers=("$wallpapersDir"/*.png)
     wallpapers+=("$wallpapersDir"/SimonStalenhag/*.jpg)
     wallpapers+=("$wallpapersDir"/Kobsel/*.png)
+    wallpapers+=("$wallpapersDir"/JWST/*.png)
+    wallpapers+=("$wallpapersDir"/Own/*.jpg)
 }
 
 # If the file exists then load in what is contained in that file
