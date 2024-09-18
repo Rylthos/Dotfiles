@@ -19,7 +19,7 @@
             pkgs = inputs.nixpkgs.legacyPackages.${system};
             lib = nixpkgs.lib;
 
-            mkSystem = pkgs: system: hostname:
+            mkSystem = pkgs: system: hostname: wsl:
                 pkgs.lib.nixosSystem {
                     system = system;
                     modules = [
@@ -36,12 +36,17 @@
                                 users.aaron = (./. + "/hosts/${hostname}/user.nix");
                             };
                         }
-                    ];
-                    specialArgs = { inherit inputs; };
+                    ] ++ (lib.optionals (wsl) [
+                        nixos-wsl.nixosModules.default
+                        {
+                            wsl.enable = true;
+                        }
+                    ]);
                 };
         in {
             nixosConfigurations = {
-                laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop";
+                laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop" false;
+                wsl = mkSystem inputs.nixpkgs "x86_64-linux" "wsl" true;
         };
     };
 }
