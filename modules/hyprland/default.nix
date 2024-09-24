@@ -30,6 +30,8 @@ in {
             bluez
 
             networkmanagerapplet
+
+            xdg-user-dirs
         ];
 
         wayland.windowManager.hyprland = {

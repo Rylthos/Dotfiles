@@ -84,8 +84,8 @@ default_setup("cmake")
 lspconfig.jdtls.setup{}
 default_setup("jdtls")
 
-lspconfig.tsserver.setup{}
-default_setup("tsserver")
+lspconfig.ts_ls.setup{}
+default_setup("ts_ls")
 
 lspconfig.cssls.setup{}
 default_setup("cssls")

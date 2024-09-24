@@ -14,7 +14,6 @@ in {
             xournalpp
             blender
 
-            firefox
             vesktop
 
             xwaylandvideobridge

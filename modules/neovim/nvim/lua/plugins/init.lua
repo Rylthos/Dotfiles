@@ -56,8 +56,8 @@ return {
 	},
 
 	{
-		"mg979/vim-visual-multi",
-		branch = "master",
+		"jake-stewart/multicursor.nvim",
+		branch = "1.0",
 	},
 
 	"karb94/neoscroll.nvim",
