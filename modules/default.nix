@@ -6,6 +6,7 @@
 
         ./alacritty
         ./direnv
+        ./discord
         ./firefox
         ./fish
         ./git

@@ -4,6 +4,7 @@
     config.modules = {
         alacritty.enable = true;
         direnv.enable = true;
+        discord.enable = true;
         firefox.enable = true;
         fish.enable = true;
         git.enable = true;
