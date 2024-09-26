@@ -24,7 +24,7 @@ in {
             wl-clipboard
 
             digikam
-            rawtherapee
+            darktable
 
             steam
         ];

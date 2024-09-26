@@ -38,6 +38,12 @@ in {
                   icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
                   definedAliases = [ "@mn" ];
                 };
+                "Wikipedia" = {
+                  urls = [{
+                    template = "https://en.wikipedia.org/wiki/{searchTerms}";
+                  }];
+                  definedAliases = [ "@wi" ];
+                };
               };
             };
             extraConfig = ''

@@ -1,5 +1,5 @@
 while true; do
-    /home/aaron/.dotfiles/scripts/RandomBackground.sh
+    $NIXOS_SCRIPTS_DIR/RandomBackground.sh
 
     sleep 30m
 done

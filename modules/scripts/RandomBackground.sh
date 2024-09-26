@@ -1,7 +1,7 @@
 #!/bin/sh
 
-wallpapersDir="$HOME/Pictures/Wallpapers"
-backgroundQueue="$HOME/.dotfiles/scripts/.backgroundQueue"
+wallpapersDir="$(xdg-user-dir PICTURES)/Wallpapers"
+backgroundQueue="$NIXOS_SCRIPTS_DIR/.backgroundQueue"
 
 selectedWallpaper=""
 currentBackground=$(swww query | grep -oP "image: \K.*")
@@ -36,7 +36,7 @@ selectedWallpaper=${wallpapers[$wallpaperIndex]}
 wallpapers=("${wallpapers[@]:0:$wallpaperIndex}" "${wallpapers[@]:$wallpaperIndex+1}")
 
 # Save the new list
-echo ${wallpapers[*]} > "$HOME/.dotfiles/scripts/.backgroundQueue"
+echo ${wallpapers[*]} > ${backgroundQueue}
 
 swww img "$selectedWallpaper" --transition-type any --transition-fps 90 --transition-duration 5 --transition-bezier .42,0,1,1 --resize crop
 # swww img "$selectedWallpaper" --transition-type simple --transition-fps 90 --transition-duration 2 --transition-bezier .42,0,.58,1
