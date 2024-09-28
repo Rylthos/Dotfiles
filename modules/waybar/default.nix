@@ -17,7 +17,7 @@ in {
             settings = [{
                 layer = "top";
                 position = "top";
-                height = 26;
+                height = 32;
                 margin = "4 0 0 0";
 
                 modules-left = [
@@ -218,8 +218,7 @@ in {
                     "custom/previous_song"
                     "custom/play_pause_song"
                     "custom/next_song"
-                    "image"
-                    "custom/mediaplayer"
+                    "mpris"
                     "custom/dome-right"
                 ];
 
@@ -289,22 +288,48 @@ in {
                     on-click = "playerctl -p spotify_player next";
                 };
 
-                image = {
-                    path = "/tmp/waybar-mediaplayer-art";
-                    size = 32;
-                    signal = 4;
-                    on-click = "feh --auto-zoom --borderless --title 'feh-float-waybar' /tmp/waybar-mediaplayer-art";
-                };
+                # image = {
+                #     path = "/tmp/waybar-mediaplayer-art";
+                #     size = 32;
+                #     signal = 4;
+                #     on-click = "feh --auto-zoom --borderless --title 'feh-float-waybar' /tmp/waybar-mediaplayer-art";
+                # };
+                #
+                # "custom/mediaplayer" = {
+                #     exec = "${currentPath}/.venv/bin/python ${currentPath}/waybar-mediaplayer/src/mediaplayer monitor";
+                #
+                #     return-type = "json";
+                #     format = "{}";
+                #     on-click = "playerctl -p spotify_player play-pause";
+                #     min-length = 20;
+                #     max-length = 20;
+                #     restart-interval = 10;
+                # };
 
-                "custom/mediaplayer" = {
-                    exec = "${currentPath}/.venv/bin/python ${currentPath}/waybar-mediaplayer/src/mediaplayer monitor";
+                # "custom/waymedia" = {
+                #   format = "{artist}{divider}{title}";
+                #   exec = "${currentPath}/waymedia/waymedia";
+                #   interval = 1;
+                #   limit = 60;
+                #   on-click = "playerctl play-pause";
+                #   on-scroll-up = "playerctl next";
+                #   on-scroll-down = "playerctl previous";
+                #   # pause-icon = "   ";
+                #   # play-icon = "   ";
+                #   divider = " - ";
+                # };
 
-                    return-type = "json";
-                    format = "{}";
-                    on-click = "playerctl -p spotify_player play-pause";
-                    min-length = 20;
-                    max-length = 20;
-                    restart-interval = 10;
+                mpris = {
+                    format = "<b>{dynamic}</b>";
+                    format-paused = "<b>{dynamic}</b>";
+                    dynamic-order = [ "title" "position" "length" ];
+                    dynamic-len = 50;
+                    player-icons =  {
+                        default = "▶";
+                    };
+                    status-icons = {
+                        paused = "⏸";
+                    };
                 };
 
                 "custom/toggle_rotation" = {
@@ -448,13 +473,10 @@ in {
 
             #disk {
               color: #${config.colorScheme.palette.base0D};
-            }
 
-            #custom-mediaplayer {
+
+            #mpris {
               background: #${config.colorScheme.palette.base00};
-              padding: 0px 2px;
-
-              border-radius: 4px;
             }
 
             #clock,
@@ -463,6 +485,7 @@ in {
             #custom-previous_song,
             #custom-play_pause_song,
             #custom-next_song,
+            #mpris,
             #custom-toggle_rotation,
             #custom-toggle_keyboard,
             #idle_inhibitor,
@@ -487,8 +510,7 @@ in {
             #custom-previous_song,
             #custom-play_pause_song,
             #custom-next_song,
-            #image,
-            #custom-mediaplayer,
+            #mpris
             #custom-toggle_rotation,
             #custom-toggle_keyboard,
             #idle_inhibitor,
@@ -517,7 +539,6 @@ in {
 
 
             @import "/home/aaron/.config/waybar/styles/padding.css";
-            @import "/home/aaron/.config/waybar/styles/mediaplayer_style.css";
             '';
         };
 
