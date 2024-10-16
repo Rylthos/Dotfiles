@@ -4,14 +4,14 @@ let
     cfg = config.modules.hyprland;
 
     startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
-    $NIXOS_SCRIPTS_DIR/waybar_start.sh &
-    swww init &
+      $NIXOS_SCRIPTS_DIR/waybar_start.sh &
+      swww init &
 
-    sleep 1
+      sleep 1
 
-    hypridle &
+      hypridle &
 
-    $NIXOS_SCRIPTS_DIR/RandomBackgroundLoop.sh &
+      $NIXOS_SCRIPTS_DIR/RandomBackgroundLoop.sh &
     '';
 in {
     options.modules.hyprland = { enable = mkEnableOption "hyprland"; };
@@ -23,7 +23,6 @@ in {
 
         home.packages = with pkgs; [
             swww
-            hyprlock
             hypridle
             brightnessctl
 
@@ -115,12 +114,20 @@ in {
                     "opaque, class:(thunar)"
                     "opaque, class:(firefox)"
                     "opaque, class:(org.kde.okular)"
-                    "opaque, class:(org.kde.okular)"
                     "opaque, class:(kicad)"
                     "opaque, class:(FreeCAD)"
                     "opaque, class:(krita)"
                     "opaque, class:(qrenderdoc)"
+                    "opaque, class:(Darktable)"
+                    "opaque, class:(com.github.xournalpp.xournalpp)"
+
+                    "opaque, title:(^tmux)"
+                    "opaque title:(^nvim)"
+
                     "opacity 0.8 0.8, class:(Alacritty)"
+
+                    "opaque, class:(org.kde.digikam)"
+                    "float, class:(org.kde.digikam), title:(^New Album)"
 
                     "float, class:(feh),title:(feh-float-waybar)"
                     "move onscreen 5% 100%-h, class:(feh),title:(feh-float-waybar)"
@@ -153,6 +160,7 @@ in {
                     "SUPER, RETURN, exec, $terminal"
                     "SUPER, X, exec, xournalpp"
                     "SUPER, S, exec, firefox"
+                    "SUPER SHIFT, S, exec, $NIXOS_SCRIPTS_DIR/WofiSearchFirefox.sh"
                     "SUPER, E, exec, $fileManager"
                     "SUPER, R, exec, $menu"
 

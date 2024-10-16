@@ -4,7 +4,6 @@ return {
 		version = "0.1.4",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"andrew-george/telescope-themes",
 			"killer29018/template.nvim",
 		},
 	},
@@ -53,6 +52,7 @@ return {
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
+		enabled = true,
 	},
 
 	{
@@ -111,8 +111,10 @@ return {
 	-- Themes
 	"folke/tokyonight.nvim",
 	"EdenEast/nightfox.nvim",
+	"rebelot/kanagawa.nvim",
 	"Alexis12119/nightly.nvim",
 	{ "catppuccin/nvim", name = "catppuccin" },
 	"comfysage/evergarden",
+	"aliqyan-21/darkvoid.nvim",
 	"bluz71/vim-nightfly-colors",
 }

@@ -9,8 +9,6 @@ end)
 vim.keymap.set("n", "<leader>ts", builtin.treesitter, {})
 vim.keymap.set("n", "<leader>tm", builtin.marks, {})
 
-require("telescope").load_extension("themes")
-
 require("telescope").setup({
 	defaults = {
 		mappings = {

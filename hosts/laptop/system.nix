@@ -26,6 +26,7 @@
             };
         };
 
+        # Login Manager
         greetd = {
             enable = true;
             settings = {
@@ -36,9 +37,11 @@
                 --user-menu \
                 --remember \
                 --remember-session \
-                --cmd hyprland
+                --cmd Hyprland
                 '';
             };
+
+            vt = 1;
         };
     };
 
@@ -59,7 +62,7 @@
     };
 
     environment.etc."greetd/environments".text = ''
-        hyprland
+        Hyprland
     '';
 
     services.displayManager = {
@@ -75,7 +78,6 @@
                 };
             };
         };
-        # defaultSession = "hyprland";
     };
 
     programs = {
@@ -88,4 +90,8 @@
             enable = true;
         };
     };
+
+    virtualisation.virtualbox.host.enable = true;
+    # virtualisation.virtualbox.guest.enable = true;
+    virtualisation.virtualbox.guest.dragAndDrop = true;
 }

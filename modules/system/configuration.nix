@@ -13,6 +13,9 @@
         libsForQt5.breeze-icons
 
         libnotify
+
+        xsettingsd
+        xorg.xrdb
     ];
 
     fonts = {
@@ -35,7 +38,8 @@
     };
 
     nix = {
-        settings.auto-optimise-store = true;
+        # settings.auto-optimise-store = true;
+        optimise.automatic = true;
         settings.allowed-users = [ "aaron" ];
         gc = {
             automatic = true;
@@ -55,6 +59,9 @@
     };
 
     boot = {
+        kernel.sysctl = {
+            "kernel.printk" = "3 3 3 3";
+        };
         tmp.cleanOnBoot = true;
         loader = {
             systemd-boot.enable = true;
@@ -88,6 +95,8 @@
         shell = pkgs.fish;
     };
 
+    users.extraGroups.vboxusers.members = [ "aaron" ];
+
     networking = {
         hostName = "aaron-nixos";
         networkmanager.enable = true;
@@ -96,6 +105,7 @@
     environment = {
         variables = {
             NIXOS_CONFIG_DIR = "$HOME/.dotfiles";
+            NIXOS_DEV_DIR = "$NIXOS_CONFIG_DIR/dev";
             NIXOS_MODULES_DIR = "$NIXOS_CONFIG_DIR/modules";
             NIXOS_SCRIPTS_DIR = "$NIXOS_MODULES_DIR/scripts";
 

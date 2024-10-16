@@ -24,4 +24,5 @@ require("lazy").setup("plugins", {
 	},
 })
 
-require("current-theme")
+-- vim.cmd(vim.cmd, "colorscheme kanagawa-wave")
+vim.cmd([[colorscheme kanagawa-wave]])

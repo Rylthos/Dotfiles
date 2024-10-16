@@ -22,17 +22,6 @@
         ];
 
         buildInputs = with pkgs; [
-          mesa
-          libGL
-          pkg-config
-
-          xorg.libXtst
-          xorg.libX11
-          xorg.libX11.dev
-          xorg.libXrandr
-          xorg.libXinerama
-          xorg.libXcursor
-          xorg.libXi
         ];
       };
     };

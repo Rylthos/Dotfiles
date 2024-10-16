@@ -323,6 +323,7 @@ in {
                     format = "<b>{dynamic}</b>";
                     format-paused = "<b>{dynamic}</b>";
                     dynamic-order = [ "title" "position" "length" ];
+                    ignored-players = [ "firefox" ];
                     dynamic-len = 50;
                     player-icons =  {
                         default = "▶";
@@ -407,7 +408,7 @@ in {
 
             #workspaces button.empty {
               color: #${config.colorScheme.palette.base01};
-            }
+           }
 
             #workspaces button.active {
               color: #${config.colorScheme.palette.base0D};
@@ -473,7 +474,7 @@ in {
 
             #disk {
               color: #${config.colorScheme.palette.base0D};
-
+            }
 
             #mpris {
               background: #${config.colorScheme.palette.base00};
@@ -510,7 +511,7 @@ in {
             #custom-previous_song,
             #custom-play_pause_song,
             #custom-next_song,
-            #mpris
+            #mpris,
             #custom-toggle_rotation,
             #custom-toggle_keyboard,
             #idle_inhibitor,

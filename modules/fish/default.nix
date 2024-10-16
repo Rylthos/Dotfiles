@@ -11,6 +11,7 @@ in {
 
             shellAliases = {
                 ll = "ls -al";
+                dotfiles = "cd $NIXOS_CONFIG_DIR";
             };
         };
     };

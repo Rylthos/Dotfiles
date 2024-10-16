@@ -7,8 +7,9 @@ in {
         home = {
             pointerCursor = {
                 gtk.enable = true;
-                package = pkgs.bibata-cursors;
-                name = "Bibata-Modern-Classic";
+                x11.enable = true;
+                package = pkgs.catppuccin-cursors.macchiatoSapphire;
+                name = "catppuccin-macchiato-sapphire-cursors";
                 size = 13;
             };
         };

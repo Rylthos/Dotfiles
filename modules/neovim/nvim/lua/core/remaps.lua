@@ -30,3 +30,5 @@ vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left>
 -- Exit terminal mode
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n><enter>")
 vim.keymap.set("t", "jk", "<C-\\><C-n><enter>")
+
+vim.keymap.set("n", "q:", "<nop>")

@@ -11,7 +11,9 @@
         ./fish
         ./git
         ./gui_packages
+        ./hypridle
         ./hyprland
+        ./hyprlock
         ./mako
         ./neovim
         ./packages
