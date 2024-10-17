@@ -17,6 +17,7 @@
         ./mako
         ./neovim
         ./packages
+        ./pyprland
         ./python
         ./spotify_player
         ./theme

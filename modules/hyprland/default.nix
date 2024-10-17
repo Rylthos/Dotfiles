@@ -164,8 +164,6 @@ in {
                     "SUPER, E, exec, $fileManager"
                     "SUPER, R, exec, $menu"
 
-                    "SUPER ALT_L, L, exec, hyprlock"
-
                     "SUPER SHIFT, Q, killactive"
                     "SUPER, SPACE, togglefloating"
                     "SUPER, F, fullscreen"

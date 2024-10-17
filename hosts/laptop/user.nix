@@ -15,6 +15,7 @@
         mako.enable = true;
         neovim.enable = true;
         packages.enable = true;
+        pyprland.enable = true;
         python.enable = true;
         spotify_player.enable = true;
         theme.enable = true;

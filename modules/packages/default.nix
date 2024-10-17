@@ -22,6 +22,8 @@ in {
             texlive.combined.scheme-full
 
             evtest
+
+            perl
         ];
     };
 }

@@ -12,7 +12,7 @@ in {
             libreoffice-qt
             vlc
             xournalpp
-            # blender
+            blender
 
             vesktop
             okular
