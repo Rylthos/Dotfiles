@@ -135,6 +135,10 @@ in {
                     "float, class:(firefox),title:(Picture-in-Picture)"
                     "pin, class:(firefox),title:(Picture-in-Picture)"
                     "move onscreen 80% 0%, class:(firefox),title:(Picture-in-Picture)"
+
+                    "float, class:(vesktop),initialTitle:(Discord Popout)"
+                    "pin, class:(vesktop),initialTitle:(Discord Popout)"
+                    "move onscreen 80% 0%, class:(vesktop),initialTitle:(Discord Popout)"
                 ];
 
                 bindm = [
@@ -169,7 +173,7 @@ in {
                     "SUPER, F, fullscreen"
                     "SUPER, M, exit"
                     "SUPER, U, exec, hyprctl setprop active opaque toggle"
-                    "SUPER SHIFT, S, pin"
+                    "SUPER SHIFT, P, pin"
 
                     "CONTROL_ALT, DELETE, exec, wlogout -b 4 -s -c 10 -T 400 -L 410 -R 410 -B 400"
 

@@ -13,7 +13,10 @@
           clang-tools
           clang
           cmake
+          cmake-language-server
           ninja
+
+          ncurses
 
           gdb
 

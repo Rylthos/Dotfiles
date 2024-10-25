@@ -30,6 +30,10 @@ require("telescope").setup({
 	},
 	file_ignore_patterns = {
 		"vendor",
+		"_minted%-work",
+		".direnv",
+		"build",
+		"bin"
 	},
 })
 

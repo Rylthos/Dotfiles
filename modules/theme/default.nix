@@ -4,6 +4,11 @@ let cfg = config.modules.theme;
 in {
     options.modules.theme = { enable = mkEnableOption "theme"; };
     config = mkIf cfg.enable {
+        home.packages = with pkgs; [
+            libsForQt5.qtstyleplugin-kvantum
+            libsForQt5.qt5ct
+        ];
+
         home = {
             pointerCursor = {
                 gtk.enable = true;
@@ -28,10 +33,7 @@ in {
 
         qt = {
             enable = true;
-            style = {
-                # package = pkgs.adwaita-qt;
-                name = "breeze";
-            };
+            platformTheme.name = "qt5ct";
         };
     };
 }

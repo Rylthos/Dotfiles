@@ -12,6 +12,7 @@ in {
             shellAliases = {
                 ll = "ls -al";
                 dotfiles = "cd $NIXOS_CONFIG_DIR";
+                tmuxnv = "tmux new-session nvim";
             };
         };
     };
