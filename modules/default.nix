@@ -15,6 +15,7 @@
         ./hyprland
         ./hyprlock
         ./mako
+        ./ncspot
         ./neovim
         ./packages
         ./pyprland

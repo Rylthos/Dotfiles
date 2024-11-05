@@ -28,6 +28,8 @@ in {
             darktable
 
             steam
+
+            wayfarer
         ];
     };
 }

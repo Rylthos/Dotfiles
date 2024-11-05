@@ -45,6 +45,10 @@ in {
                 "$fileManager" = "thunar";
                 "$menu" = "wofi --show drun -M fuzzy";
 
+                debug = {
+                    disable_logs = false;
+                };
+
                 source = "~/.config/hypr/catppuccin_macchiato.conf";
 
                 general = {
@@ -120,11 +124,16 @@ in {
                     "opaque, class:(qrenderdoc)"
                     "opaque, class:(Darktable)"
                     "opaque, class:(com.github.xournalpp.xournalpp)"
+                    "opaque, class:(vesktop)"
+                    "opaque, initialClass:(GLFW)"
 
                     "opaque, title:(^tmux)"
                     "opaque title:(^nvim)"
 
                     "opacity 0.8 0.8, class:(Alacritty)"
+
+                    "float, class:(Psst-gui)"
+                    "opaque, class:(Psst-gui)"
 
                     "opaque, class:(org.kde.digikam)"
                     "float, class:(org.kde.digikam), title:(^New Album)"

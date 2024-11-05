@@ -4,7 +4,7 @@ import subprocess
 
 icons = { "play": "", "pause": "", "none": "󰋔"}
 
-execution = subprocess.Popen("playerctl -p spotify_player status", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+execution = subprocess.Popen("playerctl status", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 output = execution.stdout.read()
 err = execution.stderr.read()
 if output == b"Playing\n":

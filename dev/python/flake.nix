@@ -12,6 +12,7 @@
         nativeBuildInputs = with pkgs; [
           python312Packages.matplotlib
           python312Packages.numpy
+          python312Packages.scipy
         ];
 
         buildInputs = with pkgs; [

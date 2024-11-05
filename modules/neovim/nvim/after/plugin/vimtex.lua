@@ -9,6 +9,7 @@ vim.g.vimtex_compiler_latexmk = {
 	},
 }
 
+vim.g.vimtex_matchparen_enabled = 0
 vim.g.vimtex_view_general_viewer = "okular"
 
 local vim_leader = ","

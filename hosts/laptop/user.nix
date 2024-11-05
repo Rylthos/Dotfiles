@@ -13,11 +13,12 @@
         hyprland.enable = true;
         hyprlock.enable = true;
         mako.enable = true;
+        ncspot.enable = true;
         neovim.enable = true;
         packages.enable = true;
         pyprland.enable = true;
         python.enable = true;
-        spotify_player.enable = true;
+        spotify_player.enable = false;
         theme.enable = true;
         tmux.enable = true;
         waybar.enable = true;

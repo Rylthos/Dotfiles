@@ -113,6 +113,7 @@
             EDITOR = "nvim";
             QT_QPA_PLATFORM = "wayland;xcb";
             QT_QPA_PLATFORMTHEME = "qt5ct";
+            QT_STYLE_OVERRIDE = "kvantum";
         };
     };
 

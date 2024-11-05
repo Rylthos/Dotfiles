@@ -9,10 +9,12 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       devShells.${system}.default = pkgs.mkShell {
+
         nativeBuildInputs = with pkgs; [
-          clang
           clang-tools
+          clang
           cmake
+          cmake-language-server
           ninja
 
           gdb
@@ -23,20 +25,7 @@
 
           renderdoc
           valgrind
-        ];
-
-        buildInputs = with pkgs; [
-          pkg-config
-          libxkbcommon
-
-          xorg.libX11
-          xorg.libX11.dev
-          xorg.libXrandr
-          xorg.libXinerama
-          xorg.libXcursor
-          xorg.libXi
-
-          glfw
+          libsForQt5.kcachegrind
 
           vulkan-headers
           vulkan-loader
@@ -44,6 +33,18 @@
           vulkan-extension-layer
           vulkan-tools
           vulkan-tools-lunarg
+
+        ];
+
+        buildInputs = with pkgs; [
+          vulkan-headers
+          vulkan-loader
+          vulkan-validation-layers
+          vulkan-extension-layer
+          vulkan-tools
+          vulkan-tools-lunarg
+
+          glfw-wayland
         ];
 
         LD_LIBRARY_PATH="${pkgs.vulkan-loader}/lib:${pkgs.vulkan-validation-layers}/lib";
