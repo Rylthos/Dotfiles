@@ -9,24 +9,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       devShells.${system}.default = pkgs.mkShell {
-
         nativeBuildInputs = with pkgs; [
-          clang-tools
-          clang
-          cmake
-          cmake-language-server
-          ninja
-
-          gdb
-
-          shaderc
-          glslang
-          spirv-tools
-
-          renderdoc
-          valgrind
-          libsForQt5.kcachegrind
-
           vulkan-headers
           vulkan-loader
           vulkan-validation-layers

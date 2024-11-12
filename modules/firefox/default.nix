@@ -51,6 +51,7 @@ in {
             '';
             userChrome = ''
             .titlebar-buttonbox-container{ display:none }
+            #TabsToolbar-customization-target { visibility: collapse !important; }
             '';
           };
         };

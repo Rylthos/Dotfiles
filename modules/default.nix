@@ -5,6 +5,7 @@
         nix-colors.homeManagerModules.default
 
         ./alacritty
+        ./dev_packages
         ./direnv
         ./discord
         ./firefox
@@ -15,7 +16,6 @@
         ./hyprland
         ./hyprlock
         ./mako
-        ./ncspot
         ./neovim
         ./packages
         ./pyprland

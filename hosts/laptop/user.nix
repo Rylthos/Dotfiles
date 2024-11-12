@@ -3,6 +3,7 @@
     imports = [ ../../modules/default.nix ];
     config.modules = {
         alacritty.enable = true;
+        dev_packages.enable = true;
         direnv.enable = true;
         discord.enable = true;
         firefox.enable = true;
@@ -13,12 +14,11 @@
         hyprland.enable = true;
         hyprlock.enable = true;
         mako.enable = true;
-        ncspot.enable = true;
         neovim.enable = true;
         packages.enable = true;
         pyprland.enable = true;
         python.enable = true;
-        spotify_player.enable = false;
+        spotify_player.enable = true;
         theme.enable = true;
         tmux.enable = true;
         waybar.enable = true;

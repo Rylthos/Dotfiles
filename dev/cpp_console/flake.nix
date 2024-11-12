@@ -10,12 +10,6 @@
     in {
       devShells.${system}.default = pkgs.mkShell {
         nativeBuildInputs = with pkgs; [
-          clang
-          clang-tools
-          cmake
-          ninja
-
-          gdb
         ];
 
         buildInputs = with pkgs; [

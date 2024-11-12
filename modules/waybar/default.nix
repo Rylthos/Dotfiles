@@ -322,7 +322,7 @@ in {
                 mpris = {
                     format = "<b>{dynamic}</b>";
                     format-paused = "<b>{dynamic}</b>";
-                    dynamic-order = [ "artist" "title" ];
+                    dynamic-order = [ "title" "position" "length" ];
                     ignored-players = [ "firefox" ];
                     dynamic-len = 50;
                     player-icons =  {

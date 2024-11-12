@@ -125,6 +125,7 @@ in {
                     "opaque, class:(Darktable)"
                     "opaque, class:(com.github.xournalpp.xournalpp)"
                     "opaque, class:(vesktop)"
+
                     "opaque, initialClass:(GLFW)"
 
                     "opaque, title:(^tmux)"
