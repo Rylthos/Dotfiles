@@ -18,6 +18,7 @@ treesitterWithGrammars = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
     p.markdown
     p.nix
     p.python
+    p.rust
     p.vim
     p.vimdoc
     p.ocaml
@@ -54,6 +55,7 @@ in {
 
         xdg.configFile.nvim = {
             source = ./nvim;
+            # source = config.lib.file.mkOutOfStoreSymlink "/home/aaron/.dotfiles/modules/neovim/nvim";
             recursive = true;
         };
     };

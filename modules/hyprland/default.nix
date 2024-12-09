@@ -102,12 +102,14 @@ in {
                     blur = {
                         enabled = true;
                         size = 20;
-                        passes = 1;
+                        passes = 2;
                         ignore_opacity = true;
                     };
 
-                    drop_shadow = true;
-                    shadow_range = 4;
+                    shadow = {
+                        enabled = true;
+                        range = 4;
+                    };
                 };
 
                 gestures = {
@@ -173,7 +175,7 @@ in {
                 bind = [
                     "SUPER, RETURN, exec, $terminal"
                     "SUPER, X, exec, xournalpp"
-                    "SUPER, S, exec, firefox"
+                    "SUPER, S, exec, firefox-beta"
                     "SUPER SHIFT, S, exec, $NIXOS_SCRIPTS_DIR/WofiSearchFirefox.sh"
                     "SUPER, E, exec, $fileManager"
                     "SUPER, R, exec, $menu"

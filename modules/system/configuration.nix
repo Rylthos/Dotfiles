@@ -16,6 +16,8 @@
 
         xsettingsd
         xorg.xrdb
+
+        python312Packages.pyserial
     ];
 
     fonts = {

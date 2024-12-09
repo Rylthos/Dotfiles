@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, nix-colors, ... }:
+{ inputs, pkgs, config, nixpkgs, nix-colors, ... }:
 {
     home.stateVersion = "24.05";
     imports = [

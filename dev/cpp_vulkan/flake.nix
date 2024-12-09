@@ -10,6 +10,8 @@
     in {
       devShells.${system}.default = pkgs.mkShell {
         nativeBuildInputs = with pkgs; [
+          shaderc
+
           vulkan-headers
           vulkan-loader
           vulkan-validation-layers

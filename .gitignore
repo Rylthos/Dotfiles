@@ -1,3 +1,4 @@
 modules/waybar/.venv/*
 modules/scripts/.backgroundQueue
 .waybar_log
+modules/neovim/nvim/parser/*

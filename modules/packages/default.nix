@@ -7,6 +7,7 @@ in {
         home.packages = with pkgs; [
             feh
             fastfetch
+            eza
             btop
             p7zip
             wget
@@ -24,6 +25,8 @@ in {
             evtest
 
             perl
+
+            esptool
         ];
     };
 }

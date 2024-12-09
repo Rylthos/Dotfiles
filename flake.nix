@@ -32,7 +32,7 @@
                             home-manager = {
                                 useUserPackages = true;
                                 useGlobalPkgs = true;
-                                extraSpecialArgs = { inherit inputs; inherit nix-colors; };
+                                extraSpecialArgs = { inherit inputs; inherit nix-colors; inherit nixpkgs; };
                                 users.aaron = (./. + "/hosts/${hostname}/user.nix");
                             };
                         }

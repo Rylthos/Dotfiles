@@ -1,6 +1,6 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, nixpkgs, ... }:
     with lib;
-    let cfg = config.modules.dev_packages;
+   let cfg = config.modules.dev_packages;
 in {
     options.modules.dev_packages = { enable = mkEnableOption "dev_packages"; };
     config = mkIf cfg.enable {
@@ -14,18 +14,18 @@ in {
             ninja
             gdb
             valgrind
+            tracy
             libsForQt5.kcachegrind
 
             # Graphics
-            shaderc
-            # glslang
+            glslang
+            glsl_analyzer
             # spirv-tools
             renderdoc
 
-            # Python
-            python312Packages.matplotlib
-            python312Packages.numpy
-            python312Packages.scipy
+            # Rust
+            cargo
+            rustc
         ];
     };
 }

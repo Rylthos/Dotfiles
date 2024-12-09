@@ -9,7 +9,9 @@ return {
 	},
 
 	-- LSP
-	"neovim/nvim-lspconfig",
+	{
+		"neovim/nvim-lspconfig",
+	},
 
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-nvim-lua",
@@ -18,9 +20,17 @@ return {
 	"hrsh7th/cmp-cmdline",
 	"hrsh7th/nvim-cmp",
 
+	"simrat39/rust-tools.nvim",
+
 	"ray-x/lsp_signature.nvim",
 
 	"micangl/cmp-vimtex",
+
+	{
+		'mrcjkb/rustaceanvim',
+		version = '^5', -- Recommended
+		lazy = false, -- This plugin is already lazy
+	},
 
 	"L3MON4D3/LuaSnip",
 	"rafamadriz/friendly-snippets",
@@ -60,8 +70,6 @@ return {
 		branch = "1.0",
 	},
 
-	"karb94/neoscroll.nvim",
-
 	"echasnovski/mini.comment",
 
 	"echasnovski/mini.move",
@@ -95,9 +103,15 @@ return {
 		lazy = false,
 	},
 
-	"lervag/vimtex",
+	{
+		"lervag/vimtex",
+		lazy = false,
+	},
 
-	"stevearc/vim-arduino",
+	{
+		"stevearc/vim-arduino",
+		lazy = true,
+	},
 
 	{
 		"kylechui/nvim-surround",
@@ -106,7 +120,10 @@ return {
 
 	"xiyaowong/transparent.nvim",
 
-	"ngtuonghy/live-server-nvim",
+	{
+		"ngtuonghy/live-server-nvim",
+		lazy = true,
+	},
 
 	-- Themes
 	"folke/tokyonight.nvim",

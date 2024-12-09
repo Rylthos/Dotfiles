@@ -5,10 +5,16 @@ in {
     options.modules.python = { enable = mkEnableOption "python"; };
     config = mkIf cfg.enable {
         home.packages = with pkgs; [
-            python3
-            python312Packages.ipython
-            python312Packages.pygments
-            python312Packages.pillow
+            (pkgs.python312.withPackages (ppkgs: [
+                ppkgs.matplotlib
+                ppkgs.numpy
+                ppkgs.scipy
+                ppkgs.pyserial
+                ppkgs.ipython
+                ppkgs.pygments
+                ppkgs.pillow
+                ppkgs.opencv-python
+            ]))
         ];
     };
 }

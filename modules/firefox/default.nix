@@ -3,8 +3,10 @@
     let cfg = config.modules.firefox;
 in {
     options.modules.firefox = { enable = mkEnableOption "firefox"; };
+
     config = mkIf cfg.enable {
       programs.firefox = {
+        package = pkgs.firefox-beta;
         enable = true;
 
         profiles = {
@@ -51,7 +53,6 @@ in {
             '';
             userChrome = ''
             .titlebar-buttonbox-container{ display:none }
-            #TabsToolbar-customization-target { visibility: collapse !important; }
             '';
           };
         };

@@ -10,6 +10,7 @@ in {
             interactiveShellInit = mkBefore "set fish_greeting\n";
 
             shellAliases = {
+                ls = "eza --group-directories-first";
                 ll = "ls -al";
                 dotfiles = "cd $NIXOS_CONFIG_DIR";
                 tmuxnv = "tmux new-session nvim";

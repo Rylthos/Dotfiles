@@ -1,3 +1,5 @@
+vim.keymap.set({ "n", "v" }, "j", "gj")
+vim.keymap.set({ "n", "v" }, "k", "gk")
 vim.keymap.set("i", "jk", "<Esc>")
 
 vim.keymap.set("n", "<leader>o", "o<Esc>k")
@@ -32,3 +34,7 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n><enter>")
 vim.keymap.set("t", "jk", "<C-\\><C-n><enter>")
 
 vim.keymap.set("n", "q:", "<nop>")
+
+vim.keymap.set("n", "<leader>lw", function()
+    vim.o.wrap=not(vim.o.wrap)
+end)

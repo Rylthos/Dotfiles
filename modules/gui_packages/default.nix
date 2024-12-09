@@ -30,6 +30,11 @@ in {
             steam
 
             wayfarer
+
+            wineWowPackages.stable
+
+            kate
+            gparted
         ];
     };
 }

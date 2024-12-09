@@ -10,6 +10,7 @@
     in {
       devShells.${system}.default = pkgs.mkShell {
         nativeBuildInputs = with pkgs; [
+          cmake
         ];
 
         buildInputs = with pkgs; [
@@ -17,20 +18,10 @@
           libGL
           pkg-config
 
-          wayland
-          wayland-utils
-          wayland-scanner
-
-          libxkbcommon
-          xorg.libX11
-          xorg.libX11.dev
-          xorg.libXrandr
-          xorg.libXinerama
-          xorg.libXcursor
-          xorg.libXi
-
           python310
           python310Packages.jinja2
+
+          glfw-wayland
         ];
       };
     };

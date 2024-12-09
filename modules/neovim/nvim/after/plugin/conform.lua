@@ -7,6 +7,8 @@ require("conform").setup({
 		java = { "astyle" },
 		tex = {},
 
+		rust = { "rustfmt" },
+
 		["*"] = { "trim_whitespace", "trim_newlines" },
 	},
 

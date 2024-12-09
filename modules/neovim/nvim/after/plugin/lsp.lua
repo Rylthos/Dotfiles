@@ -90,10 +90,27 @@ default_setup("ts_ls")
 lspconfig.cssls.setup{}
 default_setup("cssls")
 
+lspconfig.glsl_analyzer.setup{}
+default_setup("glsl_analyzer")
+
 vim.diagnostic.config({ virtual_text = false })
 require("lsp_lines").setup()
+
 vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle)
 
-require'ufo'.setup{
+require'ufo'.setup{ }
 
+vim.g.rustaceanvim = {
+  -- Plugin configuration
+  tools = {
+  },
+  -- LSP configuration
+    server = {
+      cmd = function()
+		  return { 'rust-analyzer' }
+      end,
+    },
+  -- DAP configuration
+  dap = {
+  },
 }

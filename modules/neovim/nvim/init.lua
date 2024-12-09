@@ -16,12 +16,13 @@ require("nvim-treesitter.configs")
 
 require("core")
 
-require("lazy").setup("plugins", {
-	rocks = { enabled = false },
-	dev = {
-		path = "~/.local/share/nvim/nix",
-		fallback = false;
-	},
+require("lazy").setup({
+		spec = {{ import = "plugins" }, },
+		rocks = { enabled = false },
+		dev = {
+			path = "~/.local/share/nvim/nix",
+			fallback = false;
+		},
 })
 
 -- vim.cmd(vim.cmd, "colorscheme kanagawa-wave")

@@ -5,5 +5,5 @@ echo $SEARCH
 echo $SUCCESS
 
 if [[ $SUCCESS == 0 ]]; then
-    firefox --search "$SEARCH"
+    firefox-beta --search "$SEARCH"
 fi
