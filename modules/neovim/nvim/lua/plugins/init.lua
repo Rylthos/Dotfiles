@@ -26,12 +26,6 @@ return {
 
 	"micangl/cmp-vimtex",
 
-	{
-		'mrcjkb/rustaceanvim',
-		version = '^5', -- Recommended
-		lazy = false, -- This plugin is already lazy
-	},
-
 	"L3MON4D3/LuaSnip",
 	"rafamadriz/friendly-snippets",
 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",

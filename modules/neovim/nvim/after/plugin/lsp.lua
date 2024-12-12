@@ -66,33 +66,6 @@ lsp_capabilities.textDocument.foldingRange = {
 	lineFoldingOnly = true
 }
 
-local default_setup = function(server)
-	require("lspconfig")[server].setup({
-		capabilities = lsp_capabilities
-	})
-end
-
-lspconfig.clangd.setup{}
-default_setup("clangd")
-
-lspconfig.texlab.setup{}
-default_setup("texlab")
-
-lspconfig.cmake.setup{}
-default_setup("cmake")
-
-lspconfig.jdtls.setup{}
-default_setup("jdtls")
-
-lspconfig.ts_ls.setup{}
-default_setup("ts_ls")
-
-lspconfig.cssls.setup{}
-default_setup("cssls")
-
-lspconfig.glsl_analyzer.setup{}
-default_setup("glsl_analyzer")
-
 vim.diagnostic.config({ virtual_text = false })
 require("lsp_lines").setup()
 
@@ -100,17 +73,41 @@ vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle)
 
 require'ufo'.setup{ }
 
-vim.g.rustaceanvim = {
-  -- Plugin configuration
-  tools = {
-  },
-  -- LSP configuration
-    server = {
-      cmd = function()
-		  return { 'rust-analyzer' }
-      end,
-    },
-  -- DAP configuration
-  dap = {
-  },
+
+lspconfig.clangd.setup {
+	capabilities = lsp_capabilities,
+}
+
+lspconfig.texlab.setup {
+	capabilities = lsp_capabilities,
+}
+
+lspconfig.cmake.setup {
+	capabilities = lsp_capabilities,
+}
+
+lspconfig.jdtls.setup{
+	capabilities = lsp_capabilities
+}
+
+lspconfig.ts_ls.setup{
+	capabilities = lsp_capabilities
+}
+
+lspconfig.cssls.setup{
+	capabilities = lsp_capabilities
+}
+
+lspconfig.glsl_analyzer.setup{
+	capabilities = lsp_capabilities
+}
+
+lspconfig.rust_analyzer.setup {
+	enabled = false,
+	name = "Shouldn't run",
+	autostart = false,
+	default_config = {},
+	settings = {
+		['rust-analyzer'] = {},
+	}
 }

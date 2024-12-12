@@ -24,8 +24,9 @@ in {
             renderdoc
 
             # Rust
-            cargo
-            rustc
+            rustup
+            # cargo
+            # rustc
         ];
     };
 }
