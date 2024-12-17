@@ -2,7 +2,7 @@
 with lib;
 let cfg = config.modules.neovim;
 
-treesitterWithGrammars = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
+treesitterGrammars = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
     p.bash
     p.c
     p.cpp
@@ -26,12 +26,12 @@ treesitterWithGrammars = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
 
 treesitter-parsers = pkgs.symlinkJoin {
     name = "treesitter-parsers";
-    paths = treesitterWithGrammars.dependencies;
+    paths = treesitterGrammars.dependencies;
 };
 in {
     options.modules.neovim = { enable = mkEnableOption "neovim"; };
     config = mkIf cfg.enable {
-        home.packages = with pkgs; [ ripgrep fd ];
+        home.packages = with pkgs; [ ripgrep fd tree-sitter ];
 
         programs.neovim = {
             enable = true;
@@ -42,21 +42,25 @@ in {
 
             plugins = with pkgs.vimPlugins; [
                 nvim-treesitter
-                treesitterWithGrammars
+                treesitterGrammars
             ];
 
             extraPackages = with pkgs; [ gcc ];
         };
 
-        xdg.configFile."nvim/parser".source = "${pkgs.symlinkJoin {
-            name = "treesitter-parsers";
-            paths = treesitterWithGrammars.dependencies;
-        }}/parser";
-
         xdg.configFile.nvim = {
             source = ./nvim;
             # source = config.lib.file.mkOutOfStoreSymlink "/home/aaron/.dotfiles/modules/neovim/nvim";
             recursive = true;
+        };
+
+        xdg.configFile = {
+            "nvim/init.lua".text = ''
+                vim.opt.runtimepath:append("${treesitterGrammars}")
+                vim.opt.runtimepath:append("${treesitter-parsers}")
+
+                require('start')
+            '';
         };
     };
 }

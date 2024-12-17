@@ -2,3 +2,4 @@ modules/waybar/.venv/*
 modules/scripts/.backgroundQueue
 .waybar_log
 modules/neovim/nvim/parser/*
+modules/neovim/nvim/init.lua
