@@ -27,6 +27,11 @@ in {
             perl
 
             esptool
+
+            bat
+            ripgrep
+            fd
+            fzf
         ];
     };
 }

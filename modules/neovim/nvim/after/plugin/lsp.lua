@@ -6,7 +6,7 @@ lsp_capabilities.textDocument.foldingRange = {
 }
 
 require("blink.cmp").setup {
-	keymap = { preset = 'default' },
+	keymap = { preset = 'super-tab' },
 
 	appearance = {
 		use_nvim_cmp_as_default = true,
@@ -55,13 +55,13 @@ require'ufo'.setup{ }
 
 local lsps = {
 	"clangd",
-	"texlab",
 	"cmake",
-	"jdtls",
-	"ts_ls",
 	"cssls",
 	"glsl_analyzer",
-	"rust_analyzer"
+	"jdtls",
+	"rust_analyzer",
+	"texlab",
+	"ts_ls",
 }
 
 for _, v in ipairs(lsps) do
@@ -69,3 +69,24 @@ for _, v in ipairs(lsps) do
 		capabilities = lsp_capabilities
 	}
 end
+
+lspconfig.lua_ls.setup {
+	capabilities = lsp_capabilities,
+	on_init = function(client)
+		client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+				runtime = {
+					version = 'LuaJIT'
+				},
+				workspace = {
+					checkThirdPart = false,
+					library = {
+						vim.env.VIMRUNTIME
+					}
+				}
+			})
+	end,
+
+	settings = {
+		Lua = {}
+	}
+}
