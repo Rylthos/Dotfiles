@@ -3,3 +3,4 @@ modules/scripts/.backgroundQueue
 .waybar_log
 modules/neovim/nvim/parser/*
 modules/neovim/nvim/init.lua
+modules/neovim/nvim/lazy-lock.json

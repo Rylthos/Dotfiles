@@ -31,7 +31,7 @@ treesitter-parsers = pkgs.symlinkJoin {
 in {
     options.modules.neovim = { enable = mkEnableOption "neovim"; };
     config = mkIf cfg.enable {
-        home.packages = with pkgs; [ ripgrep fd tree-sitter ];
+        home.packages = with pkgs; [ ripgrep fd tree-sitter fzf bat ];
 
         programs.neovim = {
             enable = true;
@@ -43,6 +43,7 @@ in {
             plugins = with pkgs.vimPlugins; [
                 nvim-treesitter
                 treesitterGrammars
+                blink-cmp
             ];
 
             extraPackages = with pkgs; [ gcc ];

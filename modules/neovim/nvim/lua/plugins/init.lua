@@ -1,30 +1,24 @@
 return {
 	{
-		"nvim-telescope/telescope.nvim",
-		version = "0.1.4",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"killer29018/template.nvim",
-		},
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 
 	-- LSP
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = { 'saghen/blink.cmp' },
 	},
 
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/cmp-nvim-lua",
-	"hrsh7th/cmp-buffer",
-	"hrsh7th/cmp-path",
-	"hrsh7th/cmp-cmdline",
-	"hrsh7th/nvim-cmp",
+	{
+		'saghen/blink.cmp',
+		version = 'v0.*',
+		build = "cargo build --release",
+	},
 
 	"simrat39/rust-tools.nvim",
 
 	"ray-x/lsp_signature.nvim",
-
-	"micangl/cmp-vimtex",
 
 	"L3MON4D3/LuaSnip",
 	"rafamadriz/friendly-snippets",

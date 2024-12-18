@@ -1,40 +1,26 @@
 local lspconfig = require('lspconfig')
-local cmp = require("cmp")
+local lsp_capabilities = require("blink.cmp").get_lsp_capabilities()
+lsp_capabilities.textDocument.foldingRange = {
+	dynamicRegistration = false,
+	lineFoldingOnly = true
+}
 
-cmp.setup({
-	snippet = {
-		expand = function(args)
-			require('luasnip').lsp_expand(args.body)
-		end,
+require("blink.cmp").setup {
+	keymap = { preset = 'default' },
+
+	appearance = {
+		use_nvim_cmp_as_default = true,
+		nerd_font_variant = "mono",
 	},
-	mapping = cmp.mapping.preset.insert({
-		["<CR>"] = cmp.mapping.confirm({ select = false }),
-		["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-		["<Tab>"] = cmp.mapping.select_next_item(cmp_select),
-		["<S-Tab>"] = cmp.mapping.select_prev_item(cmp_select),
-		["<C-space>"] = cmp.mapping.confirm({ select = true }),
-	}),
-	completion = {
-		completopt = 'menu,menuone,noinsert',
-	},
-	sources = cmp.config.sources {
-		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' },
-		{ name = 'nvim_lua' },
-		{ name = 'buffer' }
-	},
-	view = {
-		entries = { name = 'custom', selection_order = 'near_cursor' }
-	}
-})
+	signature = { enabled = true },
+}
 
 vim.api.nvim_create_autocmd('LspAttach', {
 	desc = 'LSP actions',
 	callback = function(event)
 		local opts = {buffer = event.buf}
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+		-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		-- vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 		vim.keymap.set("n", "K",  vim.lsp.buf.hover, opts)
 	end
 })
@@ -60,12 +46,6 @@ vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
-local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-lsp_capabilities.textDocument.foldingRange = {
-	dynamicRegistration = false,
-	lineFoldingOnly = true
-}
-
 vim.diagnostic.config({ virtual_text = false })
 require("lsp_lines").setup()
 
@@ -73,41 +53,19 @@ vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle)
 
 require'ufo'.setup{ }
 
-
-lspconfig.clangd.setup {
-	capabilities = lsp_capabilities,
+local lsps = {
+	"clangd",
+	"texlab",
+	"cmake",
+	"jdtls",
+	"ts_ls",
+	"cssls",
+	"glsl_analyzer",
+	"rust_analyzer"
 }
 
-lspconfig.texlab.setup {
-	capabilities = lsp_capabilities,
-}
-
-lspconfig.cmake.setup {
-	capabilities = lsp_capabilities,
-}
-
-lspconfig.jdtls.setup{
-	capabilities = lsp_capabilities
-}
-
-lspconfig.ts_ls.setup{
-	capabilities = lsp_capabilities
-}
-
-lspconfig.cssls.setup{
-	capabilities = lsp_capabilities
-}
-
-lspconfig.glsl_analyzer.setup{
-	capabilities = lsp_capabilities
-}
-
-lspconfig.rust_analyzer.setup {
-	enabled = false,
-	name = "Shouldn't run",
-	autostart = false,
-	default_config = {},
-	settings = {
-		['rust-analyzer'] = {},
+for _, v in ipairs(lsps) do
+	lspconfig[v].setup {
+		capabilities = lsp_capabilities
 	}
-}
+end
