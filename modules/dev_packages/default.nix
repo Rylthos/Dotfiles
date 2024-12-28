@@ -6,7 +6,7 @@ in {
     config = mkIf cfg.enable {
         home.packages = with pkgs; [
 
-            # C/Cpp
+            ## C/Cpp
             clang-tools
             clang
             cmake
@@ -17,16 +17,17 @@ in {
             tracy
             libsForQt5.kcachegrind
 
-            # Graphics
+            ## Graphics
             glslang
             glsl_analyzer
             # spirv-tools
             renderdoc
 
-            # Rust
+            ## Nixos
+            nixd
+
+            ## Rust
             rustup
-            # cargo
-            # rustc
         ];
     };
 }

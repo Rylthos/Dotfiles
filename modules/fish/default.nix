@@ -15,6 +15,7 @@ in {
                 dotfiles = "cd $NIXOS_CONFIG_DIR";
                 tmuxnv = "tmux new-session nvim";
                 psst = "env -u WAYLAND_DISPLAY psst-gui";
+                cat = "bat";
             };
         };
     };

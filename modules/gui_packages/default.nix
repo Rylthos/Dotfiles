@@ -35,6 +35,9 @@ in {
 
             kate
             gparted
+
+            graphviz
+            gephi
         ];
     };
 }

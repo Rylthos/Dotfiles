@@ -59,6 +59,7 @@ local lsps = {
 	"cssls",
 	"glsl_analyzer",
 	"jdtls",
+	"nixd",
 	"rust_analyzer",
 	"texlab",
 	"ts_ls",
