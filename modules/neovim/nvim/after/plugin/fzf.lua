@@ -16,5 +16,18 @@ fzf.setup {
 			true,
 			["jk"] = "hide",
 		},
+		fzf = {
+			["tab"] = "down",
+			["shift-tab"] = "up",
+		},
+	},
+	actions = {
+		files = {
+			true,
+			["ctrl-q"] = {
+				fn = fzf.actions.file_sel_to_qf,
+				prefix = "select-all",
+			},
+		},
 	},
 }
