@@ -20,6 +20,8 @@ return {
 
 	"ray-x/lsp_signature.nvim",
 
+	"ThePrimeagen/vim-be-good",
+
 	"L3MON4D3/LuaSnip",
 	"rafamadriz/friendly-snippets",
 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -76,14 +78,12 @@ return {
 			-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 		}
 	},
-	-- {
-	-- 	"nvim-tree/nvim-tree.lua",
-	-- 	dependencies = {
-	-- 		"nvim-tree/nvim-web-devicons",
-	-- 	},
-	-- 	version = "*",
-	-- 	lazy = false,
-	-- },
+
+	{
+		"m4xshen/hardtime.nvim",
+		dependencies = { "MunifTanjim/nui.nvim" },
+		opts = {},
+	},
 
 	"sheerun/vim-polyglot",
 
