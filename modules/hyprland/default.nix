@@ -53,9 +53,9 @@ in {
 
                 general = {
                     monitor = "eDP-1, 2880x1800@90, 0x0, 1.8";
-                    border_size = 2;
+                    border_size = 1;
                     gaps_out = 5;
-                    gaps_in = 5;
+                    gaps_in = 2;
 
                     "col.active_border" = "rgba(FF0000CC) rgba(FF8700CC) rgba(FFD300CC) rgba(DEFF0ACC) rgba(A1FF0ACC) rgba(0AFF99CC) rgba(0AEFFFCC) rgba(147DF5CC) rgba(580AFFCC) rgba(BE0AFFCC) 90deg";
                     "col.inactive_border" = "rgba(147DF588) 45deg";
@@ -96,13 +96,13 @@ in {
                 decoration = {
                     rounding = 10;
 
-                    active_opacity = 0.90;
-                    inactive_opacity = 0.80;
+                    active_opacity = 0.80;
+                    inactive_opacity = 0.75;
 
                     blur = {
                         enabled = true;
                         size = 20;
-                        passes = 2;
+                        passes = 3;
                         ignore_opacity = true;
                     };
 
@@ -117,7 +117,7 @@ in {
                 };
 
                 windowrulev2 = [
-                    "opaque, class:(thunar)"
+                    # "opaque, class:(thunar)"
                     "opaque, class:(firefox)"
                     "opaque, class:(org.kde.okular)"
                     "opaque, class:(kicad)"
@@ -129,11 +129,6 @@ in {
                     "opaque, class:(vesktop)"
 
                     "opaque, initialClass:(GLFW)"
-
-                    "opaque, title:(^tmux)"
-                    "opaque title:(^nvim)"
-
-                    "opacity 0.8 0.8, class:(Alacritty)"
 
                     "float, class:(Psst-gui)"
                     "opaque, class:(Psst-gui)"
@@ -176,7 +171,6 @@ in {
                     "SUPER, RETURN, exec, $terminal"
                     "SUPER, X, exec, xournalpp"
                     "SUPER, S, exec, firefox-beta"
-                    "SUPER SHIFT, S, exec, $NIXOS_SCRIPTS_DIR/WofiSearchFirefox.sh"
                     "SUPER, E, exec, $fileManager"
                     "SUPER, R, exec, $menu"
 
