@@ -11,6 +11,10 @@
         hyprland.url = "github:hyprwm/Hyprland";
         nix-colors.url = "github:misterio77/nix-colors";
         nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+        spicetify-nix = {
+            url = "github:Gerg-L/spicetify-nix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = { home-manager, nixpkgs, nix-colors, nixos-wsl, ... }@inputs:

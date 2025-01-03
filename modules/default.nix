@@ -20,6 +20,7 @@
         ./packages
         ./pyprland
         ./python
+        ./spotify
         ./spotify_player
         ./theme
         ./tmux

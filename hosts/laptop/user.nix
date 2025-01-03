@@ -18,6 +18,7 @@
         packages.enable = true;
         pyprland.enable = true;
         python.enable = true;
+        spotify.enable = true;
         spotify_player.enable = true;
         theme.enable = true;
         tmux.enable = true;
