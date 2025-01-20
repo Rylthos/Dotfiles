@@ -91,3 +91,12 @@ lspconfig.lua_ls.setup {
 		Lua = {}
 	}
 }
+
+lspconfig.glsl_analyzer.setup {
+	capabilities = lsp_capabilities,
+	on_attach = function(client, bufnr)
+		if client.name == "glsl_analyzer" then
+			client.cancel_request = function (client, request_id) end
+		end
+	end
+}

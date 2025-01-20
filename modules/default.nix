@@ -20,6 +20,7 @@
         ./packages
         ./pyprland
         ./python
+        ./recording
         ./spotify
         ./spotify_player
         ./theme

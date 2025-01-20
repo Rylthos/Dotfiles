@@ -41,8 +41,8 @@ in {
 
             scratchpads.spotify = {
                 animation = "fromTop";
-                command = "alacritty --class Alacritty-dropdown-spotify -e spotify_player";
-                class = "Alacritty-dropdown-spotify";
+                command = "spotify --class spotify-dropdown";
+                class = "spotify-dropdown";
                 size = "75% 60%";
                 max_size = "1920px 100%";
                 margin = 50;

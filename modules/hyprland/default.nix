@@ -118,7 +118,7 @@ in {
 
                 windowrulev2 = [
                     # "opaque, class:(thunar)"
-                    "opaque, class:(firefox)"
+                    # "opaque, class:(firefox)"
                     "opaque, class:(org.kde.okular)"
                     "opaque, class:(kicad)"
                     "opaque, class:(FreeCAD)"
@@ -130,6 +130,8 @@ in {
 
                     "opaque, initialClass:(GLFW)"
 
+                    "opacity 0.8 0.75 0.8, initialClass:(Alacritty)"
+
                     "float, class:(Psst-gui)"
                     "opaque, class:(Psst-gui)"
 
@@ -139,9 +141,12 @@ in {
                     "float, class:(feh),title:(feh-float-waybar)"
                     "move onscreen 5% 100%-h, class:(feh),title:(feh-float-waybar)"
 
+                    "float, class:(spotify)"
+
                     "float, class:(firefox),title:(Picture-in-Picture)"
                     "pin, class:(firefox),title:(Picture-in-Picture)"
                     "move onscreen 80% 0%, class:(firefox),title:(Picture-in-Picture)"
+                    "opacity 1.0 override, class:(firefox),title:(.*YouTube.*)|(Picture-in-Picture)$"
 
                     "float, class:(vesktop),initialTitle:(Discord Popout)"
                     "pin, class:(vesktop),initialTitle:(Discord Popout)"

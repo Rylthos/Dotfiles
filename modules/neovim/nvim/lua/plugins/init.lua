@@ -126,14 +126,20 @@ return {
 	-- Themes
 	-- "folke/tokyonight.nvim",
 	-- "EdenEast/nightfox.nvim",
-	"rebelot/kanagawa.nvim",
+	{
+		"rebelot/kanagawa.nvim",
+		config = function()
+			vim.cmd("colorscheme kanagawa-wave")
+		end
+	},
+
 	{
 		"ficcdaf/ashen.nvim",
 		lazy =false,
 		priority=1000,
-		config = function()
-			vim.cmd("colorscheme ashen")
-		end
+		-- config = function()
+		-- 	vim.cmd("colorscheme ashen")
+		-- end
 	},
 	-- "Alexis12119/nightly.nvim",
 	-- { "catppuccin/nvim", name = "catppuccin" },

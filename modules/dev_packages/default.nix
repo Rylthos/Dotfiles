@@ -5,7 +5,6 @@ in {
     options.modules.dev_packages = { enable = mkEnableOption "dev_packages"; };
     config = mkIf cfg.enable {
         home.packages = with pkgs; [
-
             ## C/Cpp
             clang-tools
             clang
@@ -29,5 +28,9 @@ in {
             ## Rust
             rustup
         ];
+
+        home.file.".clang-format" = {
+            source = ./.clang-format;
+        };
     };
 }
