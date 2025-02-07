@@ -24,7 +24,8 @@
         fontDir.enable = true;
         enableDefaultPackages = true;
         packages = with pkgs; [
-            (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
+            nerd-fonts.caskaydia-cove
+            # (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
         ];
     };
 
@@ -140,15 +141,19 @@
         };
     };
 
+    services.pulseaudio.enable = false;
+
     security.rtkit.enable = true;
     hardware = {
-        pulseaudio.enable = false;
-
         bluetooth.enable = true;
         bluetooth.powerOnBoot = false;
 
         graphics = {
             enable = true;
+extraPackages = with pkgs; [
+        amdvlk
+    ];
+
         };
     };
 

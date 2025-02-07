@@ -65,6 +65,10 @@
         Hyprland
     '';
 
+    hardware.graphics.extraPackages = with pkgs; [
+        amdvlk
+    ];
+
     services.displayManager = {
         sddm = {
             enable = true;

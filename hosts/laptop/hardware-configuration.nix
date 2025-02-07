@@ -9,7 +9,7 @@
   ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [];
   boot.kernelModules = [ "kvm-amd" "video=eDP-1:2880x1800@90" ];
   boot.extraModulePackages = [ ];
 

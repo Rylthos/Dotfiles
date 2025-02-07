@@ -60,7 +60,8 @@ in {
                     "col.active_border" = "rgba(FF0000CC) rgba(FF8700CC) rgba(FFD300CC) rgba(DEFF0ACC) rgba(A1FF0ACC) rgba(0AFF99CC) rgba(0AEFFFCC) rgba(147DF5CC) rgba(580AFFCC) rgba(BE0AFFCC) 90deg";
                     "col.inactive_border" = "rgba(147DF588) 45deg";
 
-                    layout = "master";
+                    # layout = "master";
+                    layout = "dwindle";
                 };
 
                 input = {
@@ -72,12 +73,17 @@ in {
 
                 master = {
                     new_status = "slave";
-                    allow_small_split = true;
                     mfact = 0.5;
+                };
+
+                dwindle = {
+                    smart_split = true;
                 };
 
                 misc = {
                     vfr = true;
+                    disable_hyprland_logo = true;
+                    disable_splash_rendering = true;
                 };
 
                 bezier = [
@@ -127,6 +133,7 @@ in {
                     "opaque, class:(Darktable)"
                     "opaque, class:(com.github.xournalpp.xournalpp)"
                     "opaque, class:(vesktop)"
+                    "opaque, class:(TriliumNext Notes)"
 
                     "opaque, initialClass:(GLFW)"
 

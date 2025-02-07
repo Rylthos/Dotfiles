@@ -16,7 +16,7 @@ in {
 
             bind = [
                 "SUPER, T, exec, pypr toggle term"
-                "SUPER, P, exec, pypr toggle spotify"
+                "SUPER, P, exec, pypr toggle spotify_tui"
             ];
         };
 
@@ -31,6 +31,18 @@ in {
                 animation = "fromTop";
                 command = "alacritty --class Alacritty-dropdown-term";
                 class = "Alacritty-dropdown-term";
+                size = "75% 60%";
+                max_size = "1920px 100%";
+                margin = 50;
+                unfocus = "hide";
+                hysteresis = 0.4;
+                lazy = true;
+            };
+
+            scratchpads.spotify_tui = {
+                animation = "fromTop";
+                command = "alacritty --class spotify-tui-dropdown -e spotify_player";
+                class = "spotify-tui-dropdown";
                 size = "75% 60%";
                 max_size = "1920px 100%";
                 margin = 50;

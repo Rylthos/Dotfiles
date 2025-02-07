@@ -8,7 +8,8 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        hyprland.url = "github:hyprwm/Hyprland";
+        hyprland.url = "github:hyprwm/Hyprland?ref=v0.47.0";
+
         nix-colors.url = "github:misterio77/nix-colors";
         nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
         spicetify-nix = {

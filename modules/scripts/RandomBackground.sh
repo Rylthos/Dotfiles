@@ -9,7 +9,7 @@ currentBackground=$(swww query | grep -oP "image: \K.*")
 # Load in all wallpapers
 load_wallpapers() {
     wallpapers=("$wallpapersDir"/*.png)
-    wallpapers=("$wallpapersDir"/*.jpg)
+    wallpapers+=("$wallpapersDir"/*.jpg)
     wallpapers+=("$wallpapersDir"/SimonStalenhag/*.jpg)
     wallpapers+=("$wallpapersDir"/Kobsel/*.png)
     wallpapers+=("$wallpapersDir"/JWST/*.png)

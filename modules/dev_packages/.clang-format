@@ -3,7 +3,7 @@ Language:        Cpp
 # BasedOnStyle:  WebKit
 AccessModifierOffset: -2
 AlignAfterOpenBracket: DontAlign
-AlignArrayOfStructures: None
+AlignArrayOfStructures: Left
 AlignConsecutiveAssignments:
   Enabled:         false
   AcrossEmptyLines: false
@@ -93,7 +93,7 @@ BreakBeforeTernaryOperators: true
 BreakConstructorInitializers: BeforeComma
 BreakInheritanceList: BeforeColon
 BreakStringLiterals: true
-ColumnLimit:     0
+ColumnLimit:   100
 CommentPragmas:  '^ IWYU pragma:'
 CompactNamespaces: false
 ConstructorInitializerIndentWidth: 4
@@ -161,7 +161,7 @@ ObjCBlockIndentWidth: 4
 ObjCBreakBeforeNestedBlockParam: true
 ObjCSpaceAfterProperty: true
 ObjCSpaceBeforeProtocolList: true
-PackConstructorInitializers: BinPack
+PackConstructorInitializers: NextLine
 PenaltyBreakAssignment: 2
 PenaltyBreakBeforeFirstCallParameter: 19
 PenaltyBreakComment: 300

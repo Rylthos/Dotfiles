@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, nixpkgs, config, ... }:
     with lib;
     let cfg = config.modules.gui_packages;
 in {
@@ -26,6 +26,7 @@ in {
 
             digikam
             darktable
+            siril
 
             steam
 
@@ -38,6 +39,10 @@ in {
 
             graphviz
             gephi
+
+            trilium-next-desktop
+
+            godot_4
         ];
     };
 }
