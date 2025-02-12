@@ -43,6 +43,7 @@ in {
             trilium-next-desktop
 
             godot_4
+            wireshark
         ];
     };
 }

@@ -134,6 +134,7 @@ in {
                     "opaque, class:(com.github.xournalpp.xournalpp)"
                     "opaque, class:(vesktop)"
                     "opaque, class:(TriliumNext Notes)"
+                    "opaque, initialTitle:(Godot)"
 
                     "opaque, initialClass:(GLFW)"
 

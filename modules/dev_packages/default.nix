@@ -28,6 +28,9 @@ in {
 
             ## Rust
             rustup
+
+            # Webdev
+            vscode-langservers-extracted
         ];
 
         home.file.".clang-format" = {
