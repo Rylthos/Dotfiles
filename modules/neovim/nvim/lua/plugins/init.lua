@@ -85,8 +85,6 @@ return {
 		opts = { },
 	},
 
-	"sheerun/vim-polyglot",
-
 	"chentoast/marks.nvim",
 
 	{

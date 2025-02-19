@@ -31,6 +31,10 @@ in {
 
             # Webdev
             vscode-langservers-extracted
+            typescript-language-server
+
+            # Prolog
+            ciao
         ];
 
         home.file.".clang-format" = {
