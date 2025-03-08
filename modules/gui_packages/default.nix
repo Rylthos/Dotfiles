@@ -15,9 +15,9 @@ in {
             blender
 
             vesktop
-            okular
 
-            xwaylandvideobridge
+            kdePackages.okular
+            kdePackages.xwaylandvideobridge
 
             grim
             slurp
@@ -34,7 +34,7 @@ in {
 
             wineWowPackages.stable
 
-            kate
+            kdePackages.kate
             gparted
 
             graphviz
@@ -43,7 +43,6 @@ in {
             trilium-next-desktop
 
             godot_4
-            wireshark
         ];
     };
 }

@@ -6,7 +6,7 @@ in {
 
     config = mkIf cfg.enable {
       programs.firefox = {
-        package = pkgs.firefox-beta;
+        # package = pkgs.firefox-beta;
         enable = true;
 
         profiles = {

@@ -37,6 +37,8 @@ return {
 		main = "nvim-treesitter.configs",
 	},
 
+    "tpope/vim-sleuth",
+
 	"nvim-treesitter/playground",
 
 	"mbbill/undotree",
@@ -64,7 +66,7 @@ return {
 
 	"echasnovski/mini.move",
 
-	"echasnovski/mini.pairs",
+	-- "echasnovski/mini.pairs",
 
 	"derekwyatt/vim-fswitch",
 
@@ -113,6 +115,12 @@ return {
 		"kylechui/nvim-surround",
 		version = "*",
 	},
+    "windwp/nvim-ts-autotag",
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+    },
 
 	"xiyaowong/transparent.nvim",
 
@@ -122,26 +130,46 @@ return {
 	},
 
 	-- Themes
+	{
+		"scottmckendry/cyberdream.nvim",
+		lazy=false,
+		priority=1000,
+		config = function()
+			vim.cmd("colorscheme cyberdream")
+		end,
+		opts = {
+			transparent = true,
+			saturation = 0.8,
+		}
+	},
+	-- {
+	--   "akinsho/horizon.nvim",
+	--   opts = {
+	--       plugins =  {
+	-- 	cmp = true,
+	-- 	neo_tree = true,
+	-- 	gitsigns = true,
+	--       },
+	--   },
+	--   config = function()
+	-- 	  vim.cmd("colorscheme horizon")
+	--   end
+	-- },
 	-- "folke/tokyonight.nvim",
 	-- "EdenEast/nightfox.nvim",
-	{
-		"rebelot/kanagawa.nvim",
-		config = function()
-			vim.cmd("colorscheme kanagawa-wave")
-		end
-	},
+	-- {
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	config = function()
+	-- 		vim.cmd("colorscheme kanagawa-wave")
+	-- 	end
+	-- },
 
-	{
-		"ficcdaf/ashen.nvim",
-		lazy =false,
-		priority=1000,
-		-- config = function()
-		-- 	vim.cmd("colorscheme ashen")
-		-- end
-	},
-	-- "Alexis12119/nightly.nvim",
-	-- { "catppuccin/nvim", name = "catppuccin" },
-	-- "comfysage/evergarden",
-	-- "aliqyan-21/darkvoid.nvim",
-	-- "bluz71/vim-nightfly-colors",
+	-- {
+	-- 	"ficcdaf/ashen.nvim",
+	-- 	lazy =false,
+	-- 	priority=1000,
+	-- 	-- config = function()
+	-- 	-- 	vim.cmd("colorscheme ashen")
+	-- 	-- end
+	-- },
 }

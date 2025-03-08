@@ -25,6 +25,7 @@
         enableDefaultPackages = true;
         packages = with pkgs; [
             nerd-fonts.caskaydia-cove
+            corefonts
             # (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
         ];
     };
@@ -35,6 +36,7 @@
             config.common.default = "*";
             extraPortals = with pkgs; [
                 xdg-desktop-portal-wlr
+                xdg-desktop-portal-hyprland
                 xdg-desktop-portal-gtk
             ];
         };

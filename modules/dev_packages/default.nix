@@ -34,7 +34,7 @@ in {
             typescript-language-server
 
             # Prolog
-            ciao
+            swi-prolog
         ];
 
         home.file.".clang-format" = {
