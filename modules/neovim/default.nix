@@ -55,8 +55,12 @@ in {
             extraPackages = with pkgs; [ gcc ];
         };
 
-        xdg.configFile.nvim = {
-            source = ./nvim;
+        xdg.configFile."nvim/after" = {
+            source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/modules/neovim/nvim/after";
+            recursive = true;
+        };
+        xdg.configFile."nvim/lua" = {
+            source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/modules/neovim/nvim/lua";
             recursive = true;
         };
 
