@@ -21,7 +21,7 @@ in {
 	    aggressiveResize = true;
 
 	    plugins = with pkgs; with tmuxPlugins; [
-		vim-tmux-navigator
+		# vim-tmux-navigator
 		{
 		    plugin = catppuccin;
 		    extraConfig = '' 

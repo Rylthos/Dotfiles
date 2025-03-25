@@ -24,6 +24,7 @@
         theme.enable = true;
         tmux.enable = true;
         waybar.enable = true;
+        wireshark.enable = true;
         wlogout.enable = true;
         wofi.enable = true;
     };

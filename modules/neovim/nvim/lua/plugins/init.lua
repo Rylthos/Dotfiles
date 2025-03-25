@@ -37,7 +37,7 @@ return {
 		main = "nvim-treesitter.configs",
 	},
 
-    "tpope/vim-sleuth",
+	"tpope/vim-sleuth",
 
 	"nvim-treesitter/playground",
 
@@ -87,6 +87,8 @@ return {
 		opts = { },
 	},
 
+	"kalvinpearce/ShaderHighlight",
+
 	"chentoast/marks.nvim",
 
 	{
@@ -96,10 +98,10 @@ return {
 		end,
 	},
 
-	{
-		"christoomey/vim-tmux-navigator",
-		lazy = false,
-	},
+	-- {
+	-- 	"christoomey/vim-tmux-navigator",
+	-- 	lazy = false,
+	-- },
 
 	{
 		"lervag/vimtex",
@@ -122,12 +124,22 @@ return {
         config = true
     },
 
-	"xiyaowong/transparent.nvim",
+    "xiyaowong/transparent.nvim",
 
-	{
-		"ngtuonghy/live-server-nvim",
-		lazy = true,
-	},
+    {
+	    "ngtuonghy/live-server-nvim",
+	    lazy = true,
+    },
+
+    {
+	    "f-person/git-blame.nvim",
+	    event = "VeryLazy",
+
+	    enabled = true,  -- if you want to enable the plugin
+	    message_template = " <summary> • <date> • <author>", -- template for the blame message, check the Message template section for more options
+	    date_format = "%m-%d-%Y %H:%M:%S", -- template for the date, check Date format section for more options
+	    virtual_text_column = 1,
+    },
 
 	-- Themes
 	{

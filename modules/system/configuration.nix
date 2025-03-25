@@ -96,7 +96,7 @@
     users.users.aaron = {
         isNormalUser = true;
         description = "Aaron Danton";
-        extraGroups = [ "networkmanager" "wheel" "render" "video" "dialout" ];
+        extraGroups = [ "networkmanager" "wheel" "render" "video" "dialout" "wireshark" ];
         shell = pkgs.fish;
     };
 
@@ -152,10 +152,9 @@
 
         graphics = {
             enable = true;
-extraPackages = with pkgs; [
-        amdvlk
-    ];
-
+            extraPackages = with pkgs; [
+                amdvlk
+            ];
         };
     };
 

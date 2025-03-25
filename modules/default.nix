@@ -26,6 +26,7 @@
         ./theme
         ./tmux
         ./waybar
+        ./wireshark
         ./wlogout
         ./wofi
     ];
