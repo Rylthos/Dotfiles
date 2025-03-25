@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, nixpkgs, config, ... }:
     with lib;
     let cfg = config.modules.gui_packages;
 in {
@@ -15,9 +15,9 @@ in {
             blender
 
             vesktop
-            okular
 
-            xwaylandvideobridge
+            kdePackages.okular
+            kdePackages.xwaylandvideobridge
 
             grim
             slurp
@@ -26,6 +26,7 @@ in {
 
             digikam
             darktable
+            siril
 
             steam
 
@@ -33,8 +34,15 @@ in {
 
             wineWowPackages.stable
 
-            kate
+            kdePackages.kate
             gparted
+
+            graphviz
+            gephi
+
+            trilium-next-desktop
+
+            godot_4
         ];
     };
 }

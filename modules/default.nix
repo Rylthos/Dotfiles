@@ -20,10 +20,13 @@
         ./packages
         ./pyprland
         ./python
+        ./recording
+        ./spotify
         ./spotify_player
         ./theme
         ./tmux
         ./waybar
+        ./wireshark
         ./wlogout
         ./wofi
     ];

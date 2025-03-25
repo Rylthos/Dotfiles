@@ -24,7 +24,9 @@
         fontDir.enable = true;
         enableDefaultPackages = true;
         packages = with pkgs; [
-            (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
+            nerd-fonts.caskaydia-cove
+            corefonts
+            # (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
         ];
     };
 
@@ -34,6 +36,7 @@
             config.common.default = "*";
             extraPortals = with pkgs; [
                 xdg-desktop-portal-wlr
+                xdg-desktop-portal-hyprland
                 xdg-desktop-portal-gtk
             ];
         };
@@ -93,7 +96,7 @@
     users.users.aaron = {
         isNormalUser = true;
         description = "Aaron Danton";
-        extraGroups = [ "networkmanager" "wheel" "render" "video" "dialout" ];
+        extraGroups = [ "networkmanager" "wheel" "render" "video" "dialout" "wireshark" ];
         shell = pkgs.fish;
     };
 
@@ -140,16 +143,39 @@
         };
     };
 
+    services.pulseaudio.enable = false;
+
     security.rtkit.enable = true;
     hardware = {
-        pulseaudio.enable = false;
-
         bluetooth.enable = true;
         bluetooth.powerOnBoot = false;
 
         graphics = {
             enable = true;
+            extraPackages = with pkgs; [
+                amdvlk
+            ];
         };
+    };
+
+    services.openssh = {
+        enable = true;
+        openFirewall = true;
+        ports = [ 22 ];
+        settings = {
+            PasswordAuthentication = true;
+            AllowUsers = null;
+            UseDns = true;
+            X11Forwarding = false;
+            PermitRootLogin = "prohibit-password";
+        };
+    };
+
+    networking.firewall = {
+        enable = true;
+        allowedTCPPorts = [
+            22
+        ];
     };
 
     services.tumbler.enable = true;

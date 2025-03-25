@@ -72,8 +72,9 @@ in {
                     format-icons = {
                         headphones = "";
                         default = [
-                            ""
-                            ""
+                            "󰕿"
+                            "󰖀"
+                            "󰕾"
                         ];
                     };
                     scroll-step = 5;

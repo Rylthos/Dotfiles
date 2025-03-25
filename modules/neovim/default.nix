@@ -10,6 +10,7 @@ treesitterGrammars = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
     p.fish
     p.gitattributes
     p.gitignore
+    p.glsl
     p.javascript
     p.json5
     p.json

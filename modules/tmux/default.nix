@@ -20,10 +20,24 @@ in {
 	    keyMode = "vi";
 	    aggressiveResize = true;
 
-	    plugins = with pkgs; [
-		tmuxPlugins.vim-tmux-navigator
-		    tmuxPlugins.catppuccin
+	    plugins = with pkgs; with tmuxPlugins; [
+		# vim-tmux-navigator
+		{
+		    plugin = catppuccin;
+		    extraConfig = '' 
+			set -g @catppuccin_flavour 'macchiato'
+			set -g @catppuccin_window_tabs_enabled on
+			set -g @catppuccin_date_time "%H:%M:%S"
+		    '';
+		}
+		{
+		    plugin = weather;
+		    extraConfig = ''
+			set-option -g status-right "#{weather}"
+		    '';
+		}
 	    ];
+
 	    extraConfig = ''
 		set-option -sa terminal-override ",xterm*:Tc"
 
@@ -42,7 +56,7 @@ in {
 
 		bind 'v' split-window -v -c "#{pane_current_path}"
 		bind 'h' split-window -h -c "#{pane_current_path}"
-		'';
+	    '';
 	};
     };
 }

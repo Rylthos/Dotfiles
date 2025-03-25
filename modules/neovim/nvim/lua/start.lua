@@ -24,6 +24,3 @@ require("lazy").setup({
 			fallback = false;
 		},
 })
-
--- vim.cmd(vim.cmd, "colorscheme kanagawa-wave")
-vim.cmd([[colorscheme kanagawa-wave]])

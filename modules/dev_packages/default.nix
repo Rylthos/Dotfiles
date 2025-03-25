@@ -5,8 +5,7 @@ in {
     options.modules.dev_packages = { enable = mkEnableOption "dev_packages"; };
     config = mkIf cfg.enable {
         home.packages = with pkgs; [
-
-            # C/Cpp
+            ## C/Cpp
             clang-tools
             clang
             cmake
@@ -17,16 +16,29 @@ in {
             tracy
             libsForQt5.kcachegrind
 
-            # Graphics
+            ## Graphics
             glslang
             glsl_analyzer
             # spirv-tools
             renderdoc
+            rgp
 
-            # Rust
+            ## Nixos
+            nixd
+
+            ## Rust
             rustup
-            # cargo
-            # rustc
+
+            # Webdev
+            vscode-langservers-extracted
+            typescript-language-server
+
+            # Prolog
+            swi-prolog
         ];
+
+        home.file.".clang-format" = {
+            source = ./.clang-format;
+        };
     };
 }

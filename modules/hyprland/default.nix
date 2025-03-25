@@ -5,7 +5,7 @@ let
 
     startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
       $NIXOS_SCRIPTS_DIR/waybar_start.sh &
-      swww init &
+      swww-daemon &
 
       sleep 1
 
@@ -33,8 +33,14 @@ in {
             xdg-user-dirs
         ];
 
-        wayland.windowManager.hyprland = {
+        wayland.windowManager.hyprland = with pkgs.hyprlandPlugins; {
             enable = true;
+
+            importantPrefixes = ["plugin" "$" "bezier" "name" "source"];
+
+            extraConfig = ''
+                plugin = ${hy3}/lib/libhy3.so
+            '';
 
             settings = {
                 exec-once = [
@@ -53,14 +59,16 @@ in {
 
                 general = {
                     monitor = "eDP-1, 2880x1800@90, 0x0, 1.8";
-                    border_size = 2;
+                    border_size = 1;
                     gaps_out = 5;
-                    gaps_in = 5;
+                    gaps_in = 2;
 
                     "col.active_border" = "rgba(FF0000CC) rgba(FF8700CC) rgba(FFD300CC) rgba(DEFF0ACC) rgba(A1FF0ACC) rgba(0AFF99CC) rgba(0AEFFFCC) rgba(147DF5CC) rgba(580AFFCC) rgba(BE0AFFCC) 90deg";
                     "col.inactive_border" = "rgba(147DF588) 45deg";
 
-                    layout = "master";
+                    # layout = "master";
+                    # layout = "dwindle";
+                    layout = "hy3";
                 };
 
                 input = {
@@ -72,12 +80,18 @@ in {
 
                 master = {
                     new_status = "slave";
-                    allow_small_split = true;
                     mfact = 0.5;
+                    orientation="center";
+                };
+
+                dwindle = {
+                    smart_split = true;
                 };
 
                 misc = {
                     vfr = true;
+                    disable_hyprland_logo = true;
+                    disable_splash_rendering = true;
                 };
 
                 bezier = [
@@ -96,13 +110,13 @@ in {
                 decoration = {
                     rounding = 10;
 
-                    active_opacity = 0.90;
-                    inactive_opacity = 0.80;
+                    active_opacity = 0.80;
+                    inactive_opacity = 0.75;
 
                     blur = {
                         enabled = true;
                         size = 20;
-                        passes = 2;
+                        passes = 3;
                         ignore_opacity = true;
                     };
 
@@ -117,8 +131,6 @@ in {
                 };
 
                 windowrulev2 = [
-                    "opaque, class:(thunar)"
-                    "opaque, class:(firefox)"
                     "opaque, class:(org.kde.okular)"
                     "opaque, class:(kicad)"
                     "opaque, class:(FreeCAD)"
@@ -127,13 +139,12 @@ in {
                     "opaque, class:(Darktable)"
                     "opaque, class:(com.github.xournalpp.xournalpp)"
                     "opaque, class:(vesktop)"
+                    "opaque, class:(TriliumNext Notes)"
+                    "opaque, initialTitle:(Godot)"
 
                     "opaque, initialClass:(GLFW)"
 
-                    "opaque, title:(^tmux)"
-                    "opaque title:(^nvim)"
-
-                    "opacity 0.8 0.8, class:(Alacritty)"
+                    "opacity 0.8 0.75 0.8, initialClass:(Alacritty)"
 
                     "float, class:(Psst-gui)"
                     "opaque, class:(Psst-gui)"
@@ -144,9 +155,12 @@ in {
                     "float, class:(feh),title:(feh-float-waybar)"
                     "move onscreen 5% 100%-h, class:(feh),title:(feh-float-waybar)"
 
+                    "float, class:(spotify)"
+
                     "float, class:(firefox),title:(Picture-in-Picture)"
                     "pin, class:(firefox),title:(Picture-in-Picture)"
                     "move onscreen 80% 0%, class:(firefox),title:(Picture-in-Picture)"
+                    "opacity 1.0 override, class:(firefox),title:(.*YouTube.*)|(Picture-in-Picture)$|(.*\.pdf)$"
 
                     "float, class:(vesktop),initialTitle:(Discord Popout)"
                     "pin, class:(vesktop),initialTitle:(Discord Popout)"
@@ -163,8 +177,8 @@ in {
                     ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
                     ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
-                    ", XF86MonBrightnessUp, exec, brightnessctl s +10"
-                    ", XF86MonBrightnessDown, exec, brightnessctl s 10- -n 10"
+                    ", XF86MonBrightnessUp, exec, brightnessctl s 5%+"
+                    ", XF86MonBrightnessDown, exec, brightnessctl s 5%-"
 
                     "SUPER CTRL, H, resizeactive, -10 0"
                     "SUPER CTRL, J, resizeactive, 0 10"
@@ -175,8 +189,7 @@ in {
                 bind = [
                     "SUPER, RETURN, exec, $terminal"
                     "SUPER, X, exec, xournalpp"
-                    "SUPER, S, exec, firefox-beta"
-                    "SUPER SHIFT, S, exec, $NIXOS_SCRIPTS_DIR/WofiSearchFirefox.sh"
+                    "SUPER, S, exec, firefox"
                     "SUPER, E, exec, $fileManager"
                     "SUPER, R, exec, $menu"
 
@@ -189,22 +202,17 @@ in {
 
                     "CONTROL_ALT, DELETE, exec, wlogout -b 4 -s -c 10 -T 400 -L 410 -R 410 -B 400"
 
-                    ", Print, exec, grim -g \"$(slurp -d -w 1)\" $(xdg-user-dir PICTURES)/Screenshots/$(date +'%Y%m%d_%Hh%Mm%Ss_grim.png')"
+                    ", Print, exec, $NIXOS_SCRIPTS_DIR/Screenshot.sh"
 
-                    "SUPER, left,  movefocus, l"
-                    "SUPER, right, movefocus, r"
-                    "SUPER, up,    movefocus, u"
-                    "SUPER, down,  movefocus, d"
+                    "SUPER, H, hy3:movefocus, l, visible, warp"
+                    "SUPER, L, hy3:movefocus, r, visible, warp"
+                    "SUPER, K, hy3:movefocus, u, visible, warp"
+                    "SUPER, J, hy3:movefocus, d, visible, warp"
 
-                    "SUPER, H, movefocus, l"
-                    "SUPER, L, movefocus, r"
-                    "SUPER, K, movefocus, u"
-                    "SUPER, J, movefocus, d"
-
-                    "SUPER SHIFT, H, swapwindow, l"
-                    "SUPER SHIFT, L, swapwindow, r"
-                    "SUPER SHIFT, K, swapwindow, u"
-                    "SUPER SHIFT, J, swapwindow, d"
+                    "SUPER SHIFT, H, hy3:movewindow, l, once"
+                    "SUPER SHIFT, L, hy3:movewindow, r, once"
+                    "SUPER SHIFT, K, hy3:movewindow, u, once"
+                    "SUPER SHIFT, J, hy3:movewindow, d, once"
 
                     "SUPER, 1, workspace, 1"
                     "SUPER, 2, workspace, 2"
@@ -228,6 +236,16 @@ in {
                     "SUPER SHIFT, 9, movetoworkspace, 9"
                     "SUPER SHIFT, 0, movetoworkspace, 10"
                 ];
+
+                plugin = {
+                    hy3 = {
+                        autotile = {
+                            enable = true;
+                            trigger_width = 800;
+                            trigger_height = 600;
+                        };
+                    };
+                };
             };
         };
     };

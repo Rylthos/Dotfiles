@@ -16,7 +16,8 @@ in {
 
             bind = [
                 "SUPER, T, exec, pypr toggle term"
-                "SUPER, P, exec, pypr toggle spotify"
+                "SUPER, P, exec, pypr toggle spotify_tui"
+                "SUPER, C, exec, pypr toggle calc"
             ];
         };
 
@@ -27,28 +28,54 @@ in {
                 ];
             };
 
-            scratchpads.term = {
-                animation = "fromTop";
-                command = "alacritty --class Alacritty-dropdown-term";
-                class = "Alacritty-dropdown-term";
-                size = "75% 60%";
-                max_size = "1920px 100%";
-                margin = 50;
-                unfocus = "hide";
-                hysteresis = 0.4;
-                lazy = true;
-            };
+            scratchpads = {
+                term = {
+                    animation = "fromTop";
+                    command = "alacritty --class Alacritty-dropdown-term";
+                    class = "Alacritty-dropdown-term";
+                    size = "75% 60%";
+                    max_size = "1920px 100%";
+                    margin = 50;
+                    unfocus = "hide";
+                    hysteresis = 0.4;
+                    lazy = true;
+                };
 
-            scratchpads.spotify = {
-                animation = "fromTop";
-                command = "alacritty --class Alacritty-dropdown-spotify -e spotify_player";
-                class = "Alacritty-dropdown-spotify";
-                size = "75% 60%";
-                max_size = "1920px 100%";
-                margin = 50;
-                unfocus = "hide";
-                hysteresis = 0.4;
-                lazy = true;
+                spotify_tui = {
+                    animation = "fromTop";
+                    command = "alacritty --class spotify-tui-dropdown -e spotify_player";
+                    class = "spotify-tui-dropdown";
+                    size = "75% 60%";
+                    max_size = "1920px 100%";
+                    margin = 50;
+                    unfocus = "hide";
+                    hysteresis = 0.4;
+                    lazy = true;
+                };
+
+                calc = {
+                    animation = "fromRight";
+                    command = "alacritty --class octave-calculator -e octave -q";
+                    class = "octave-calculator";
+                    size = "30% 50%";
+                    max_size = "1920px 100%";
+                    margin = 50;
+                    # unfocus = "hide";
+                    hysteresis = 0.4;
+                    lazy = true;
+                };
+
+                spotify = {
+                    animation = "fromTop";
+                    command = "spotify --class spotify-dropdown";
+                    class = "spotify-dropdown";
+                    size = "75% 60%";
+                    max_size = "1920px 100%";
+                    margin = 50;
+                    unfocus = "hide";
+                    hysteresis = 0.4;
+                    lazy = true;
+                };
             };
         };
     };

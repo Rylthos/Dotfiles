@@ -22,6 +22,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 		-- vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 		vim.keymap.set("n", "K",  vim.lsp.buf.hover, opts)
+		vim.keymap.set("n", "<leader>K",  vim.diagnostic.open_float, opts)
 	end
 })
 
@@ -59,6 +60,7 @@ local lsps = {
 	"cssls",
 	"glsl_analyzer",
 	"jdtls",
+	"nixd",
 	"rust_analyzer",
 	"texlab",
 	"ts_ls",
@@ -89,4 +91,13 @@ lspconfig.lua_ls.setup {
 	settings = {
 		Lua = {}
 	}
+}
+
+lspconfig.glsl_analyzer.setup {
+	capabilities = lsp_capabilities,
+	on_attach = function(client, bufnr)
+		if client.name == "glsl_analyzer" then
+			client.cancel_request = function (client, request_id) end
+		end
+	end
 }

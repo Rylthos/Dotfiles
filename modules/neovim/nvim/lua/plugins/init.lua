@@ -20,6 +20,8 @@ return {
 
 	"ray-x/lsp_signature.nvim",
 
+	"ThePrimeagen/vim-be-good",
+
 	"L3MON4D3/LuaSnip",
 	"rafamadriz/friendly-snippets",
 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -34,6 +36,8 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		main = "nvim-treesitter.configs",
 	},
+
+	"tpope/vim-sleuth",
 
 	"nvim-treesitter/playground",
 
@@ -62,20 +66,28 @@ return {
 
 	"echasnovski/mini.move",
 
-	"echasnovski/mini.pairs",
+	-- "echasnovski/mini.pairs",
 
 	"derekwyatt/vim-fswitch",
 
 	{
-		"nvim-tree/nvim-tree.lua",
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
 		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		version = "*",
-		lazy = false,
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+			-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+		}
 	},
 
-	"sheerun/vim-polyglot",
+	{
+		"m4xshen/hardtime.nvim",
+		dependencies = { "MunifTanjim/nui.nvim" },
+		opts = { },
+	},
+
+	"kalvinpearce/ShaderHighlight",
 
 	"chentoast/marks.nvim",
 
@@ -86,10 +98,10 @@ return {
 		end,
 	},
 
-	{
-		"christoomey/vim-tmux-navigator",
-		lazy = false,
-	},
+	-- {
+	-- 	"christoomey/vim-tmux-navigator",
+	-- 	lazy = false,
+	-- },
 
 	{
 		"lervag/vimtex",
@@ -105,21 +117,71 @@ return {
 		"kylechui/nvim-surround",
 		version = "*",
 	},
+    "windwp/nvim-ts-autotag",
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+    },
 
-	"xiyaowong/transparent.nvim",
+    "xiyaowong/transparent.nvim",
 
-	{
-		"ngtuonghy/live-server-nvim",
-		lazy = true,
-	},
+    {
+	    "ngtuonghy/live-server-nvim",
+	    lazy = true,
+    },
+
+    {
+	    "f-person/git-blame.nvim",
+	    event = "VeryLazy",
+
+	    enabled = true,  -- if you want to enable the plugin
+	    message_template = " <summary> • <date> • <author>", -- template for the blame message, check the Message template section for more options
+	    date_format = "%m-%d-%Y %H:%M:%S", -- template for the date, check Date format section for more options
+	    virtual_text_column = 1,
+    },
 
 	-- Themes
-	"folke/tokyonight.nvim",
-	"EdenEast/nightfox.nvim",
-	"rebelot/kanagawa.nvim",
-	"Alexis12119/nightly.nvim",
-	{ "catppuccin/nvim", name = "catppuccin" },
-	"comfysage/evergarden",
-	"aliqyan-21/darkvoid.nvim",
-	"bluz71/vim-nightfly-colors",
+	{
+		"scottmckendry/cyberdream.nvim",
+		lazy=false,
+		priority=1000,
+		config = function()
+			vim.cmd("colorscheme cyberdream")
+		end,
+		opts = {
+			transparent = true,
+			saturation = 0.8,
+		}
+	},
+	-- {
+	--   "akinsho/horizon.nvim",
+	--   opts = {
+	--       plugins =  {
+	-- 	cmp = true,
+	-- 	neo_tree = true,
+	-- 	gitsigns = true,
+	--       },
+	--   },
+	--   config = function()
+	-- 	  vim.cmd("colorscheme horizon")
+	--   end
+	-- },
+	-- "folke/tokyonight.nvim",
+	-- "EdenEast/nightfox.nvim",
+	-- {
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	config = function()
+	-- 		vim.cmd("colorscheme kanagawa-wave")
+	-- 	end
+	-- },
+
+	-- {
+	-- 	"ficcdaf/ashen.nvim",
+	-- 	lazy =false,
+	-- 	priority=1000,
+	-- 	-- config = function()
+	-- 	-- 	vim.cmd("colorscheme ashen")
+	-- 	-- end
+	-- },
 }

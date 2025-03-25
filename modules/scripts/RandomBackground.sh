@@ -9,11 +9,12 @@ currentBackground=$(swww query | grep -oP "image: \K.*")
 # Load in all wallpapers
 load_wallpapers() {
     wallpapers=("$wallpapersDir"/*.png)
-    wallpapers=("$wallpapersDir"/*.jpg)
+    wallpapers+=("$wallpapersDir"/*.jpg)
     wallpapers+=("$wallpapersDir"/SimonStalenhag/*.jpg)
     wallpapers+=("$wallpapersDir"/Kobsel/*.png)
     wallpapers+=("$wallpapersDir"/JWST/*.png)
     wallpapers+=("$wallpapersDir"/Own/*.jpg)
+    wallpapers+=("$wallpapersDir"/Dzaka/*.jpg)
 }
 
 # If the file exists then load in what is contained in that file

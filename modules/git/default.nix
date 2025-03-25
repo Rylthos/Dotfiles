@@ -16,6 +16,10 @@ in {
             };
         };
 
+        home.packages = with pkgs; [
+            lazygit
+        ];
+
         programs.fish = {
             shellAliases = {
                 gs = "git status";

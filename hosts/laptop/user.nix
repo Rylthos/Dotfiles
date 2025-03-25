@@ -18,10 +18,13 @@
         packages.enable = true;
         pyprland.enable = true;
         python.enable = true;
+        recording.enable = true;
+        spotify.enable = true;
         spotify_player.enable = true;
         theme.enable = true;
         tmux.enable = true;
         waybar.enable = true;
+        wireshark.enable = true;
         wlogout.enable = true;
         wofi.enable = true;
     };
