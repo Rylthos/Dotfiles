@@ -15,6 +15,7 @@
         ./hypridle
         ./hyprland
         ./hyprlock
+        ./keyboard
         ./mako
         ./neovim
         ./packages

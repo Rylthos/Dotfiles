@@ -13,6 +13,7 @@
         hypridle.enable = true;
         hyprland.enable = true;
         hyprlock.enable = true;
+        keyboard.enable = true;
         mako.enable = true;
         neovim.enable = true;
         packages.enable = true;
