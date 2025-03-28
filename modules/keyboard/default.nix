@@ -8,13 +8,13 @@ in {
             qmk
         ];
 
-        home.file."qmk_firmware/keyboards/splitkb/aurora/sofle_v2/keymaps/Rylthos" = {
-            source = ./sofle_v2_Rylthos;
+        home.file."qmk_firmware/keyboards/splitkb/aurora/sofle_v2/keymaps/Rylthos" = if (builtins.pathExists (builtins.toString "/home/aaron/qmk_firmware")) then {
+            source = config.lib.file.mkOutOfStoreSymlink "/home/aaron/.dotfiles/modules/keyboard/sofle_v2_Rylthos";
             recursive = true;
-        };
+        } else { };
 
         xdg.configFile."qmk/qmk.ini" = {
-            source = ./qmk.ini;
+            source = config.lib.file.mkOutOfStoreSymlink "/home/aaron/.dotfiles/modules/keyboard/qmk.ini";
         };
     };
 }
