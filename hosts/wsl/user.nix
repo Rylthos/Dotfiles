@@ -6,6 +6,7 @@
         direnv.enable = true;
         fish.enable = true;
         git.enable = true;
+        keyboard.enable = true;
         neovim.enable = true;
         packages.enable = true;
         python.enable = true;
