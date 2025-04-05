@@ -8,6 +8,7 @@ in
     services = {
         gvfs.enable = true;
         udisks2.enable = true;
+        devmon.enable = true;
 
         power-profiles-daemon.enable = false;
         blueman.enable = true;
