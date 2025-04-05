@@ -38,7 +38,7 @@ in {
         ];
 
         home.file.".clang-format" = {
-            source = ./.clang-format;
+            source = config.lib.file.mkOutOfStoreSymlink /home/aaron/.dotfiles/modules/dev_packages/.clang-format;
         };
     };
 }
