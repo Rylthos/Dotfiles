@@ -6,3 +6,4 @@ modules/neovim/nvim/init.lua
 modules/neovim/nvim/lazy-lock.json
 
 *.kra~
+modules/keyboard/compile_commands.json
