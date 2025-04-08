@@ -14,6 +14,18 @@ uint32_t oled_timer;
 // clang-format off
 enum LAYERS { _BASE, _SYMBOL, _ARROW, _RGB, _GAME };
 
+const key_override_t home_left_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_LEFT, KC_HOME, 1 << _ARROW);
+const key_override_t end_right_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_RGHT, KC_END, 1 << _ARROW);
+const key_override_t pagedn_down_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_DOWN, KC_PGDN, 1 << _ARROW);
+const key_override_t pageup_up_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_UP, KC_END, 1 << _ARROW);
+
+const key_override_t* keyoverrides[] = {
+    &home_left_arrow,
+    &end_right_arrow,
+    &pagedn_down_arrow,
+    &pageup_up_arrow,
+};
+
 #ifdef ENCODER_MAP_ENABLE
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [_BASE]   = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_BRIU, KC_BRID) },

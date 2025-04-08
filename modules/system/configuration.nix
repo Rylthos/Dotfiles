@@ -18,7 +18,11 @@
         xorg.xrdb
 
         python312Packages.pyserial
+
+        man-pages
+        man-pages-posix
     ];
+    documentation.dev.enable = true;
 
     fonts = {
         fontDir.enable = true;
