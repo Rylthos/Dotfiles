@@ -19,7 +19,7 @@ const key_override_t end_right_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_RGH
 const key_override_t pagedn_down_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_DOWN, KC_PGDN, 1 << _ARROW);
 const key_override_t pageup_up_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_UP, KC_END, 1 << _ARROW);
 
-const key_override_t* keyoverrides[] = {
+const key_override_t* key_overrides[] = {
     &home_left_arrow,
     &end_right_arrow,
     &pagedn_down_arrow,
@@ -65,8 +65,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                             KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                           MS_LEFT, MS_DOWN,   MS_UP, MS_RGHT,   KC_NO,   KC_NO,
            KC_NO,   KC_NO, KC_VOLD, KC_MUTE, KC_VOLU,   KC_NO,                           KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,   KC_NO,   KC_NO,
-           KC_NO,   KC_NO, KC_MPRV, KC_MPLY, KC_MNXT,   KC_NO,   KC_NO,           KC_NO, MS_BTN1, MS_WHLD, MS_WHLU, MS_BTN2,   KC_NO,   KC_NO,
-                             KC_NO,   KC_NO, KC_TRNS,MO(_RGB),   KC_NO,           KC_NO, KC_TRNS, KC_TRNS,   KC_NO, KC_NO
+         KC_TRNS,   KC_NO, KC_MPRV, KC_MPLY, KC_MNXT,   KC_NO,   KC_NO,           KC_NO, MS_BTN1, MS_WHLD, MS_WHLU, MS_BTN2,   KC_NO, KC_TRNS,
+                           KC_TRNS, KC_TRNS, KC_TRNS,MO(_RGB), KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
 
     [_RGB] = LAYOUT(
