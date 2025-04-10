@@ -30,7 +30,6 @@ uint8_t animation_counter = 0; // global animation counter.
 bool is_calm = false;
 uint32_t starry_night_anim_timer = 0;
 uint32_t starry_night_anim_sleep = 0;
-static int current_wpm = 0;
 
 static uint8_t increment_counter(uint8_t counter, uint8_t max)
 {

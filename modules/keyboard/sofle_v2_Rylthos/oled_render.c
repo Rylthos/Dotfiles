@@ -1,9 +1,13 @@
+int current_wpm = -1;
+
+static void render_luna(int, int);
+
 void render_wpm(void)
 {
     oled_write(" ", false);
     oled_write_ln("WPM", false);
     oled_write(" ", false);
-    oled_write_ln(get_u8_str(get_current_wpm(), '0'), false);
+    oled_write_ln(get_u8_str(current_wpm, '0'), false);
 }
 
 void render_layer(void)
@@ -15,7 +19,7 @@ void render_layer(void)
     case _SYMBOL:
         oled_write_ln(" SYM ", false);
         break;
-    case _ARROW:
+    case _CTRL:
         oled_write_ln("ARROW", false);
         break;
     case _RGB:
@@ -62,12 +66,18 @@ void render_additional_layer(void)
         break;
     }
     default:
+        render_luna(0, 13);
         break;
     }
 }
 
 void render_oled_left()
 {
+    if (current_wpm == -1) {
+        set_current_wpm(10);
+    }
+    current_wpm = get_current_wpm();
+
     oled_clear();
 
     render_wpm();
@@ -90,3 +100,7 @@ void render_oled_left()
 }
 
 void render_oled_right() { render_stars(); }
+
+#include "luna.c"
+
+#include "ocean_dream_impl.c"

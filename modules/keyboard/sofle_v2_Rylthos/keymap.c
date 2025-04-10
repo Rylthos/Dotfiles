@@ -9,15 +9,15 @@
 #include "images.h"
 #include "ocean_dream.h"
 
-uint32_t oled_timer;
+uint32_t oled_timer = 0;
 
 // clang-format off
-enum LAYERS { _BASE, _SYMBOL, _ARROW, _RGB, _GAME };
+enum LAYERS { _BASE, _SYMBOL, _CTRL, _RGB, _GAME };
 
-const key_override_t home_left_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_LEFT, KC_HOME, 1 << _ARROW);
-const key_override_t end_right_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_RGHT, KC_END, 1 << _ARROW);
-const key_override_t pagedn_down_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_DOWN, KC_PGDN, 1 << _ARROW);
-const key_override_t pageup_up_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_UP, KC_PGUP, 1 << _ARROW);
+const key_override_t home_left_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_LEFT, KC_HOME, 1 << _CTRL);
+const key_override_t end_right_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_RGHT, KC_END, 1 << _CTRL);
+const key_override_t pagedn_down_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_DOWN, KC_PGDN, 1 << _CTRL);
+const key_override_t pageup_up_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_UP, KC_PGUP, 1 << _CTRL);
 
 const key_override_t* key_overrides[] = {
     &home_left_arrow,
@@ -30,7 +30,7 @@ const key_override_t* key_overrides[] = {
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [_BASE]   = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_BRIU, KC_BRID) },
     [_SYMBOL] = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_TRNS, KC_TRNS) },
-    [_ARROW]  = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_TRNS, KC_TRNS) },
+    [_CTRL]= { ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_TRNS, KC_TRNS) },
     [_RGB]    = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_TRNS, KC_TRNS) },
     [_GAME]   = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_TRNS, KC_TRNS) },
 };
@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            KC_NO,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                              KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_MINS,
           KC_TAB,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                              KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_RSFT,
          KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, KC_MUTE,         KC_MPLY,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT,
-                           KC_LALT, KC_LCTL, KC_LGUI,MO(_SYMBOL),KC_SPC,        KC_BSPC,MO(_ARROW),KC_RCTL,KC_RGUI, KC_RALT
+                           KC_LALT, KC_LCTL, KC_LGUI,MO(_SYMBOL),KC_SPC,        KC_BSPC,MO(_CTRL),KC_RCTL, KC_RGUI, KC_RALT
     ),
 
     [_SYMBOL] = LAYOUT(
@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS,MO(_RGB), KC_TRNS, KC_TRNS, KC_TRNS
     ),
 
-    [_ARROW] = LAYOUT(
+    [_CTRL] = LAYOUT(
            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                             KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                           MS_LEFT, MS_DOWN,   MS_UP, MS_RGHT, KC_PSCR,   KC_NO,
            KC_NO,   KC_NO, KC_VOLD, KC_MUTE, KC_VOLU,   KC_NO,                           KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_SCRL,   KC_NO,
@@ -82,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           KC_TAB,  KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,                              KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_MINS,
          KC_LSFT,    KC_A,    KC_A,    KC_S,    KC_D,    KC_F,                              KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_RSFT,
          KC_LSFT,    KC_B,    KC_Z,    KC_X,    KC_C,    KC_V, KC_MUTE,         KC_MPLY,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT,
-                           KC_LALT, KC_LCTL, KC_LGUI, KC_LCTL,  KC_SPC,         KC_BSPC,   KC_NO, KC_RGUI, KC_RCTL, KC_RALT
+                           KC_LALT, KC_LCTL, KC_LGUI, KC_LCTL,  KC_SPC,         KC_BSPC,MO(_CTRL),KC_RGUI, KC_RCTL, KC_RALT
     ),
 };
 // clang-format on
@@ -105,9 +105,13 @@ bool oled_task_user()
         render_oled_right();
     }
 
+    if (oled_timer == 0) {
+        oled_timer = timer_read32();
+    }
+
     if (get_current_wpm() > 0) {
         oled_on();
-        oled_timer = sync_timer_read32();
+        oled_timer = timer_read32();
     } else if (timer_elapsed32(oled_timer) > OLED_TIMEOUT) {
         oled_off();
     }
@@ -116,5 +120,3 @@ bool oled_task_user()
 }
 
 #include "oled_render.c"
-
-#include "ocean_dream_impl.c"

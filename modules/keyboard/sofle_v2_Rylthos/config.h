@@ -32,7 +32,7 @@
 #define OLED_TIMEOUT TIMEOUT
 #define OLED_BRIGHTNESS 50
 
-#define MK_3_SPEED // Constant speed
+#define MK_3_SPEED // Constant speed mouse movement
 
 // Ocean Dream
 #define ENABLE_MOON // Uses 182 bytes
@@ -40,5 +40,3 @@
 #define ENABLE_SHOOTING_STARS // Uses 872 bytes
 #define ENABLE_ISLAND
 #define ENABLE_STARS // Uses 606 bytes
-
-#define SPLIT_TRANSACTION_IDS_USER RPC_ID_SYNC_STATE
