@@ -272,7 +272,7 @@ in {
                 "custom/previous_song" = {
                     format = "";
                     tooltip = false;
-                    on-click = "playerctl -p spotify_player prev";
+                    on-click = "playerctl previous";
                 };
 
                 "custom/play_pause_song" = {
@@ -280,13 +280,13 @@ in {
                     interval = 2;
                     format = "{}";
                     tooltip = false;
-                    on-click = "playerctl -p spotify_player play-pause";
+                    on-click = "playerctl play-pause";
                 };
 
                 "custom/next_song" = {
                     format = "";
                     tooltip = false;
-                    on-click = "playerctl -p spotify_player next";
+                    on-click = "playerctl next";
                 };
 
                 # image = {
