@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, hostname, ... }:
 with lib;
 let
     cfg = config.modules.hyprland;
@@ -40,6 +40,7 @@ in {
 
             extraConfig = ''
                 plugin = ${hy3}/lib/libhy3.so
+                plugin = ${hyprsplit}/lib/libhyprsplit.so
             '';
 
             settings = {
@@ -58,7 +59,13 @@ in {
                 source = "~/.config/hypr/catppuccin_macchiato.conf";
 
                 general = {
-                    monitor = "eDP-1, 2880x1800@90, 0x0, 1.8";
+                monitor = [
+                ] ++ (lib.optionals (hostname == "laptop")) [
+                    "eDP-1, 2880x1800@90, 0x0, 1.8"
+                ] ++ (lib.optionals (hostname == "desktop")) [
+                    "DP-1,prefererred,0x0,1"
+                    "DP-2,prefererred,auto-right,1"
+                ];
                     border_size = 1;
                     gaps_out = 5;
                     gaps_in = 2;
@@ -165,6 +172,13 @@ in {
                     "float, class:(vesktop),initialTitle:(Discord Popout)"
                     "pin, class:(vesktop),initialTitle:(Discord Popout)"
                     "move onscreen 80% 0%, class:(vesktop),initialTitle:(Discord Popout)"
+
+                    "float, class:(org.pulseaudio.pavucontrol)"
+                    "persistentsize, class:(org.pulseaudio.pavucontrol)"
+
+                    "float, class:(.blueman-manager-wrapped)"
+                    "float, class:(nm-connection-editor)"
+
                 ];
 
                 bindm = [
@@ -218,28 +232,32 @@ in {
                     "SUPER SHIFT, K, hy3:movewindow, u, once"
                     "SUPER SHIFT, J, hy3:movewindow, d, once"
 
-                    "SUPER, 1, focusworkspaceoncurrentmonitor, 1"
-                    "SUPER, 2, focusworkspaceoncurrentmonitor, 2"
-                    "SUPER, 3, focusworkspaceoncurrentmonitor, 3"
-                    "SUPER, 4, focusworkspaceoncurrentmonitor, 4"
-                    "SUPER, 5, focusworkspaceoncurrentmonitor, 5"
-                    "SUPER, 6, focusworkspaceoncurrentmonitor, 6"
-                    "SUPER, 7, focusworkspaceoncurrentmonitor, 7"
-                    "SUPER, 8, focusworkspaceoncurrentmonitor, 8"
-                    "SUPER, 9, focusworkspaceoncurrentmonitor, 9"
-                    "SUPER, 0, focusworkspaceoncurrentmonitor, 10"
+                    "SUPER, 1, split:workspace, 1"
+                    "SUPER, 2, split:workspace, 2"
+                    "SUPER, 3, split:workspace, 3"
+                    "SUPER, 4, split:workspace, 4"
+                    "SUPER, 5, split:workspace, 5"
+                    "SUPER, 6, split:workspace, 6"
+                    "SUPER, 7, split:workspace, 7"
+                    "SUPER, 8, split:workspace, 8"
+                    "SUPER, 9, split:workspace, 9"
+                    "SUPER, 0, split:workspace, 10"
 
-                    "SUPER SHIFT, 1, movetoworkspace, 1"
-                    "SUPER SHIFT, 2, movetoworkspace, 2"
-                    "SUPER SHIFT, 3, movetoworkspace, 3"
-                    "SUPER SHIFT, 4, movetoworkspace, 4"
-                    "SUPER SHIFT, 5, movetoworkspace, 5"
-                    "SUPER SHIFT, 6, movetoworkspace, 6"
-                    "SUPER SHIFT, 7, movetoworkspace, 7"
-                    "SUPER SHIFT, 8, movetoworkspace, 8"
-                    "SUPER SHIFT, 9, movetoworkspace, 9"
-                    "SUPER SHIFT, 0, movetoworkspace, 10"
+                    "SUPER SHIFT, 1, split:movetoworkspacesilent, 1"
+                    "SUPER SHIFT, 2, split:movetoworkspacesilent, 2"
+                    "SUPER SHIFT, 3, split:movetoworkspacesilent, 3"
+                    "SUPER SHIFT, 4, split:movetoworkspacesilent, 4"
+                    "SUPER SHIFT, 5, split:movetoworkspacesilent, 5"
+                    "SUPER SHIFT, 6, split:movetoworkspacesilent, 6"
+                    "SUPER SHIFT, 7, split:movetoworkspacesilent, 7"
+                    "SUPER SHIFT, 8, split:movetoworkspacesilent, 8"
+                    "SUPER SHIFT, 9, split:movetoworkspacesilent, 9"
+                    "SUPER SHIFT, 0, split:movetoworkspacesilent, 10"
+
+                    "SUPER , G, split:grabroguewindows"
+                    "SUPER , D, split:swapactiveworkspaces, current+1"
                 ];
+
 
                 plugin = {
                     hy3 = {
@@ -248,6 +266,11 @@ in {
                             trigger_width = 800;
                             trigger_height = 600;
                         };
+                    };
+
+                    hyprsplit = {
+                        num_workspaces = 10;
+                        persistent-workspaces = true;
                     };
                 };
             };

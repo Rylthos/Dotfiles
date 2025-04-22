@@ -24,7 +24,7 @@ in {
 
             wl-clipboard
 
-            digikam
+            # digikam
             darktable
             siril
 
@@ -42,7 +42,7 @@ in {
 
             trilium-next-desktop
 
-            godot_4
+            # godot_4
         ];
     };
 }

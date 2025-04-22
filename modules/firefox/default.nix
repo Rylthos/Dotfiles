@@ -20,7 +20,7 @@ in {
             };
             search = {
               force = true;
-              default = "DuckDuckGo";
+              default = "ddg";
               engines = {
                 "Nix Packages" = {
                   urls = [{

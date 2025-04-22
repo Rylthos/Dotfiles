@@ -1,7 +1,6 @@
-{ config, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, hostname, ... }:
 {
     environment.defaultPackages = [ ];
-    services.xserver.desktopManager.xterm.enable = false;
 
     programs = {
         fish.enable = true;
@@ -77,6 +76,15 @@
             systemd-boot.editor = false;
             systemd-boot.configurationLimit = 5;
             efi.canTouchEfiVariables = true;
+
+            systemd-boot = {
+                windows = lib.mkIf (hostname == "desktop") {
+                    # "sdc2" = {
+                    #     title = "Windows 10";
+                    #     efiDeviceHandle = "FS0";
+                    # };
+                };
+            };
         };
     };
 
@@ -156,9 +164,6 @@
 
         graphics = {
             enable = true;
-            extraPackages = with pkgs; [
-                amdvlk
-            ];
         };
     };
 

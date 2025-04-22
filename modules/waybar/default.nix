@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, hostname, ... }:
 with lib;
 let
     cfg = config.modules.waybar;
@@ -54,6 +54,16 @@ in {
                         "7" = [];
                         "8" = [];
                         "9" = [];
+                    } // lib.attrsets.optionalAttrs (hostname == "desktop") {
+                        "11" = [];
+                        "12" = [];
+                        "13" = [];
+                        "14" = [];
+                        "15" = [];
+                        "16" = [];
+                        "17" = [];
+                        "18" = [];
+                        "19" = [];
                     };
                 };
 

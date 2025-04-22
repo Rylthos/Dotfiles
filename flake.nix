@@ -25,8 +25,11 @@
             mkSystem = pkgs: system: hostname: wsl:
                 pkgs.lib.nixosSystem {
                     system = system;
+                    specialArgs = {
+                        hostname = hostname;
+                    };
                     modules = [
-                        ./modules/system/configuration.nix
+                        (./modules/system/configuration.nix)
                         (./. + "/hosts/${hostname}/system.nix")
                         (./. + "/hosts/${hostname}/hardware-configuration.nix")
                         home-manager.nixosModules.home-manager
@@ -34,7 +37,8 @@
                             home-manager = {
                                 useUserPackages = true;
                                 useGlobalPkgs = true;
-                                extraSpecialArgs = { inherit inputs; inherit nix-colors; inherit nixpkgs; };
+                                extraSpecialArgs = { inherit inputs; inherit nix-colors; inherit nixpkgs;
+                                    hostname = hostname; };
                                 users.aaron = (./. + "/hosts/${hostname}/user.nix");
                             };
                         }
@@ -50,6 +54,7 @@
             nixosConfigurations = {
                 laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop" false;
                 wsl = mkSystem inputs.nixpkgs "x86_64-linux" "wsl" true;
+                desktop = mkSystem inputs.nixpkgs "x86_64-linux" "desktop" false;
         };
     };
 }

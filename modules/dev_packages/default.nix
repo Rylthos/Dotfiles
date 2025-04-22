@@ -5,6 +5,9 @@ in {
     options.modules.dev_packages = { enable = mkEnableOption "dev_packages"; };
     config = mkIf cfg.enable {
         home.packages = with pkgs; [
+            lldb_20
+            vscode-extensions.vadimcn.vscode-lldb.adapter
+
             ## C/Cpp
             clang-tools
             clang

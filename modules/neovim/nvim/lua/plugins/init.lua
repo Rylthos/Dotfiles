@@ -9,6 +9,13 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = { 'saghen/blink.cmp' },
 	},
+	{
+		"mfussenegger/nvim-dap",
+		dependencies = {
+			"rcarriga/nvim-dap-ui",
+			"nvim-neotest/nvim-nio",
+		},
+	},
 
 	{
 		'saghen/blink.cmp',
