@@ -24,10 +24,6 @@ in {
 
             wl-clipboard
 
-            # digikam
-            darktable
-            siril
-
             steam
 
             wayfarer
@@ -42,7 +38,7 @@ in {
 
             trilium-next-desktop
 
-            # godot_4
+            anki
         ];
     };
 }

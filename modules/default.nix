@@ -19,6 +19,7 @@
         ./mako
         ./neovim
         ./packages
+        ./photography
         ./pyprland
         ./python
         ./recording

@@ -5,6 +5,7 @@ in {
     options.modules.dev_packages = { enable = mkEnableOption "dev_packages"; };
     config = mkIf cfg.enable {
         home.packages = with pkgs; [
+            ## Debugging
             lldb_20
             vscode-extensions.vadimcn.vscode-lldb.adapter
 

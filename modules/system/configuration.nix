@@ -115,7 +115,7 @@
     users.extraGroups.vboxusers.members = [ "aaron" ];
 
     networking = {
-        hostName = "aaron-nixos";
+        hostName = "aaron-nixos-" + hostname;
         networkmanager.enable = true;
     };
 

@@ -12,7 +12,7 @@ void render_wpm(void)
 
 void render_layer(void)
 {
-    switch (get_highest_layer(layer_state)) {
+    switch (get_highest_layer(layer_state | default_layer_state)) {
     case _BASE:
         oled_write_ln(" BSE ", false);
         break;
@@ -56,7 +56,7 @@ void render_effect(void)
 
 void render_additional_layer(void)
 {
-    switch (get_highest_layer(layer_state)) {
+    switch (get_highest_layer(layer_state | default_layer_state)) {
     case _RGB: {
         oled_write_ln(get_u8_str(rgb_matrix_get_hue(), '0'), false);
         oled_write_ln(get_u8_str(rgb_matrix_get_sat(), '0'), false);
@@ -83,7 +83,7 @@ void render_oled_left()
     render_wpm();
 
     oled_set_cursor(0, 3);
-    if (get_highest_layer(layer_state) == _GAME) {
+    if (get_highest_layer(layer_state | default_layer_state) == _GAME) {
         oled_write_raw_P(GAME_ICON, sizeof(GAME_ICON));
     } else {
         oled_write_raw_P(CHARACTER_ICON, sizeof(CHARACTER_ICON));

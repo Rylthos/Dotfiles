@@ -18,7 +18,6 @@ in {
             settings = {
                 background = [
                     {
-                        monitor = "eDP-1";
                         path = "/tmp/current_screen.png";
                         blur_passes = 1;
                         blur_size = 7;
@@ -28,7 +27,6 @@ in {
 
                 label = [
                     {
-                        monitor = "eDP-1";
                         text = "$TIME";
                         color = "rgba(242, 243, 244, 0.75)";
                         font_size = 95;
@@ -38,7 +36,6 @@ in {
                         valign = "center";
                     }
                     {
-                        monitor = "eDP-1";
                         text = ''cmd[update:1000] echo $(date +"%A, %B $d")'';
                         color = "rgba(242, 243, 244, 0.75)";
                         font_size = 22;
@@ -50,7 +47,6 @@ in {
                 ];
 
                 image = {
-                    monitor = "eDP-1";
                     path = "/home/${username}/Pictures/profile.png";
 
                     position = "0, 50";
@@ -59,7 +55,6 @@ in {
                 };
 
                 input-field = {
-                    monitor = "eDP-1";
                     size = "200, 250";
                     outline_thickness = 2;
                     dots_size = 0.2;

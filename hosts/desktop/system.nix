@@ -47,6 +47,7 @@
     '';
 
     hardware = {
+        opentabletdriver.enable = true;
         nvidia = {
             package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
 
@@ -93,4 +94,6 @@
 
         wireshark.enable = true;
     };
+
+    programs.nix-ld.enable = true;
 }

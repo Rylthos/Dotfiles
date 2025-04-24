@@ -17,6 +17,7 @@
         mako.enable = true;
         neovim.enable = true;
         packages.enable = true;
+        photography.enable = true;
         pyprland.enable = true;
         python.enable = true;
         recording.enable = true;
