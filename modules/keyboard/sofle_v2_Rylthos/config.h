@@ -32,7 +32,13 @@
 #define OLED_TIMEOUT TIMEOUT
 #define OLED_BRIGHTNESS 50
 
-#define MK_3_SPEED // Constant speed mouse movement
+#define MOUSEKEY_INTERVAL 16
+#define MOUSEKEY_DELAY 0
+#define MOUSEKEY_TIME_TO_MAX 60
+#define MOUSEKEY_MAX_SPEED 2
+#define MOUSEKEY_WHEEL_DELAY 0
+
+// #define MK_3_SPEED // Constant speed mouse movement
 
 // Ocean Dream
 #define ENABLE_MOON // Uses 182 bytes

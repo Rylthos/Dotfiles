@@ -22,9 +22,11 @@
         ./photography
         ./pyprland
         ./python
+        ./razer
         ./recording
         ./spotify
         ./spotify_player
+        ./tauon
         ./theme
         ./tmux
         ./waybar

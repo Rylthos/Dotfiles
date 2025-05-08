@@ -244,7 +244,7 @@ in {
                 ];
 
                 user = {
-                    format = "{work_H}:{work_M}";
+                    format = "{work_d}:{work_H}:{work_M}";
                     icon = false;
                     open-on-click = false;
                 };

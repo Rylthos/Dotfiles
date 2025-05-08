@@ -12,6 +12,7 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = [ "kvm-amd" "video=eDP-1:2880x1800@90" ];
   boot.extraModulePackages = [ ];
+  boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/15854cca-4399-4546-ade5-0a467578b0bd";

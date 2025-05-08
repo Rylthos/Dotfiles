@@ -20,9 +20,11 @@
         photography.enable = true;
         pyprland.enable = true;
         python.enable = true;
+        razer.enable = true;
         recording.enable = true;
         spotify.enable = true;
         spotify_player.enable = true;
+        tauon.enable = true;
         theme.enable = true;
         tmux.enable = true;
         waybar.enable = true;
