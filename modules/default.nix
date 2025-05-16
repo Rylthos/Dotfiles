@@ -16,6 +16,7 @@
         ./hyprland
         ./hyprlock
         ./keyboard
+        ./latex
         ./mako
         ./neovim
         ./packages

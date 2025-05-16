@@ -14,6 +14,7 @@
         hyprland.enable = true;
         hyprlock.enable = true;
         keyboard.enable = true;
+        latex.enable = true;
         mako.enable = true;
         neovim.enable = true;
         packages.enable = true;

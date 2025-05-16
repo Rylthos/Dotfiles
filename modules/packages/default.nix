@@ -19,9 +19,6 @@ in {
 
             playerctl
 
-            texlab
-            texlive.combined.scheme-full
-
             evtest
 
             perl

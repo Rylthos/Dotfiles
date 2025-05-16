@@ -8,6 +8,7 @@ in {
             digikam
             darktable
             siril
+            lensfun
         ];
     };
 }
