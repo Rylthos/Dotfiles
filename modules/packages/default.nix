@@ -7,7 +7,6 @@ in {
         home.packages = with pkgs; [
             feh
             fastfetch
-            eza
             btop
             p7zip
             wget
@@ -25,10 +24,13 @@ in {
 
             esptool
 
-            bat
-            ripgrep
-            fd
-            fzf
+            # Improvements over defaults
+            eza # ls
+            bat # cat
+            ripgrep # grep
+            fd # find
+            fzf # fuzzy find
+            dua # du
         ];
     };
 }

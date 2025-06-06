@@ -8,7 +8,7 @@ in {
         services.mako = {
             enable = true;
             settings = {
-                defaultTimeout = "5000";
+                default-timeout = "5000";
                 format = "<b>%a ⏵</b> %s\\n%b";
                 height = "110";
                 width = "300";
@@ -16,11 +16,11 @@ in {
                 layer = "overlay";
                 margin = "5";
                 padding = "0,5,10";
-                borderSize = "2";
-                borderColor = "#${config.colorScheme.palette.base0D}";
+                border-size = "2";
+                border-color = "#${config.colorScheme.palette.base0D}";
                 icons = "true";
-                maxIconSize = "64";
-                ignoreTimeout = "true";
+                max-icon-size = "64";
+                ignore-timeout = "true";
             };
         };
     };

@@ -19,6 +19,7 @@ in {
             valgrind
             tracy
             libsForQt5.kcachegrind
+            gnumake
 
             ## Graphics
             glslang

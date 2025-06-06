@@ -3,6 +3,7 @@ with lib;
 let cfg = config.modules.neovim;
 
 treesitterGrammars = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
+    p.arduino
     p.bash
     p.c
     p.cpp

@@ -116,8 +116,8 @@ in
 
 
     virtualisation.virtualbox.host.enable = true;
-    virtualisation.virtualbox.guest.enable = true;
-    virtualisation.virtualbox.guest.dragAndDrop = true;
+    # virtualisation.virtualbox.guest.enable = true;
+    # virtualisation.virtualbox.guest.dragAndDrop = true;
 
     services.udev.packages = [
         (pkgs.writeTextFile {
@@ -132,6 +132,15 @@ in
                 SUBSYSTEMS=="usb", ATTRS{idVendor}=="1fc9", ATTRS{idProduct}=="013*", MODE:="0666"
             '';
             destination = "/etc/udev/rules.d/00-teensy.rules";
+         })
+
+        (pkgs.writeTextFile {
+            name = "picotootls";
+            text = ''
+                SUBSYSTEM=="usb", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="0003", MODE="660", GROUP="plugdev"
+                SUBSYSTEM=="usb", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="000a", MODE="660", GROUP="plugdev"
+            '';
+            destination = "/etc/udev/rules.d/90-picotools.rules";
          })
     ];
 }

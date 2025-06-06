@@ -53,6 +53,7 @@ vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle)
 require'ufo'.setup{ }
 
 local lsps = {
+	"arduino_language_server",
 	"clangd",
 	"cmake",
 	"cssls",

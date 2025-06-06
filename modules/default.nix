@@ -25,6 +25,7 @@
         ./python
         ./razer
         ./recording
+        ./screen_recorder
         ./spotify
         ./spotify_player
         ./tauon

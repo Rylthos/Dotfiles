@@ -197,5 +197,7 @@
         pulse.enable = true;
     };
 
+    programs.gpu-screen-recorder.enable = true;
+
     system.stateVersion = "24.11";
 }

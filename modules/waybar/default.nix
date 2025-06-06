@@ -286,7 +286,7 @@ in {
                 };
 
                 "custom/play_pause_song" = {
-                    exec = "${currentPath}/get_playing_icon.sh";
+                    exec = "${currentPath}/get_playerctl_playing_icon.py";
                     interval = 2;
                     format = "{}";
                     tooltip = false;

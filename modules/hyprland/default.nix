@@ -167,7 +167,7 @@ in {
                     "float, class:(firefox),title:(Picture-in-Picture)"
                     "pin, class:(firefox),title:(Picture-in-Picture)"
                     "move onscreen 80% 0%, class:(firefox),title:(Picture-in-Picture)"
-                    "opacity 1.0 override, class:(firefox),title:(.*YouTube.*)|(Picture-in-Picture)$|(.*\.pdf)$"
+                    "opacity 1.0 override, class:(firefox),title:(.*YouTube.*)|(Picture-in-Picture)$|^(.*\.pdf.*)"
 
                     "float, class:(vesktop),initialTitle:(Discord Popout)"
                     "pin, class:(vesktop),initialTitle:(Discord Popout)"
