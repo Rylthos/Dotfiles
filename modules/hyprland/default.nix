@@ -117,8 +117,8 @@ in {
                 decoration = {
                     rounding = 10;
 
-                    active_opacity = 0.80;
-                    inactive_opacity = 0.75;
+                    active_opacity = 0.75;
+                    inactive_opacity = 0.70;
 
                     blur = {
                         enabled = true;
