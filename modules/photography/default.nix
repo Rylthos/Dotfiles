@@ -7,7 +7,7 @@ in {
         home.packages = with pkgs; [
             digikam
             darktable
-            siril
+            # siril
             lensfun
         ];
     };

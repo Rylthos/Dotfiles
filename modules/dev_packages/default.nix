@@ -26,7 +26,7 @@ in {
             glsl_analyzer
             # spirv-tools
             renderdoc
-            rgp
+            # rgp
 
             ## Nixos
             nixd
