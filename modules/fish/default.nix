@@ -16,6 +16,8 @@ in {
                 tmuxnv = "tmux new-session nvim";
                 psst = "env -u WAYLAND_DISPLAY psst-gui";
                 cat = "bat";
+                t = "tmux";
+                n = "nvim";
             };
         };
     };
