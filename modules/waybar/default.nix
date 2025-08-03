@@ -235,6 +235,9 @@ in {
 
                 modules-right = [
                     "custom/dome-left"
+                ] ++ (lib.optionals (config.modules.screen_recorder.enable) [
+                        "custom/toggle_screen_replay"
+                ]) ++ [
                     "custom/toggle_rotation"
                     "custom/toggle_keyboard"
                     "idle_inhibitor"
@@ -299,37 +302,6 @@ in {
                     on-click = "playerctl next";
                 };
 
-                # image = {
-                #     path = "/tmp/waybar-mediaplayer-art";
-                #     size = 32;
-                #     signal = 4;
-                #     on-click = "feh --auto-zoom --borderless --title 'feh-float-waybar' /tmp/waybar-mediaplayer-art";
-                # };
-                #
-                # "custom/mediaplayer" = {
-                #     exec = "${currentPath}/.venv/bin/python ${currentPath}/waybar-mediaplayer/src/mediaplayer monitor";
-                #
-                #     return-type = "json";
-                #     format = "{}";
-                #     on-click = "playerctl -p spotify_player play-pause";
-                #     min-length = 20;
-                #     max-length = 20;
-                #     restart-interval = 10;
-                # };
-
-                # "custom/waymedia" = {
-                #   format = "{artist}{divider}{title}";
-                #   exec = "${currentPath}/waymedia/waymedia";
-                #   interval = 1;
-                #   limit = 60;
-                #   on-click = "playerctl play-pause";
-                #   on-scroll-up = "playerctl next";
-                #   on-scroll-down = "playerctl previous";
-                #   # pause-icon = "   ";
-                #   # play-icon = "   ";
-                #   divider = " - ";
-                # };
-
                 mpris = {
                     format = "<b>{dynamic}</b>";
                     format-paused = "<b>{dynamic}</b>";
@@ -343,6 +315,21 @@ in {
                         paused = "⏸";
                     };
                 };
+
+                "custom/toggle_screen_replay" = {
+                    format = "{icon}";
+                    format-icons = {
+                        "enabled" = "󰄀";
+                        "disabled" = "󰗟";
+                    };
+                    tooltip = false;
+                    exec = "$NIXOS_SCRIPTS_DIR/ToggleScreenReplay.sh icon";
+                    return-type = "json";
+                    interval = 1;
+                    on-click = "$NIXOS_SCRIPTS_DIR/ToggleScreenReplay.sh";
+                    on-click-middle = "$NIXOS_MODULES_DIR/screen_recorder/save_replay.sh";
+                };
+
 
                 "custom/toggle_rotation" = {
                     format = "{icon}";
@@ -427,6 +414,7 @@ in {
 
             #workspaces button:hover,
             #custom-power:hover,
+            #custom-toggle_screen_replay:hover,
             #custom-play_pause_song:hover,
             #custom-next_song:hover,
             #custom-previous_song:hover,
@@ -498,6 +486,7 @@ in {
             #custom-play_pause_song,
             #custom-next_song,
             #mpris,
+            #custom-toggle_screen_replay,
             #custom-toggle_rotation,
             #custom-toggle_keyboard,
             #idle_inhibitor,
@@ -523,6 +512,7 @@ in {
             #custom-play_pause_song,
             #custom-next_song,
             #mpris,
+            #custom-toggle_screen_replay,
             #custom-toggle_rotation,
             #custom-toggle_keyboard,
             #idle_inhibitor,

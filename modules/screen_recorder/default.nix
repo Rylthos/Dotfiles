@@ -9,5 +9,14 @@ in {
             gpu-screen-recorder-gtk
             killall
         ];
+
+        wayland.windowManager.hyprland = {
+            settings = {
+                bind = [
+                    "SUPER SHIFT, XF86Launch8, exec, $NIXOS_SCRIPTS_DIR/ToggleScreenReplay.sh" # F13
+                    "SUPER SHIFT, XF86Launch9, exec, $NIXOS_MODULES_DIR/screen_recorder/save_replay.sh" # F14
+                ];
+            };
+        };
     };
 }
