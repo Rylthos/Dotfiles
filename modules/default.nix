@@ -19,6 +19,7 @@
         ./latex
         ./mako
         ./neovim
+        ./nvibrant
         ./packages
         ./photography
         ./pyprland
