@@ -2,7 +2,8 @@
 
     with lib;
     let cfg = config.modules.nvibrant;
-    target_version = "515.43.04";
+    target_version = "570.123.07";
+    values = "-1024 -1024 600";
     version = "1.1.0";
     nvibrant_src = fetchTarball {
         url = "https://github.com/Tremeschin/nvibrant/releases/download/v${version}/nvibrant-${version}-bin.tar.gz";
@@ -21,7 +22,7 @@
             runHook postInstall
         '';
 
-        buildInputs = [ pkgs.gcc ];
+        buildInputs = [ pkgs.stdenv.cc.cc.lib pkgs.gcc pkgs.glibc ];
         nativeBuildInputs = [ pkgs.patchelf pkgs.autoPatchelfHook ];
     };
 in {
@@ -34,7 +35,7 @@ in {
         wayland.windowManager.hyprland = {
             settings = {
                 exec-once = [
-                    "${nvibrant}/bin/nvibrant"
+                    "${nvibrant}/bin/nvibrant ${values}"
                 ];
             };
         };

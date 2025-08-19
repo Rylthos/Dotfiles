@@ -22,8 +22,6 @@ in {
 
             perl
 
-            esptool
-
             # Improvements over defaults
             eza # ls
             bat # cat
@@ -31,6 +29,8 @@ in {
             fd # find
             fzf # fuzzy find
             dua # du
+
+            mosh
         ];
     };
 }

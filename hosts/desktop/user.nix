@@ -16,11 +16,13 @@
         keyboard.enable = true;
         mako.enable = true;
         neovim.enable = true;
+        nvibrant.enable = true;
         packages.enable = true;
         photography.enable = true;
         pyprland.enable = true;
         python.enable = true;
         recording.enable = true;
+        screen_recorder.enable = true;
         spotify.enable = true;
         spotify_player.enable = true;
         theme.enable = true;
