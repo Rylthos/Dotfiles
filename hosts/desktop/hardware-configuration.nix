@@ -30,20 +30,35 @@
       fsType = "ntfs";
     };
 
-  fileSystems."/mnt/data_ssd" =
-    { device = "/dev/disk/by-uuid/44648CDE648CD3D8";
-      fsType = "ntfs";
-    };
-
-  fileSystems."/mnt/game_ssd" =
-    { device = "/dev/disk/by-uuid/DE9A95B09A958625";
-      fsType = "ntfs";
+  fileSystems."/mnt/ssd" = {
+    device = "/dev/disk/by-uuid/fbbd3835-2b24-4c2a-9234-a61abe520d73";
+      fsType = "btrfs";
+      options = [
+        "subvol=@"
+        "users"
+        "exec"
+      ];
     };
 
   fileSystems."/mnt/game_hdd" =
     { device = "/dev/disk/by-uuid/0A5CD26F5CD25553";
       fsType = "ntfs";
+      options = [
+        "users"
+        "exec"
+      ];
     };
+
+  fileSystems."/mnt/temp" =
+    { device = "/dev/disk/by-uuid/da6a9d2e-adde-4ad1-832d-eaea5e9a8f30";
+      fsType = "ext4";
+      options = [
+        "users"
+        "exec"
+        "rw"
+      ];
+    };
+
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/94c20b7d-0d46-40fc-aae1-6fbb897c11be"; }

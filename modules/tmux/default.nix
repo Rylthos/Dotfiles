@@ -24,7 +24,7 @@ in {
 		# vim-tmux-navigator
 		{
 		    plugin = catppuccin;
-		    extraConfig = '' 
+		    extraConfig = ''
 			set -g @catppuccin_flavour 'macchiato'
 			set -g @catppuccin_window_tabs_enabled on
 			set -g @catppuccin_date_time "%H:%M:%S"

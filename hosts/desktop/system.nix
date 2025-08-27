@@ -13,7 +13,7 @@
             enable = true;
             settings = {
                 default_session.command = ''
-                ${pkgs.greetd.tuigreet}/bin/tuigreet \
+                ${pkgs.tuigreet}/bin/tuigreet \
                 --time \
                 --asterisks \
                 --user-menu \
@@ -22,8 +22,6 @@
                 --cmd Hyprland
                 '';
             };
-
-            vt = 1;
         };
     };
 
@@ -89,6 +87,7 @@
         };
 
         steam = {
+            gamescopeSession.enable = true;
             enable = true;
         };
 
