@@ -31,10 +31,10 @@
     };
 
   fileSystems."/mnt/ssd" = {
-    device = "/dev/disk/by-uuid/fbbd3835-2b24-4c2a-9234-a61abe520d73";
+    device = "/dev/sdb1";
       fsType = "btrfs";
       options = [
-        "subvol=@"
+        # "subvol=@"
         "users"
         "exec"
       ];
