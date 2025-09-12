@@ -9,7 +9,7 @@ in {
             userName = "Aaron Danton";
             userEmail = "aarondanton04@hotmail.com";
             extraConfig = {
-                init = { defaultBranch = "Main"; };
+                init = { defaultBranch = "main"; };
                 core = {
                     excludesfile = "$NIXOS_CONFIG_DIR/scripts/gitignore";
                 };
