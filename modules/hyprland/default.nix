@@ -180,6 +180,8 @@ in {
                     "float, class:(.blueman-manager-wrapped)"
                     "float, class:(nm-connection-editor)"
 
+                    "renderunfocused, class:(^steam_app_[0-9]*)"
+                    "fullscreen, class:(^steam_app_[0-9]*)"
                 ];
 
                 bindm = [
