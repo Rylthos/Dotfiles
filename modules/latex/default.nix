@@ -7,6 +7,7 @@ in {
         home.packages = with pkgs; [
             texlab
             texlive.combined.scheme-full
+            tex-fmt
         ];
 
         home.file.".indentconfig.yaml".source = (pkgs.formats.yaml {}).generate "" {
