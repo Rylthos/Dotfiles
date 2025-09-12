@@ -31,14 +31,13 @@
     };
 
   fileSystems."/mnt/ssd" = {
-    device = "/dev/sdb1";
-      fsType = "btrfs";
-      options = [
-        # "subvol=@"
-        "users"
-        "exec"
-      ];
-    };
+    device = "/dev/disk/by-id/ata-Samsung_SSD_870_QVO_1TB_S5SVNF0R414404A-part1";
+    fsType = "btrfs";
+    options = [
+      "users"
+      "exec"
+    ];
+  };
 
   fileSystems."/mnt/game_hdd" =
     { device = "/dev/disk/by-uuid/0A5CD26F5CD25553";
