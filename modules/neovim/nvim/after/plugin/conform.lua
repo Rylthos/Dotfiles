@@ -5,7 +5,7 @@ require("conform").setup({
 		lua = { "stylua" },
 
 		java = { "astyle" },
-		tex = {},
+		tex = { "tex-fmt" },
 
 		rust = { "rustfmt" },
 
@@ -28,6 +28,9 @@ require("conform").setup({
 				"--squeeze-lines=1",
 				"--squeeze-ws",
 			},
+		},
+		["tex-fmt"] = {
+			command = "tex-fmt",
 		},
 	},
 

@@ -6,6 +6,7 @@ vim.g.vimtex_compiler_latexmk = {
 		"-interaction=nonstopmode",
 		"-lualatex",
 		"-shell-escape",
+		"-output-directory='build'",
 	},
 }
 
