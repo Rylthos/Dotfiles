@@ -1,4 +1,4 @@
-{ pkgs, lib, config, hostname, ... }:
+{ pkgs, lib, config, hostname, inputs, ... }:
 with lib;
 let
     cfg = config.modules.hyprland;
@@ -33,15 +33,15 @@ in {
             xdg-user-dirs
         ];
 
-        wayland.windowManager.hyprland = with pkgs.hyprlandPlugins; {
+        wayland.windowManager.hyprland = {
             enable = true;
 
             importantPrefixes = ["plugin" "$" "bezier" "name" "source"];
 
             extraConfig = ''
-                plugin = ${hy3}/lib/libhy3.so
-                plugin = ${hyprsplit}/lib/libhyprsplit.so
+                plugin = ${pkgs.hyprlandPlugins.hy3}/lib/libhy3.so
             '';
+            # plugin = ${pkgs.hyprlandPlugins.hyprsplit}/lib/libhyprsplit.so
 
             settings = {
                 exec-once = [
@@ -50,7 +50,7 @@ in {
 
                 "$terminal" = "alacritty";
                 "$fileManager" = "thunar";
-                "$menu" = "wofi --show drun -M fuzzy";
+                "$menu" = "wofi --show drun -M multi-contains";
 
                 debug = {
                     disable_logs = false;
@@ -82,6 +82,7 @@ in {
                     kb_layout = "gb";
                     touchpad = {
                         natural_scroll = "yes";
+                        scroll_factor = 0.5;
                     };
                 };
 
@@ -133,10 +134,6 @@ in {
                     };
                 };
 
-                gestures = {
-                    workspace_swipe = "on";
-                };
-
                 windowrulev2 = [
                     "opaque, class:(org.kde.okular)"
                     "opaque, class:(kicad)"
@@ -182,6 +179,7 @@ in {
 
                     "renderunfocused, class:(^steam_app_[0-9]*)"
                     "fullscreen, class:(^steam_app_[0-9]*)"
+                    "idleinhibit, focus, class:(^steam_app_[0-9]*)"
                 ];
 
                 bindm = [
@@ -235,30 +233,55 @@ in {
                     "SUPER SHIFT, K, hy3:movewindow, u, once"
                     "SUPER SHIFT, J, hy3:movewindow, d, once"
 
-                    "SUPER, 1, split:workspace, 1"
-                    "SUPER, 2, split:workspace, 2"
-                    "SUPER, 3, split:workspace, 3"
-                    "SUPER, 4, split:workspace, 4"
-                    "SUPER, 5, split:workspace, 5"
-                    "SUPER, 6, split:workspace, 6"
-                    "SUPER, 7, split:workspace, 7"
-                    "SUPER, 8, split:workspace, 8"
-                    "SUPER, 9, split:workspace, 9"
-                    "SUPER, 0, split:workspace, 10"
+                    "SUPER, 1, workspace, 1"
+                    "SUPER, 2, workspace, 2"
+                    "SUPER, 3, workspace, 3"
+                    "SUPER, 4, workspace, 4"
+                    "SUPER, 5, workspace, 5"
+                    "SUPER, 6, workspace, 6"
+                    "SUPER, 7, workspace, 7"
+                    "SUPER, 8, workspace, 8"
+                    "SUPER, 9, workspace, 9"
+                    "SUPER, 0, workspace, 10"
 
-                    "SUPER SHIFT, 1, split:movetoworkspace, 1"
-                    "SUPER SHIFT, 2, split:movetoworkspace, 2"
-                    "SUPER SHIFT, 3, split:movetoworkspace, 3"
-                    "SUPER SHIFT, 4, split:movetoworkspace, 4"
-                    "SUPER SHIFT, 5, split:movetoworkspace, 5"
-                    "SUPER SHIFT, 6, split:movetoworkspace, 6"
-                    "SUPER SHIFT, 7, split:movetoworkspace, 7"
-                    "SUPER SHIFT, 8, split:movetoworkspace, 8"
-                    "SUPER SHIFT, 9, split:movetoworkspace, 9"
-                    "SUPER SHIFT, 0, split:movetoworkspace, 10"
+                    "SUPER SHIFT, 1, movetoworkspace, 1"
+                    "SUPER SHIFT, 2, movetoworkspace, 2"
+                    "SUPER SHIFT, 3, movetoworkspace, 3"
+                    "SUPER SHIFT, 4, movetoworkspace, 4"
+                    "SUPER SHIFT, 5, movetoworkspace, 5"
+                    "SUPER SHIFT, 6, movetoworkspace, 6"
+                    "SUPER SHIFT, 7, movetoworkspace, 7"
+                    "SUPER SHIFT, 8, movetoworkspace, 8"
+                    "SUPER SHIFT, 9, movetoworkspace, 9"
+                    "SUPER SHIFT, 0, movetoworkspace, 10"
 
-                    "SUPER , G, split:grabroguewindows"
-                    "SUPER , D, split:swapactiveworkspaces, current+1"
+                    # "SUPER , G, split:grabroguewindows"
+                    # "SUPER , D, split:swapactiveworkspaces, current+1"
+
+                    # "SUPER, 1, split:workspace, 1"
+                    # "SUPER, 2, split:workspace, 2"
+                    # "SUPER, 3, split:workspace, 3"
+                    # "SUPER, 4, split:workspace, 4"
+                    # "SUPER, 5, split:workspace, 5"
+                    # "SUPER, 6, split:workspace, 6"
+                    # "SUPER, 7, split:workspace, 7"
+                    # "SUPER, 8, split:workspace, 8"
+                    # "SUPER, 9, split:workspace, 9"
+                    # "SUPER, 0, split:workspace, 10"
+                    #
+                    # "SUPER SHIFT, 1, split:movetoworkspace, 1"
+                    # "SUPER SHIFT, 2, split:movetoworkspace, 2"
+                    # "SUPER SHIFT, 3, split:movetoworkspace, 3"
+                    # "SUPER SHIFT, 4, split:movetoworkspace, 4"
+                    # "SUPER SHIFT, 5, split:movetoworkspace, 5"
+                    # "SUPER SHIFT, 6, split:movetoworkspace, 6"
+                    # "SUPER SHIFT, 7, split:movetoworkspace, 7"
+                    # "SUPER SHIFT, 8, split:movetoworkspace, 8"
+                    # "SUPER SHIFT, 9, split:movetoworkspace, 9"
+                    # "SUPER SHIFT, 0, split:movetoworkspace, 10"
+                    #
+                    # "SUPER , G, split:grabroguewindows"
+                    # "SUPER , D, split:swapactiveworkspaces, current+1"
                 ];
 
 

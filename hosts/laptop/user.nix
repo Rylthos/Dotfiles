@@ -22,7 +22,7 @@
         pyprland.enable = true;
         python.enable = true;
         razer.enable = true;
-        recording.enable = true;
+        # recording.enable = true;
         screen_recorder.enable = true;
         spotify.enable = true;
         spotify_player.enable = true;

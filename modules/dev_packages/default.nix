@@ -18,7 +18,7 @@ in {
             gdb
             valgrind
             tracy
-            libsForQt5.kcachegrind
+            kdePackages.kcachegrind
             gnumake
 
             ## Graphics

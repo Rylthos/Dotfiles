@@ -41,8 +41,6 @@ in
                 --cmd Hyprland
                 '';
             };
-
-            vt = 1;
         };
     };
 
