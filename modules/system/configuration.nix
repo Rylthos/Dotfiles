@@ -21,6 +21,9 @@
 
         man-pages
         man-pages-posix
+
+        wireguard-tools
+        protonvpn-gui
     ];
     documentation.dev.enable = true;
 
@@ -37,6 +40,7 @@
     xdg = {
         portal = {
             enable = true;
+            xdgOpenUsePortal = true;
             config.common.default = "*";
             extraPortals = with pkgs; [
                 xdg-desktop-portal-wlr
@@ -60,6 +64,10 @@
             keep-outputs = true
             keep-derivations = true
         '';
+
+        settings = {
+            download-buffer-size = 524288000; # 500 MiB
+        };
     };
 
     nixpkgs.config = {
@@ -198,6 +206,8 @@
     };
 
     programs.gpu-screen-recorder.enable = true;
+
+    programs.mosh.enable = true;
 
     system.stateVersion = "24.11";
 }
