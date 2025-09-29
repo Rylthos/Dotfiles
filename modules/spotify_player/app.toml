@@ -1,5 +1,4 @@
 theme = "default"
-client_id = "f0504ffdf12a4040913d5d89a9fcd073"
 client_port = 8080
 tracks_playback_limit = 50
 playback_format = "{track} • {artists}\n{album}\n{metadata}"
