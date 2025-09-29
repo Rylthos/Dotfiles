@@ -14,9 +14,13 @@
             url = "github:Gerg-L/spicetify-nix";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        nixpkgs-siril = {
+            url = "github:NixOS/nixpkgs/nixos-unstable";
+        };
     };
 
-    outputs = { home-manager, nixpkgs, nix-colors, nixos-wsl, ... }@inputs:
+    outputs = { home-manager, nixpkgs, nix-colors, nixos-wsl, nixpkgs-siril, ... }@inputs:
         let
             system = "x86_64-linux";
             pkgs = inputs.nixpkgs.legacyPackages.${system};
@@ -37,7 +41,7 @@
                             home-manager = {
                                 useUserPackages = true;
                                 useGlobalPkgs = true;
-                                extraSpecialArgs = { inherit inputs; inherit nix-colors; inherit nixpkgs;
+                                extraSpecialArgs = { inherit inputs; inherit nix-colors; inherit nixpkgs; inherit nixpkgs-siril;
                                     hostname = hostname; };
                                 users.aaron = (./. + "/hosts/${hostname}/user.nix");
                             };
