@@ -18,6 +18,7 @@ in {
 
             kdePackages.okular
             kdePackages.xwaylandvideobridge
+            zathura
 
             grim
             slurp
