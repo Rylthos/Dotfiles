@@ -47,8 +47,8 @@ in
     environment = {
         variables = {
             CODING = "$HOME/Documents/Coding";
-            CAMBRIDGE_WORK = "$HOME/Documents/Cambridge/PartIB/";
-            CAMBRIDGE_SUPO = "$HOME/Documents/Cambridge/PartIB/Supervisions/";
+            CAMBRIDGE_WORK = "$HOME/Documents/Cambridge/PartII/";
+            CAMBRIDGE_SUPO = "$HOME/Documents/Cambridge/PartII/Supervisions/";
         };
 
         sessionVariables = {
