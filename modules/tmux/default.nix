@@ -54,6 +54,11 @@ in {
 		bind-key k select-pane -U
 		bind-key l select-pane -R
 
+		bind-key -n M-C-h select-pane -L
+		bind-key -n M-C-j select-pane -D
+		bind-key -n M-C-k select-pane -U
+		bind-key -n M-C-l select-pane -R
+
 		bind 'v' split-window -v -c "#{pane_current_path}"
 		bind 'h' split-window -h -c "#{pane_current_path}"
 	    '';

@@ -75,6 +75,20 @@
       allowUnfreePredicate = (_: true);
     };
 
+    # Not yet updated in nixpkgs
+    nixpkgs.overlays = [
+        (_: prev: {
+            hyprutils = prev.hyprutils.overrideAttrs (_: {
+                src = prev.fetchFromGitHub {
+                    owner = "hyprwm";
+                    repo = "hyprutils";
+                    tag = "v0.10.0";
+                    hash = "sha256-r1ed7AR2ZEb2U8gy321/Xcp1ho2tzn+gG1te/Wxsj1A=";
+                };
+            });
+         })
+    ];
+
     boot = {
         kernel.sysctl = {
             "kernel.printk" = "3 3 3 3";

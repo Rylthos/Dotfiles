@@ -9,6 +9,9 @@ in {
             lldb_20
             vscode-extensions.vadimcn.vscode-lldb.adapter
 
+            ## Python
+            pyright
+
             ## C/Cpp
             clang-tools
             clang
@@ -24,7 +27,6 @@ in {
             ## Graphics
             glslang
             glsl_analyzer
-            # spirv-tools
             renderdoc
             # rgp
 

@@ -12,7 +12,7 @@ in {
             (kdePackages.kdenlive.overrideAttrs (prevAttrs: {
                                      nativeBuildInputs = (prevAttrs.nativeBuildInputs or [ ]) ++ [ makeBinaryWrapper ];
                                      postInstall = (prevAttrs.postInstall or "") + ''
-                                     wrapProgram $out/bin/kdenlive --prefix LADSPA_PATH : ${rnnoise-plugin}/lib/ladspa
+                                         wrapProgram $out/bin/kdenlive --prefix LADSPA_PATH : ${rnnoise-plugin}/lib/ladspa
                                      '';
                                      }))
        ];

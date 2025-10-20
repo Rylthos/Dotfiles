@@ -60,7 +60,9 @@ local lsps = {
 	"glsl_analyzer",
 	"jdtls",
 	"nixd",
+	"pyright",
 	"rust_analyzer",
+	"slangd",
 	"texlab",
 	"ts_ls",
 }
@@ -99,4 +101,16 @@ lspconfig.glsl_analyzer.setup {
 			client.cancel_request = function (client, request_id) end
 		end
 	end
+}
+
+lspconfig.slangd.setup {
+	capabilities = lsp_capabilities,
+	settings = {
+		slang = {
+			inlayHints= {
+				deducedTypes = true,
+				parameterNames = true,
+			},
+		},
+	},
 }

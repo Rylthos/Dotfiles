@@ -185,8 +185,10 @@ return {
             vim.cmd("colorscheme horizon")
         end
     },
+    --]]
     "folke/tokyonight.nvim",
     "EdenEast/nightfox.nvim",
+    --[[
     {
         "rebelot/kanagawa.nvim",
         config = function()

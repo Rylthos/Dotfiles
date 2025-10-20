@@ -3,6 +3,7 @@
 
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+        nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
         home-manager = {
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -15,12 +16,13 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        nixpkgs-siril = {
-            url = "github:NixOS/nixpkgs/nixos-unstable";
+        hyprland = {
+            url = "github:hyprwm/hyprland";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
     };
 
-    outputs = { home-manager, nixpkgs, nix-colors, nixos-wsl, nixpkgs-siril, ... }@inputs:
+    outputs = { home-manager, nixpkgs, nixpkgs-stable, nix-colors, nixos-wsl, ... }@inputs:
         let
             system = "x86_64-linux";
             pkgs = inputs.nixpkgs.legacyPackages.${system};
@@ -31,6 +33,9 @@
                     system = system;
                     specialArgs = {
                         hostname = hostname;
+                        # pkgs-stable = import nixpkgs-stable {
+                        #     system = system;
+                        # };
                     };
                     modules = [
                         (./modules/system/configuration.nix)
@@ -41,8 +46,15 @@
                             home-manager = {
                                 useUserPackages = true;
                                 useGlobalPkgs = true;
-                                extraSpecialArgs = { inherit inputs; inherit nix-colors; inherit nixpkgs; inherit nixpkgs-siril;
-                                    hostname = hostname; };
+                                extraSpecialArgs = { 
+                                    inherit inputs; 
+                                    inherit nix-colors;
+                                    inherit nixpkgs;
+                                    hostname = hostname;
+                                    pkgs-stable = import nixpkgs-stable {
+                                        system = system;
+                                    };
+                                };
                                 users.aaron = (./. + "/hosts/${hostname}/user.nix");
                             };
                         }

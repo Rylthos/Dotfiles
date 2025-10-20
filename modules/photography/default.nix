@@ -1,4 +1,4 @@
-{ pkgs, lib, config, nixpkgs-siril, ... }:
+{ pkgs, lib, config, ... }:
     with lib;
     let cfg = config.modules.photography;
     pkgs-siril = import nixpkgs-siril { system = "x86_64-linux"; };
@@ -10,7 +10,9 @@ in {
             darktable
             lensfun
 
-            pkgs-siril.siril
+            siril
+
+            hugin
         ];
 
     };
