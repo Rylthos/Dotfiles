@@ -60,13 +60,13 @@ in {
                 source = "~/.config/hypr/catppuccin_macchiato.conf";
 
                 general = {
-                monitor = [
-                ] ++ (lib.optionals (hostname == "laptop")) [
-                    "eDP-1, 2880x1800@90, 0x0, 1.8"
-                ] ++ (lib.optionals (hostname == "desktop")) [
-                    "DP-1,prefererred,0x0,1"
-                    "DP-2,prefererred,auto-right,1"
-                ];
+                    monitor = [
+                    ] ++ (lib.optionals (hostname == "laptop")) [
+                        "eDP-1, 2880x1800@90, 0x0, 1.8"
+                    ] ++ (lib.optionals (hostname == "desktop")) [
+                        "DP-1,prefererred,0x0,1"
+                        "DP-2,prefererred,auto-right,1"
+                    ];
                     border_size = 1;
                     gaps_out = 5;
                     gaps_in = 2;
@@ -74,8 +74,6 @@ in {
                     "col.active_border" = "rgba(FF0000CC) rgba(FF8700CC) rgba(FFD300CC) rgba(DEFF0ACC) rgba(A1FF0ACC) rgba(0AFF99CC) rgba(0AEFFFCC) rgba(147DF5CC) rgba(580AFFCC) rgba(BE0AFFCC) 90deg";
                     "col.inactive_border" = "rgba(147DF588) 45deg";
 
-                    # layout = "master";
-                    # layout = "dwindle";
                     layout = "hy3";
                 };
 
@@ -133,6 +131,10 @@ in {
                         enabled = true;
                         range = 4;
                     };
+                };
+
+                gestures = {
+                    workspace_swipe_touch = true;
                 };
 
                 windowrulev2 = [
@@ -238,28 +240,6 @@ in {
                     "SUPER SHIFT, K, hy3:movewindow, u, once"
                     "SUPER SHIFT, J, hy3:movewindow, d, once"
 
-                    # "SUPER, 1, workspace, 1"
-                    # "SUPER, 2, workspace, 2"
-                    # "SUPER, 3, workspace, 3"
-                    # "SUPER, 4, workspace, 4"
-                    # "SUPER, 5, workspace, 5"
-                    # "SUPER, 6, workspace, 6"
-                    # "SUPER, 7, workspace, 7"
-                    # "SUPER, 8, workspace, 8"
-                    # "SUPER, 9, workspace, 9"
-                    # "SUPER, 0, workspace, 10"
-                    #
-                    # "SUPER SHIFT, 1, movetoworkspace, 1"
-                    # "SUPER SHIFT, 2, movetoworkspace, 2"
-                    # "SUPER SHIFT, 3, movetoworkspace, 3"
-                    # "SUPER SHIFT, 4, movetoworkspace, 4"
-                    # "SUPER SHIFT, 5, movetoworkspace, 5"
-                    # "SUPER SHIFT, 6, movetoworkspace, 6"
-                    # "SUPER SHIFT, 7, movetoworkspace, 7"
-                    # "SUPER SHIFT, 8, movetoworkspace, 8"
-                    # "SUPER SHIFT, 9, movetoworkspace, 9"
-                    # "SUPER SHIFT, 0, movetoworkspace, 10"
-
                     "SUPER, 1, split:workspace, 1"
                     "SUPER, 2, split:workspace, 2"
                     "SUPER, 3, split:workspace, 3"
@@ -286,6 +266,20 @@ in {
                     "SUPER , D, split:swapactiveworkspaces, current+1"
                 ];
 
+                gesture = [
+                    "3, horizontal, workspace"
+                ];
+
+                device = [
+                    {
+                        name = "elan9008:00-04f3:2e36-stylus";
+                        output = "eDP-1";
+                    }
+                    {
+                        name = "elan9008:00-04f3:2e36";
+                        output = "eDP-1";
+                    }
+                ];
 
                 plugin = {
                     hy3 = {
