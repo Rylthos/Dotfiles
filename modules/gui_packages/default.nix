@@ -39,7 +39,7 @@ in {
 
             trilium-next-desktop
 
-            anki
+            moonlight-qt
         ];
     };
 }

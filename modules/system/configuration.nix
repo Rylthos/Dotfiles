@@ -33,7 +33,6 @@
         packages = with pkgs; [
             nerd-fonts.caskaydia-cove
             corefonts
-            # (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
         ];
     };
 
@@ -99,15 +98,6 @@
             systemd-boot.editor = false;
             systemd-boot.configurationLimit = 5;
             efi.canTouchEfiVariables = true;
-
-            systemd-boot = {
-                windows = lib.mkIf (hostname == "desktop") {
-                    # "sdc2" = {
-                    #     title = "Windows 10";
-                    #     efiDeviceHandle = "FS0";
-                    # };
-                };
-            };
         };
     };
 
@@ -203,7 +193,7 @@
         };
     };
 
-    services.sunshine = {
+    services.sunshine = lib.mkIf (hostname == "desktop") {
         enable = true;
         autoStart = true;
         capSysAdmin =  true;
@@ -214,10 +204,10 @@
         enable = true;
         allowedTCPPorts = [
             22
-        ] ++ [ # Sunshine
+        ] ++ (lib.optionals (hostname == "desktop")) [ # Sunshine
             47984 47989 47990 48010
         ];
-        allowedUDPPortRanges = [ # Sunshine
+        allowedUDPPortRanges = [] ++ (lib.optionals (hostname == "desktop")) [ # Sunshine
             { from = 47998; to = 48000; }
             { from = 8000; to = 8010; }
         ];
