@@ -34,6 +34,11 @@ in {
             xdg-user-dirs
         ];
 
+        xdg.configFile."hypr/shaders" = {
+            source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/modules/hyprland/hypr/shaders";
+            recursive = true;
+        };
+
         wayland.windowManager.hyprland = {
             enable = true;
 

@@ -20,7 +20,6 @@ vim.g.vimtex_quickfix_ignore_filters = { "Underfull", "Overfull" }
 
 local vim_leader = ","
 vim.keymap.set("n", vim_leader .. "ce", "<plug>(vimtex-env-surround-line)")
-vim.keymap.set("n", vim_leader .. "ce", "<Plug>(vimtex-env-surround-line)")
 vim.keymap.set("v", vim_leader .. "ce", "<Plug>(vimtex-env-surround-visual)")
 
 vim.keymap.set("n", vim_leader .. "cf", "<Plug>(vimtex-compile)")

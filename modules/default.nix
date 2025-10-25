@@ -36,6 +36,7 @@
         ./wireshark
         ./wlogout
         ./wofi
+        ./yazi
     ];
 
     colorscheme = nix-colors.colorSchemes.catppuccin-macchiato;

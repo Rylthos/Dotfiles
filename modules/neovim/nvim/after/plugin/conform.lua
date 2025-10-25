@@ -31,6 +31,16 @@ require("conform").setup({
 		},
 		["tex-fmt"] = {
 			command = "tex-fmt",
+			args = {
+				"--nowrap",
+				"-s",
+			},
+		},
+		["latexindent"] = {
+			command = "latexindent",
+			args = {
+				""
+			},
 		},
 	},
 

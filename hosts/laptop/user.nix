@@ -33,6 +33,7 @@
         wireshark.enable = true;
         wlogout.enable = true;
         wofi.enable = true;
+        yazi.enable = true;
     };
 
     config.programs.fish.shellAliases = {
