@@ -3,7 +3,7 @@ with lib;
 let
     cfg = config.modules.hyprland;
 
-    startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
+    startupScript = pkgs.pkgs.writeShellScriptBin "start" (''
       $NIXOS_SCRIPTS_DIR/waybar_start.sh &
       swww-daemon &
 
@@ -12,7 +12,12 @@ let
       hypridle &
 
       $NIXOS_SCRIPTS_DIR/RandomBackgroundLoop.sh &
-    '';
+    '' + (lib.optionalString (hostname == "laptop") ''
+        hyprshade on custom-vibrance &
+    '') + (lib.optionalString (hostname == "desktop") ''
+        hyprshade on custom-vibrance-desktop &
+    ''));
+
 in {
     options.modules.hyprland = { enable = mkEnableOption "hyprland"; };
     config = mkIf cfg.enable {
@@ -140,6 +145,7 @@ in {
 
                 gestures = {
                     workspace_swipe_touch = true;
+                    workspace_swipe_cancel_ratio = 0.3;
                 };
 
                 windowrulev2 = [
