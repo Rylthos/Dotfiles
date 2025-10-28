@@ -95,7 +95,7 @@ in {
                     format = "{capacity:2}󱉸 {icon} {time}";
                     format-time = "{H} h {M} min";
                     tooltip-format = "{power:3} watts";
-                    interval = 20;
+                    interval = 10;
                     format-icons = {
                         charging = [
                             "󰢜"
