@@ -9,6 +9,8 @@ require("conform").setup({
 
 		rust = { "rustfmt" },
 
+		typescript = { "prettier" },
+
 		["*"] = { "trim_whitespace", "trim_newlines" },
 	},
 

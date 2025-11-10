@@ -39,6 +39,7 @@ in {
             # Webdev
             vscode-langservers-extracted
             typescript-language-server
+            prettier
 
             # Prolog
             swi-prolog
