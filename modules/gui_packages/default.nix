@@ -15,6 +15,7 @@ in {
             blender
 
             vesktop
+            xdg-utils
 
             kdePackages.okular
             kdePackages.xwaylandvideobridge
