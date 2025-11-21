@@ -16,16 +16,20 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        # nixpkgs-7b309.url = "github:NixOS/nixpkgs?rev=7b309d550bbddb7c581bde750190ec3d725b0633";
         hyprland = {
             url = "github:hyprwm/hyprland";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        hy3 = {
+            url = "github:outfoxxed/hy3";
+            inputs.hyprland.follows = "hyprland";
+        };
     };
 
-    outputs = { home-manager, nixpkgs, nixpkgs-stable, nix-colors, nixos-wsl, ... }@inputs:
+    outputs = { home-manager, nixpkgs, nixpkgs-stable, hyprland, hy3, nix-colors, nixos-wsl, ... }@inputs:
         let
-            system = "x86_64-linux";
-            pkgs = inputs.nixpkgs.legacyPackages.${system};
             lib = nixpkgs.lib;
 
             mkSystem = pkgs: system: hostname: wsl:
@@ -33,9 +37,6 @@
                     system = system;
                     specialArgs = {
                         hostname = hostname;
-                        # pkgs-stable = import nixpkgs-stable {
-                        #     system = system;
-                        # };
                     };
                     modules = [
                         (./modules/system/configuration.nix)
@@ -46,8 +47,8 @@
                             home-manager = {
                                 useUserPackages = true;
                                 useGlobalPkgs = true;
-                                extraSpecialArgs = { 
-                                    inherit inputs; 
+                                extraSpecialArgs = {
+                                    inherit inputs;
                                     inherit nix-colors;
                                     inherit nixpkgs;
                                     hostname = hostname;

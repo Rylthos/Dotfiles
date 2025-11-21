@@ -1,4 +1,3 @@
-local lspconfig = require('lspconfig')
 local lsp_capabilities = require("blink.cmp").get_lsp_capabilities()
 lsp_capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
@@ -53,12 +52,12 @@ vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle)
 require'ufo'.setup{ }
 
 local lsps = {
-	"arduino_language_server",
 	"clangd",
 	"cmake",
 	"cssls",
 	"glsl_analyzer",
 	"jdtls",
+	"lua_ls",
 	"nixd",
 	"pyright",
 	"rust_analyzer",
@@ -67,13 +66,11 @@ local lsps = {
 	"ts_ls",
 }
 
-for _, v in ipairs(lsps) do
-	lspconfig[v].setup {
-		capabilities = lsp_capabilities
-	}
-end
+vim.lsp.config("*", {
+	capabilities=lsp_capabilities
+})
 
-lspconfig.lua_ls.setup {
+vim.lsp.config("lua_ls", {
 	capabilities = lsp_capabilities,
 	on_init = function(client)
 		client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
@@ -92,18 +89,18 @@ lspconfig.lua_ls.setup {
 	settings = {
 		Lua = {}
 	}
-}
+})
 
-lspconfig.glsl_analyzer.setup {
+vim.lsp.config("glsl_analyzer", {
 	capabilities = lsp_capabilities,
 	on_attach = function(client, bufnr)
 		if client.name == "glsl_analyzer" then
 			client.cancel_request = function (client, request_id) end
 		end
 	end
-}
+})
 
-lspconfig.slangd.setup {
+vim.lsp.config("slangd", {
 	capabilities = lsp_capabilities,
 	settings = {
 		slang = {
@@ -113,4 +110,6 @@ lspconfig.slangd.setup {
 			},
 		},
 	},
-}
+})
+
+vim.lsp.enable(lsps)

@@ -50,7 +50,7 @@ in {
             importantPrefixes = ["plugin" "$" "bezier" "name" "source"];
 
             extraConfig = ''
-                plugin = ${pkgs.hyprlandPlugins.hy3}/lib/libhy3.so
+                plugin = ${inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3}/lib/libhy3.so
                 plugin = ${pkgs.hyprlandPlugins.hyprsplit}/lib/libhyprsplit.so
             '';
 
@@ -160,6 +160,7 @@ in {
                     "opaque, class:(TriliumNext Notes)"
                     "opaque, class:(Matplotlib)"
                     "opaque, class:(org.pwmt.zathura)"
+                    "opaque, class:(org.inkscape.Inkscape)"
                     "opaque, initialTitle:(Godot)"
 
                     "opaque, initialClass:(GLFW)"
@@ -190,14 +191,16 @@ in {
 
                     "float, class:(org.pulseaudio.pavucontrol)"
                     "persistentsize, class:(org.pulseaudio.pavucontrol)"
-                    "size, 50% 50%, class:(org.pulseaudio.pavucontrol)"
+                    "size 50% 50%, class:(org.pulseaudio.pavucontrol)"
 
                     "float, class:(.blueman-manager-wrapped)"
                     "float, class:(nm-connection-editor)"
 
+                    "renderunfocused, class:(tracy)"
+
                     "renderunfocused, class:(^steam_app_[0-9]*)"
                     "fullscreen, class:(^steam_app_[0-9]*)"
-                    "idleinhibit, focus, class:(^steam_app_[0-9]*)"
+                    "idleinhibit focus, class:(^steam_app_[0-9]*)"
                 ];
 
                 bindm = [

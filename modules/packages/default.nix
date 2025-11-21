@@ -12,7 +12,7 @@ in {
             wget
             octave
             ffmpeg
-            imhex
+            # imhex
             imagemagick
             pandoc
 

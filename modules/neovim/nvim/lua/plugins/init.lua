@@ -23,8 +23,6 @@ return {
         build = "cargo build --release",
     },
 
-    "simrat39/rust-tools.nvim",
-
     "ray-x/lsp_signature.nvim",
 
     "ThePrimeagen/vim-be-good",

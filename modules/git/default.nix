@@ -6,9 +6,11 @@ in {
     config = mkIf cfg.enable {
         programs.git = {
             enable = true;
-            userName = "Aaron Danton";
-            userEmail = "aarondanton04@hotmail.com";
-            extraConfig = {
+            settings = {
+                user = {
+                    name = "Aaron Danton";
+                    email = "aarondanton04@hotmail.com";
+                };
                 init = { defaultBranch = "main"; };
                 core = {
                     excludesfile = "$NIXOS_CONFIG_DIR/scripts/gitignore";

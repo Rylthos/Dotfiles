@@ -9,12 +9,8 @@ in {
     options.modules.spotify = { enable = mkEnableOption "spotify"; };
     config = mkIf cfg.enable {
 
-        # home.packages = with pkgs; [
-        #     # spotify
-        # ];
-
-        programs.spicetify = 
-        let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system}; in {
+        programs.spicetify =
+        let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system}; in {
             enable = true;
             theme = spicePkgs.themes.hazy;
 

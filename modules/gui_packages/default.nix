@@ -8,6 +8,7 @@ in {
             kicad
             freecad
             krita
+            inkscape
             arduino-ide
             libreoffice-qt
             vlc
@@ -18,7 +19,6 @@ in {
             xdg-utils
 
             kdePackages.okular
-            kdePackages.xwaylandvideobridge
             zathura
 
             grim

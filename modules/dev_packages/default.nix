@@ -13,8 +13,8 @@ in {
             pyright
 
             ## C/Cpp
-            clang-tools
-            clang
+            # clang-tools
+            # clang
             cmake
             cmake-language-server
             ninja
@@ -28,7 +28,7 @@ in {
             glslang
             glsl_analyzer
             renderdoc
-            # rgp
+            rgp
 
             ## Nixos
             nixd

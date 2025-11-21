@@ -23,7 +23,7 @@
         man-pages-posix
 
         wireguard-tools
-        protonvpn-gui
+        # protonvpn-gui
     ];
     documentation.dev.enable = true;
 
