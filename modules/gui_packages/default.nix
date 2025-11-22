@@ -40,6 +40,8 @@ in {
 
             trilium-next-desktop
 
+            qpwgraph
+
             moonlight-qt
         ];
     };

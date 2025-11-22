@@ -191,7 +191,7 @@ in {
 
                     "float, class:(org.pulseaudio.pavucontrol)"
                     "persistentsize, class:(org.pulseaudio.pavucontrol)"
-                    "size 50% 50%, class:(org.pulseaudio.pavucontrol)"
+                    "size 60% 60%, class:(org.pulseaudio.pavucontrol)"
 
                     "float, class:(.blueman-manager-wrapped)"
                     "float, class:(nm-connection-editor)"
