@@ -26,8 +26,12 @@
     };
 
   fileSystems."/mnt/data_hdd" =
-    { device = "/dev/disk/by-uuid/50B28524B2851020";
-      fsType = "ntfs";
+    { device = "/dev/disk/by-id/ata-ST2000DX002-2DV164_Z4ZB6SHZ-part1";
+      fsType = "btrfs";
+      options = [
+        "users"
+          "exec"
+      ];
     };
 
   fileSystems."/mnt/ssd" = {
