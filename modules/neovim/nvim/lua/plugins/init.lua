@@ -39,7 +39,8 @@ return {
 
     {
         "nvim-treesitter/nvim-treesitter",
-        main = "nvim-treesitter.configs",
+        lazy = false,
+        build = ":TSUpdate",
     },
 
     "tpope/vim-sleuth",

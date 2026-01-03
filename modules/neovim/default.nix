@@ -1,35 +1,6 @@
 { pkgs, lib, config, ... }:
 with lib;
 let cfg = config.modules.neovim;
-
-treesitterGrammars = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
-    p.arduino
-    p.bash
-    p.c
-    p.cpp
-    p.css
-    p.fish
-    p.gitattributes
-    p.gitignore
-    p.glsl
-    p.javascript
-    p.json5
-    p.json
-    p.lua
-    p.make
-    p.markdown
-    p.nix
-    p.python
-    p.rust
-    p.vim
-    p.vimdoc
-    p.ocaml
-]));
-
-treesitter-parsers = pkgs.symlinkJoin {
-    name = "treesitter-parsers";
-    paths = treesitterGrammars.dependencies;
-};
 in {
     options.modules.neovim = { enable = mkEnableOption "neovim"; };
     config = mkIf cfg.enable {
@@ -49,8 +20,7 @@ in {
             withNodeJs = true;
 
             plugins = with pkgs.vimPlugins; [
-                nvim-treesitter
-                treesitterGrammars
+                nvim-treesitter.withAllGrammars
             ];
 
             extraPackages = with pkgs; [ gcc ];
@@ -67,8 +37,7 @@ in {
 
         xdg.configFile = {
             "nvim/init.lua".text = ''
-                vim.opt.runtimepath:append("${treesitterGrammars}")
-                vim.opt.runtimepath:append("${treesitter-parsers}")
+                vim.opt.runtimepath:append("${pkgs.vimPlugins.nvim-treesitter.withAllGrammars}")
 
                 require('start')
             '';

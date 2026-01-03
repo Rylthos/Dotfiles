@@ -20,6 +20,8 @@
         nvibrant.enable = true;
         packages.enable = true;
         photography.enable = true;
+        prismlauncher.enable = true;
+        pureref.enable = true;
         pyprland.enable = true;
         python.enable = true;
         recording.enable = true;

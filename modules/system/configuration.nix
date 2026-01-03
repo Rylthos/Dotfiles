@@ -203,11 +203,13 @@
     networking.firewall = {
         enable = true;
         allowedTCPPorts = [
-            22
+            22 25565
         ] ++ (lib.optionals (hostname == "desktop")) [ # Sunshine
             47984 47989 47990 48010
         ];
-        allowedUDPPortRanges = [] ++ (lib.optionals (hostname == "desktop")) [ # Sunshine
+        allowedUDPPortRanges = [
+            { from = 25565; to = 25565; }
+        ] ++ (lib.optionals (hostname == "desktop")) [ # Sunshine
             { from = 47998; to = 48000; }
             { from = 8000; to = 8010; }
         ];

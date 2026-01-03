@@ -11,6 +11,8 @@ require("conform").setup({
 
 		typescript = { "prettier" },
 
+		shaderslang = { "clang_format" },
+
 		["*"] = { "trim_whitespace", "trim_newlines" },
 	},
 

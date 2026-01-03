@@ -27,7 +27,6 @@ in {
             ## Graphics
             glslang
             glsl_analyzer
-            renderdoc
             rgp
 
             ## Nixos

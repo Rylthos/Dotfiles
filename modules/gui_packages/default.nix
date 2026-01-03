@@ -30,7 +30,7 @@ in {
 
             wayfarer
 
-            wineWowPackages.stable
+            wineWowPackages.waylandFull
 
             kdePackages.kate
             gparted

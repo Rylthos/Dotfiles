@@ -22,6 +22,8 @@
         ./nvibrant
         ./packages
         ./photography
+        ./prismlauncher
+        ./pureref
         ./pyprland
         ./python
         ./razer
