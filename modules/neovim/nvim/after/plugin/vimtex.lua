@@ -15,8 +15,15 @@ vim.g.vimtex_indent_enabled = 0
 vim.g.vimtex_indent_align = 0
 vim.g.vimtex_indent_on_ampersands = 0
 vim.g.vimtex_view_method = "zathura"
-vim.g.vimtex_quickfix_open_on_warning = 0
-vim.g.vimtex_quickfix_ignore_filters = { "Underfull", "Overfull" }
+
+vim.api.nvim_create_autocmd("User", {
+	pattern = "VimtexEventCompileFailed",
+	callback = function()
+		vim.schedule(function()
+		vim.cmd("wincmd p")
+		end)
+	end,
+})
 
 local vim_leader = ","
 vim.keymap.set("n", vim_leader .. "ce", "<plug>(vimtex-env-surround-line)")

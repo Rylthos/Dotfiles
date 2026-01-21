@@ -111,6 +111,10 @@ in {
                     disable_splash_rendering = true;
                 };
 
+                render = {
+                    cm_sdr_eotf = 2;
+                };
+
                 bezier = [
                     "wind, 0.05, 0.9, 0.1, 1.05"
                     "linear, 0.0, 0.0, 1.0, 1.0"
