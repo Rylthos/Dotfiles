@@ -1,4 +1,4 @@
-{ pkgs, lib, config, hostname, inputs, ... }:
+{ pkgs, lib, config, hostname, inputs, hyprland, ... }:
 with lib;
 let
     cfg = config.modules.hyprland;
@@ -17,6 +17,10 @@ let
     '') + (lib.optionalString (hostname == "desktop") ''
         hyprshade on custom-vibrance-desktop &
     ''));
+
+    pkgs_hypr = import inputs.nixpkgs-hypr {
+        system = "x86_64-linux";
+    };
 
 in {
     options.modules.hyprland = { enable = mkEnableOption "hyprland"; };
@@ -49,10 +53,17 @@ in {
 
             importantPrefixes = ["plugin" "$" "bezier" "name" "source"];
 
-            extraConfig = ''
-                plugin = ${inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3}/lib/libhy3.so
-                plugin = ${pkgs.hyprlandPlugins.hyprsplit}/lib/libhyprsplit.so
-            '';
+            plugins = [
+                inputs.hy3.packages.x86_64-linux.hy3
+                inputs.hyprsplit.packages.x86_64-linux.hyprsplit
+            ];
+
+            # extraConfig = ''
+            #     plugin = ${pkgs_hypr.hyprlandPlugins.hy3}/lib/libhy3.so
+            #     plugin = ${pkgs_hypr.hyprlandPlugins.hyprsplit}/lib/libhyprsplit.so
+            # '';
+
+            package = inputs.hyprland.packages.x86_64-linux.hyprland;
 
             settings = {
                 exec-once = [
@@ -131,14 +142,13 @@ in {
                 decoration = {
                     rounding = 10;
 
-                    active_opacity = 0.75;
-                    inactive_opacity = 0.70;
+                    active_opacity = 1.0;
+                    inactive_opacity = 1.0;
 
                     blur = {
                         enabled = true;
-                        size = 20;
-                        passes = 3;
-                        ignore_opacity = true;
+                        size = 8;
+                        passes = 2;
                     };
 
                     shadow = {
@@ -153,30 +163,14 @@ in {
                 };
 
                 windowrulev2 = [
-                    "opaque, class:(org.kde.okular)"
-                    "opaque, class:(kicad)"
-                    "opaque, class:(FreeCAD)"
-                    "opaque, class:(krita)"
-                    "opaque, class:(qrenderdoc)"
-                    "opaque, class:(Darktable)"
-                    "opaque, class:(com.github.xournalpp.xournalpp)"
-                    "opaque, class:(vesktop)"
-                    "opaque, class:(TriliumNext Notes)"
-                    "opaque, class:(Matplotlib)"
-                    "opaque, class:(org.pwmt.zathura)"
-                    "opaque, class:(org.inkscape.Inkscape)"
-                    "opaque, initialTitle:(Godot)"
+                    "opacity 0.7 0.7, initialClass:(Alacritty)"
 
-                    "opaque, initialClass:(GLFW)"
                     "float, initialClass:(GLFW)"
                     "renderunfocused, initialClass:(GLFW)"
 
-                    "opacity 0.8 0.75 0.8, initialClass:(Alacritty)"
 
                     "float, class:(Psst-gui)"
-                    "opaque, class:(Psst-gui)"
 
-                    "opaque, class:(org.kde.digikam)"
                     "float, class:(org.kde.digikam), title:(^New Album)"
 
                     "float, class:(feh),title:(feh-float-waybar)"
@@ -187,7 +181,6 @@ in {
                     "float, class:(firefox),title:(Picture-in-Picture)"
                     "pin, class:(firefox),title:(Picture-in-Picture)"
                     "move onscreen 80% 0%, class:(firefox),title:(Picture-in-Picture)"
-                    "opacity 1.0 override, class:(firefox),title:(.*YouTube.*)|(Picture-in-Picture)$|^(.*\.pdf.*)"
 
                     "float, class:(vesktop),initialTitle:(Discord Popout)"
                     "pin, class:(vesktop),initialTitle:(Discord Popout)"

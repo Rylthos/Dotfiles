@@ -1,4 +1,4 @@
-{ pkgs, lib, config, nixpkgs, ... }:
+{ pkgs, lib, config, nixpkgs, hostname, ... }:
     with lib;
    let cfg = config.modules.dev_packages;
 in {
@@ -27,7 +27,6 @@ in {
             ## Graphics
             glslang
             glsl_analyzer
-            rgp
 
             ## Nixos
             nixd
@@ -42,6 +41,8 @@ in {
 
             # Prolog
             swi-prolog
+        ] ++ (lib.optionals (hostname == "laptop")) [
+            rgp
         ];
 
         home.file.".clang-format" = {

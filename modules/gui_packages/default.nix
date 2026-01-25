@@ -15,7 +15,6 @@ in {
             xournalpp
             blender
 
-            vesktop
             xdg-utils
 
             kdePackages.okular
@@ -43,6 +42,8 @@ in {
             qpwgraph
 
             moonlight-qt
+
+            kdePackages.ark
         ];
     };
 }

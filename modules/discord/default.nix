@@ -5,10 +5,11 @@ in {
     options.modules.discord = { enable = mkEnableOption "discord"; };
     config = mkIf cfg.enable {
         home.packages = with pkgs; [
-            (pkgs.discord.override {
-                withOpenASAR = true;
-                withVencord = true;
-            })
+            discord
+            # (pkgs.discord.override {
+            #     withOpenASAR = true;
+            #     withVencord = true;
+            # })
         ];
     };
 }

@@ -22,7 +22,9 @@ in {
             wget
             octave
             ffmpeg
+
             imhex_1_37_4
+
             imagemagick
             pandoc
 

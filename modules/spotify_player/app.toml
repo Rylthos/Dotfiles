@@ -27,5 +27,5 @@ name = "spotify-player"
 device_type = "speaker"
 volume = 80
 bitrate = 160
-audio_cache = true
+audio_cache = false
 normalization = false

@@ -3,6 +3,7 @@
 
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
         nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
         home-manager = {
             url = "github:nix-community/home-manager";
@@ -16,25 +17,23 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        # nixpkgs-7b309.url = "github:NixOS/nixpkgs?rev=7b309d550bbddb7c581bde750190ec3d725b0633";
-        hyprland = {
-            url = "github:hyprwm/hyprland";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-
+        # 0.51.1
+        hyprland.url = "github:hyprwm/Hyprland/v0.52.0?submodules=1";
         hy3 = {
-            url = "github:outfoxxed/hy3";
+            url = "github:outfoxxed/hy3/hl0.52.0";
+            inputs.hyprland.follows = "hyprland";
+        };
+        hyprsplit = {
+            url = "github:shezdy/hyprsplit/v0.52.0";
             inputs.hyprland.follows = "hyprland";
         };
     };
 
-    outputs = { home-manager, nixpkgs, nixpkgs-stable, hyprland, hy3, nix-colors, nixos-wsl, ... }@inputs:
+    outputs = { home-manager, nixpkgs, nixpkgs-stable, nix-colors, nixos-wsl, ... }@inputs:
         let
-            lib = nixpkgs.lib;
-
-            mkSystem = pkgs: system: hostname: wsl:
+            mkSystem = pkgs: hostname: wsl:
                 pkgs.lib.nixosSystem {
-                    system = system;
+                    system = "x86_64-linux";
                     specialArgs = {
                         hostname = hostname;
                     };
@@ -53,14 +52,14 @@
                                     inherit nixpkgs;
                                     hostname = hostname;
                                     pkgs-stable = import nixpkgs-stable {
-                                        system = system;
+                                        system = "${pkgs.stdenv.hostPlatform.system}";
                                     };
                                 };
                                 users.aaron = (./. + "/hosts/${hostname}/user.nix");
                             };
                         }
 
-                    ] ++ (lib.optionals (wsl) [
+                    ] ++ (nixpkgs.lib.optionals (wsl) [
                         nixos-wsl.nixosModules.default
                         {
                             wsl.enable = true;
@@ -69,9 +68,9 @@
                 };
         in {
             nixosConfigurations = {
-                laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop" false;
-                wsl = mkSystem inputs.nixpkgs "x86_64-linux" "wsl" true;
-                desktop = mkSystem inputs.nixpkgs "x86_64-linux" "desktop" false;
+                laptop = mkSystem inputs.nixpkgs "laptop" false;
+                wsl = mkSystem inputs.nixpkgs "wsl" true;
+                desktop = mkSystem inputs.nixpkgs "desktop" false;
         };
     };
 }
