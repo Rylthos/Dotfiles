@@ -112,9 +112,12 @@ in
     };
 
 
-    # virtualisation.virtualbox.host.enable = true;
-    # virtualisation.virtualbox.guest.enable = true;
-    # virtualisation.virtualbox.guest.dragAndDrop = true;
+    virtualisation.podman = {
+        enable = true;
+        dockerCompat = true;
+    };
+
+    environment.systemPackages = [ pkgs.distrobox ];
 
     services.udev.packages = [
         (pkgs.writeTextFile {
