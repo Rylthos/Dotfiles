@@ -10,7 +10,7 @@ out vec4 fragColor;
 
 // see https://github.com/CeeJayDK/SweetFX/blob/a792aee788c6203385a858ebdea82a77f81c67f0/Shaders/Vibrance.fx#L20-L30
 const vec3 VIB_RGB_BALANCE = vec3(1.0, 1.0, 1.0);
-const float VIB_VIBRANCE = 0.6;
+const float VIB_VIBRANCE = 0.4;
 const vec3 VIB_coeffVibrance = VIB_RGB_BALANCE * -VIB_VIBRANCE;
 
 void main() {
@@ -22,8 +22,8 @@ void main() {
     }
 
     vec3 color = pixColor.rgb;
-    // color.g *= 1.05;
     vec3 VIB_coefLuma = vec3(0.212656, 0.715158, 0.062186);
+
     float luma = dot(VIB_coefLuma, color);
 
     float max_color = max(color.r, max(color.g, color.b));
