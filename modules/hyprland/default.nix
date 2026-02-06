@@ -163,7 +163,7 @@ in {
                 };
 
                 windowrulev2 = [
-                    "opacity 0.7 0.7, initialClass:(Alacritty)"
+                    "opacity 0.65 0.65, initialClass:(Alacritty)"
 
                     "float, initialClass:(GLFW)"
                     "renderunfocused, initialClass:(GLFW)"

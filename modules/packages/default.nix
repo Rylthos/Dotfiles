@@ -16,6 +16,8 @@ in {
     config = mkIf cfg.enable {
         home.packages = with pkgs; [
             feh
+            imv
+
             fastfetch
             btop
             p7zip
