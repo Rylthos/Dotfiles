@@ -285,6 +285,8 @@ in {
                     {
                         name = "elan9008:00-04f3:2e36-stylus";
                         output = "eDP-1";
+                        sensitivity = 0.0;
+                        accel_profile = "flat";
                     }
                     {
                         name = "elan9008:00-04f3:2e36";

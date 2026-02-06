@@ -74,6 +74,7 @@
     services.xserver = {
         enable = true;
         displayManager.startx.enable = true;
+        lib-input.enable = true;
         desktopManager = {
             xterm.enable = false;
             xfce.enable = true;
