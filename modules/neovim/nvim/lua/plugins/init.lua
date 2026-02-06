@@ -163,6 +163,7 @@ return {
     },
 
     -- Themes
+    --[[
     {
         "scottmckendry/cyberdream.nvim",
         lazy=false,
@@ -175,6 +176,7 @@ return {
             saturation = 0.8,
         }
     },
+    --]]
 
     --[[
     {
@@ -191,8 +193,35 @@ return {
         end
     },
     --]]
-    "folke/tokyonight.nvim",
-    "EdenEast/nightfox.nvim",
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        config = function()
+            vim.cmd("colorscheme catppuccin")
+
+            require("catppuccin").setup({
+                flavour = "macchiato"
+            })
+        end,
+    },
+    -- "folke/tokyonight.nvim",
+    -- {
+    --     "EdenEast/nightfox.nvim",
+    --     config = function()
+    --         -- vim.cmd("colorscheme carbonfox")
+    --     end
+    -- },
+    -- {
+    --     "daschw/leaf.nvim",
+    --     config = function()
+    --         vim.cmd("colorscheme leaf")
+    --
+    --         require("leaf").setup({
+    --             contrast = "high",
+    --             theme = "dark",
+    --         })
+    --     end
+    -- },
     --[[
     {
         "rebelot/kanagawa.nvim",
