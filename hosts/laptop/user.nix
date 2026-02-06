@@ -26,6 +26,7 @@
         screen_recorder.enable = true;
         spotify.enable = true;
         spotify_player.enable = true;
+        ssh.enable = true;
         # tauon.enable = true;
         theme.enable = true;
         tmux.enable = true;

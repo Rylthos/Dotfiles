@@ -31,6 +31,7 @@
         ./screen_recorder
         ./spotify
         ./spotify_player
+        ./ssh
         ./tauon
         ./theme
         ./tmux
