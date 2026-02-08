@@ -32,6 +32,7 @@
         ./spotify
         ./spotify_player
         ./ssh
+        ./starship
         ./tauon
         ./theme
         ./tmux
@@ -40,6 +41,7 @@
         ./wlogout
         ./wofi
         ./yazi
+        ./zsh
     ];
 
     colorscheme = nix-colors.colorSchemes.catppuccin-macchiato;

@@ -16,6 +16,14 @@ in {
                     user = "git";
                     identitiesOnly = true;
                 };
+                "gitlab.com" = {
+                    identityFile = "~/.ssh/id_gitlab_cam";
+                    addKeysToAgent = "yes";
+                    hostname = "gitlab.com";
+                    host = "gitlab.com";
+                    user = "git";
+                    identitiesOnly = true;
+                };
             };
         };
     };

@@ -3,7 +3,8 @@
     environment.defaultPackages = [ ];
 
     programs = {
-        fish.enable = true;
+        # fish.enable = true;
+        zsh.enable = true;
         dconf.enable = true;
         ssh.startAgent = true;
         gamemode.enable = true;
@@ -123,7 +124,7 @@
         isNormalUser = true;
         description = "Aaron Danton";
         extraGroups = [ "networkmanager" "wheel" "render" "video" "dialout" "wireshark" ];
-        shell = pkgs.fish;
+        shell = pkgs.zsh;
     };
 
     users.extraGroups.vboxusers.members = [ "aaron" ];

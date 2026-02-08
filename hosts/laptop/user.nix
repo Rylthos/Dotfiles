@@ -7,7 +7,7 @@
         direnv.enable = true;
         discord.enable = true;
         firefox.enable = true;
-        fish.enable = true;
+        # fish.enable = true;
         git.enable = true;
         gui_packages.enable = true;
         hypridle.enable = true;
@@ -27,6 +27,7 @@
         spotify.enable = true;
         spotify_player.enable = true;
         ssh.enable = true;
+        starship.enable = true;
         # tauon.enable = true;
         theme.enable = true;
         tmux.enable = true;
@@ -35,9 +36,16 @@
         wlogout.enable = true;
         wofi.enable = true;
         yazi.enable = true;
+        zsh.enable = true;
     };
 
     config.programs.fish.shellAliases = {
+        coding = "cd $CODING";
+        work = "cd $CAMBRIDGE_WORK";
+        supo = "cd $CAMBRIDGE_SUPO";
+    };
+
+    config.programs.zsh.shellAliases = {
         coding = "cd $CODING";
         work = "cd $CAMBRIDGE_WORK";
         supo = "cd $CAMBRIDGE_SUPO";

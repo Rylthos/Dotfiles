@@ -22,6 +22,15 @@ in {
             lazygit
         ];
 
+        programs.zsh = {
+            shellAliases = {
+                gs = "git status";
+                gl = "git log";
+                glo = "git log --oneline";
+                ga = "git add";
+                gc = "git commit";
+            };
+        };
         programs.fish = {
             shellAliases = {
                 gs = "git status";
