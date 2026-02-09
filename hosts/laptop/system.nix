@@ -88,7 +88,7 @@ in
     programs = {
         thunar = {
             enable = true;
-            plugins = with pkgs.xfce; [ thunar-volman thunar-archive-plugin thunar-vcs-plugin ];
+            plugins = with pkgs; [ thunar-volman thunar-archive-plugin thunar-vcs-plugin ];
         };
 
         steam = {

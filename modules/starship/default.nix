@@ -10,34 +10,34 @@ in {
                 add_newline = false;
                 format = "$username$hostname$nix_shell$git_branch$git_commit$git_state$git_status$directory$jobs$cmd_duration$character";
                 username = {
-                    style_user = "bright-white bold";
-                    style_root = "bright-red bold";
+                    style_user = "#${config.colorScheme.palette.base05} bold";
+                    style_root = "#${config.colorScheme.palette.base08} bold";
                 };
                 hostname = {
-                    style = "bright-green bold";
+                    style = "#${config.colorScheme.palette.base0B} bold";
                     ssh_only = true;
                 };
                 nix_shell = {
                     symbol = "";
                     format = "[$symbol$name]($style) ";
-                    style = "bright-purple bold";
+                    style = "#${config.colorScheme.palette.base0E} bold";
                 };
                 git_branch = {
                     only_attached = true;
                     format = "[$symbol$branch]($style) ";
                     symbol = "";
-                    style = "bright-yellow bold";
+                    style = "#${config.colorScheme.palette.base0A} bold";
                 };
                 git_commit = {
                     only_detached = true;
                     format = "[ﰖ$hash]($style) ";
-                    style = "bright-yellow bold";
+                    style = "#${config.colorScheme.palette.base0A} bold";
                 };
                 git_state = {
-                    style = "bright-purple bold";
+                    style = "#${config.colorScheme.palette.base0E} bold";
                 };
                 git_status = {
-                    style = "bright-green bold";
+                    style = "#${config.colorScheme.palette.base0B} bold";
                 };
                 directory = {
                     read_only = " ";
@@ -45,14 +45,14 @@ in {
                 };
                 cmd_duration = {
                     format = "[$duration]($style) ";
-                    style = "bright-blue";
+                    style = "#${config.colorScheme.palette.base0D}";
                 };
                 jobs = {
-                    style = "bright-green bold";
+                    style = "#${config.colorScheme.palette.base0B} bold";
                 };
                 character = {
-                    success_symbol = "[\\$](bright-green bold)";
-                    error_symbol = "[\\$](bright-red bold)";
+                    success_symbol = "[\\$](#${config.colorScheme.palette.base0B} bold)";
+                    error_symbol = "[\\$](#${config.colorScheme.palette.base08} bold)";
                 };
             };
         };

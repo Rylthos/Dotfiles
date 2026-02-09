@@ -17,11 +17,6 @@ let
     '') + (lib.optionalString (hostname == "desktop") ''
         hyprshade on custom-vibrance-desktop &
     ''));
-
-    pkgs_hypr = import inputs.nixpkgs-hypr {
-        system = "x86_64-linux";
-    };
-
 in {
     options.modules.hyprland = { enable = mkEnableOption "hyprland"; };
     config = mkIf cfg.enable {
@@ -57,11 +52,6 @@ in {
                 inputs.hy3.packages.x86_64-linux.hy3
                 inputs.hyprsplit.packages.x86_64-linux.hyprsplit
             ];
-
-            # extraConfig = ''
-            #     plugin = ${pkgs_hypr.hyprlandPlugins.hy3}/lib/libhy3.so
-            #     plugin = ${pkgs_hypr.hyprlandPlugins.hyprsplit}/lib/libhyprsplit.so
-            # '';
 
             package = inputs.hyprland.packages.x86_64-linux.hyprland;
 
@@ -293,22 +283,23 @@ in {
                         output = "eDP-1";
                     }
                 ];
-
-                plugin = {
-                    hy3 = {
-                        autotile = {
-                            enable = true;
-                            trigger_width = 800;
-                            trigger_height = 600;
-                        };
-                    };
-
-                    hyprsplit = {
-                        num_workspaces = 10;
-                        persistent-workspaces = true;
-                    };
-                };
             };
+
+            extraConfig = ''
+                plugin {
+                    hy3 {
+                        autotile {
+                            enable = true
+                            trigger_width = 800
+                            trigger_height = 600
+                        }
+                    }
+                    hyprsplit {
+                        num_workspaces = 10
+                        persistent-workspaces = true
+                    }
+                }
+            '';
         };
     };
 }
