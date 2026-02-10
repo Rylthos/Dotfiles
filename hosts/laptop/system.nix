@@ -13,6 +13,8 @@ in
         power-profiles-daemon.enable = false;
         blueman.enable = true;
 
+        libinput.enable = true;
+
         auto-cpufreq = {
             enable = true;
             settings = {

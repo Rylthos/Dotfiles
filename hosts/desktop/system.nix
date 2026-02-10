@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
+{  config, pkgs, ... }:
 {
     services = {
         gvfs.enable = true;
         udisks2.enable = true;
         devmon.enable = true;
+
+        libinput.enable = true;
 
         power-profiles-daemon.enable = false;
         blueman.enable = true;
@@ -74,7 +76,6 @@
     services.xserver = {
         enable = true;
         displayManager.startx.enable = true;
-        lib-input.enable = true;
         desktopManager = {
             xterm.enable = false;
             xfce.enable = true;
@@ -84,7 +85,7 @@
     programs = {
         thunar = {
             enable = true;
-            plugins = with pkgs.xfce; [ thunar-volman ];
+            plugins = with pkgs; [ thunar-volman thunar-archive-plugin thunar-vcs-plugin ];
         };
 
         steam = {

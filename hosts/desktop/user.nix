@@ -1,4 +1,4 @@
-{ config, lib, inputs, ... }:
+{  config, lib, inputs, ... }:
 {
     imports = [ ../../modules/default.nix ];
     config.modules = {
@@ -7,7 +7,7 @@
         direnv.enable = true;
         discord.enable = true;
         firefox.enable = true;
-        fish.enable = true;
+        # fish.enable = true;
         git.enable = true;
         gui_packages.enable = true;
         # hypridle.enable = true;
@@ -28,12 +28,15 @@
         screen_recorder.enable = true;
         spotify.enable = true;
         spotify_player.enable = true;
+        ssh.enable = true;
+        starship.enable = true;
         theme.enable = true;
         tmux.enable = true;
         waybar.enable = true;
         wireshark.enable = true;
         wlogout.enable = true;
         wofi.enable = true;
+        zsh.enable = true;
     };
 
     config.programs.fish.shellAliases = {
