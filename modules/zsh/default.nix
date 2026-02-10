@@ -11,7 +11,10 @@ in {
             autosuggestion.enable = true;
             syntaxHighlighting.enable = true;
 
-            history.size = 10000;
+            history = {
+                share = true;
+                size = 10000;
+            };
 
             shellAliases = {
                 ls = "eza --group-directories-first";
