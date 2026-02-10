@@ -38,7 +38,7 @@ in
                 --user-menu \
                 --remember \
                 --remember-session \
-                --cmd Hyprland
+                --cmd start-hyprland
                 '';
             };
         };
