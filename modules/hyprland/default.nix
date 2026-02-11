@@ -152,42 +152,35 @@ in {
                     workspace_swipe_cancel_ratio = 0.3;
                 };
 
-                windowrulev2 = [
-                    "opacity 0.65 0.65, initialClass:(Alacritty)"
+                windowrule = [
+                    "match:initial_class GLFW, float on"
+                    "match:initial_class GLFW, render_unfocused on"
 
-                    "float, initialClass:(GLFW)"
-                    "renderunfocused, initialClass:(GLFW)"
+                    "match:initial_class Alacritty, opacity 0.65 0.65"
 
+                    "match:class org.kde.digikam, match:title (^New Album), float on"
 
-                    "float, class:(Psst-gui)"
+                    "match:class firefox, match:title (Picture-in-Picture), float on"
+                    "match:class firefox, match:title (Picture-in-Picture), pin on"
+                    "match:class firefox, match:title (Picture-in-Picture), move (0.8*monitor_w) 0"
 
-                    "float, class:(org.kde.digikam), title:(^New Album)"
+                    "match:class vesktop, match:initial_title (Discord Popout), float on"
+                    "match:class vesktop, match:initial_title (Discord Popout), pin on"
+                    "match:class vesktop, match:initial_title (Discord Popout), move (0.8*monitor_w) 0"
 
-                    "float, class:(feh),title:(feh-float-waybar)"
-                    "move onscreen 5% 100%-h, class:(feh),title:(feh-float-waybar)"
+                    "match:class (org.pulseaudio.pavucontrol), float on"
+                    "match:class (org.pulseaudio.pavucontrol), persistent_size on"
+                    "match:class (org.pulseaudio.pavucontrol), size (0.6*window_w) (0.6*window_h)"
 
-                    "float, class:(spotify)"
+                    "match:class .blueman-manager-wrapped, float on"
 
-                    "float, class:(firefox),title:(Picture-in-Picture)"
-                    "pin, class:(firefox),title:(Picture-in-Picture)"
-                    "move onscreen 80% 0%, class:(firefox),title:(Picture-in-Picture)"
+                    "match:class nm-connection-editor, float on"
 
-                    "float, class:(vesktop),initialTitle:(Discord Popout)"
-                    "pin, class:(vesktop),initialTitle:(Discord Popout)"
-                    "move onscreen 80% 0%, class:(vesktop),initialTitle:(Discord Popout)"
+                    "match:class tracy, render_unfocused on"
 
-                    "float, class:(org.pulseaudio.pavucontrol)"
-                    "persistentsize, class:(org.pulseaudio.pavucontrol)"
-                    "size 60% 60%, class:(org.pulseaudio.pavucontrol)"
-
-                    "float, class:(.blueman-manager-wrapped)"
-                    "float, class:(nm-connection-editor)"
-
-                    "renderunfocused, class:(tracy)"
-
-                    "renderunfocused, class:(^steam_app_[0-9]*)"
-                    "fullscreen, class:(^steam_app_[0-9]*)"
-                    "idleinhibit focus, class:(^steam_app_[0-9]*)"
+                    "match:class (^steam_app_[0-9]*), render_unfocused on"
+                    "match:class (^steam_app_[0-9]*), fullscreen on"
+                    "match:class (^steam_app_[0-9]*), idle_inhibit focus"
                 ];
 
                 bindm = [
