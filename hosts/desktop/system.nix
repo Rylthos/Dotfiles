@@ -43,7 +43,7 @@
     };
 
     environment.etc."greetd/environments".text = ''
-        Hyprland
+        start-hyprland
     '';
 
     hardware = {
