@@ -44,6 +44,8 @@ in {
             moonlight-qt
 
             kdePackages.ark
+
+            gimp
         ];
     };
 }
