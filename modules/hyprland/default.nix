@@ -162,11 +162,11 @@ in {
 
                     "match:class firefox, match:title (Picture-in-Picture), float on"
                     "match:class firefox, match:title (Picture-in-Picture), pin on"
-                    "match:class firefox, match:title (Picture-in-Picture), move (0.8*monitor_w) 0"
+                    "match:class firefox, match:title (Picture-in-Picture), move (0.8*monitor_w) (0.05*monitor_h)"
 
                     "match:class vesktop, match:initial_title (Discord Popout), float on"
                     "match:class vesktop, match:initial_title (Discord Popout), pin on"
-                    "match:class vesktop, match:initial_title (Discord Popout), move (0.8*monitor_w) 0"
+                    "match:class vesktop, match:initial_title (Discord Popout), move (0.8*monitor_w) (0.05*monitor_h)"
 
                     "match:class (org.pulseaudio.pavucontrol), float on"
                     "match:class (org.pulseaudio.pavucontrol), persistent_size on"
