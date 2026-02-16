@@ -58,6 +58,7 @@ local lsps = {
 	"glsl_analyzer",
 	"jdtls",
 	"lua_ls",
+	"marksman",
 	"nixd",
 	"pyright",
 	"rust_analyzer",

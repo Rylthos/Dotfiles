@@ -41,6 +41,9 @@ in {
 
             # Prolog
             swi-prolog
+
+            # Markdown
+            marksman
         ] ++ (lib.optionals (hostname == "laptop")) [
             rgp
         ];
