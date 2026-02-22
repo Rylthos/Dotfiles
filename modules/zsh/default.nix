@@ -8,7 +8,10 @@ in {
         programs.zsh = {
             enable = true;
             enableCompletion = true;
-            autosuggestion.enable = true;
+            autosuggestion = {
+                enable = true;
+                strategy = [ "completion" ];
+            };
             syntaxHighlighting.enable = true;
 
             history = {
