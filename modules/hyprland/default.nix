@@ -153,6 +153,8 @@ in {
                 };
 
                 windowrule = [
+                    "match:float true, center on"
+
                     "match:initial_class GLFW, float on"
                     "match:initial_class GLFW, render_unfocused on"
 
@@ -160,27 +162,80 @@ in {
 
                     "match:class org.kde.digikam, match:title (^New Album), float on"
 
-                    "match:class firefox, match:title (Picture-in-Picture), float on"
-                    "match:class firefox, match:title (Picture-in-Picture), pin on"
-                    "match:class firefox, match:title (Picture-in-Picture), move (0.8*monitor_w) (0.05*monitor_h)"
+                    {
+                        name = "floating firefox window - resize and center";
+                        "match:class" = "firefox";
+                        "match:float" = true;
+                        size = "(0.5*monitor_w) (0.5*monitor_h)";
+                        center = "on";
+                    }
 
-                    "match:class vesktop, match:initial_title (Discord Popout), float on"
-                    "match:class vesktop, match:initial_title (Discord Popout), pin on"
-                    "match:class vesktop, match:initial_title (Discord Popout), move (0.8*monitor_w) (0.05*monitor_h)"
+                    {
+                        name = "Position PiP firefox";
 
-                    "match:class (org.pulseaudio.pavucontrol), float on"
-                    "match:class (org.pulseaudio.pavucontrol), persistent_size on"
-                    "match:class (org.pulseaudio.pavucontrol), size (0.6*window_w) (0.6*window_h)"
+                        "match:class" = "firefox";
+                        "match:title" = "Picture-in-Picture";
 
-                    "match:class .blueman-manager-wrapped, float on"
+                        float = "on";
+                        pin = "on";
+                        move = "(0.8*monitor_w) (0.05*monitor_h)";
+                        persistent_size = "on";
+                    }
 
-                    "match:class nm-connection-editor, float on"
+                    {
+                        name = "Position PiP Discord";
+
+                        "match:class" = "vesktop";
+                        "match:initial_title" = "(Discord Popout)";
+
+                        float = "on";
+                        pin = "on";
+                        move = "(0.8*monitor_w) (0.05*monitor_h)";
+                        persistent_size = "on";
+                    }
+
+                    {
+                        name = "Position Pavu control";
+
+                        "match:class" = "(org.pulseaudio.pavucontrol)";
+
+                        float = "on";
+                        center = "on";
+                        persistent_size = "on";
+                        size = "(0.6*monitor_w) (0.6*monitor_h)";
+                    }
+
+                    {
+                        name = "Position blueman manager";
+
+                        "match:class" = ".blueman-manager-wrapped";
+
+                        float = "on";
+                        center = "on";
+                        size = "(0.6*monitor_w) (0.6*monitor_h)";
+                    }
+
+                    {
+                        name = "Position nm-connection-editor";
+
+                        "match:class" = "nm-connection-editor";
+
+                        float = "on";
+                        center = "on";
+                        size = "(0.6*monitor_w) (0.6*monitor_h)";
+                    }
 
                     "match:class tracy, render_unfocused on"
 
-                    "match:class (^steam_app_[0-9]*), render_unfocused on"
-                    "match:class (^steam_app_[0-9]*), fullscreen on"
-                    "match:class (^steam_app_[0-9]*), idle_inhibit focus"
+                    {
+                        name = "Fix steam games";
+
+                        "match:class" = "(^steam_app_[0-9]*)";
+
+                        render_unfocused = "on";
+                        fullscreen = "on";
+                        idle_inhibit = "focus";
+                    }
                 ];
 
                 bindm = [
