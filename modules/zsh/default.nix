@@ -10,7 +10,7 @@ in {
             enableCompletion = true;
             autosuggestion = {
                 enable = true;
-                strategy = [ "completion" ];
+                strategy = [ "match_prev_cmd" ];
             };
             syntaxHighlighting.enable = true;
 
