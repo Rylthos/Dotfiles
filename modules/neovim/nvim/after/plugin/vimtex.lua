@@ -1,14 +1,16 @@
 vim.g.vimtex_compiler_latexmk = {
+	out_dir = "build",
 	options = {
 		"-verbose",
 		"-file-line-error",
 		"-synctex=1",
 		"-interaction=nonstopmode",
-		"-lualatex",
 		"-shell-escape",
-		"-output-directory='build'",
 	},
 }
+
+vim.g.vimtex_quickfix_mode=0
+vim.g.vimtex_quickfix_open_on_warning=0
 
 vim.g.vimtex_matchparen_enabled = 0
 vim.g.vimtex_indent_enabled = 0
@@ -16,20 +18,12 @@ vim.g.vimtex_indent_align = 0
 vim.g.vimtex_indent_on_ampersands = 0
 vim.g.vimtex_view_method = "zathura"
 
-vim.api.nvim_create_autocmd("User", {
-	pattern = "VimtexEventCompileFailed",
-	callback = function()
-		vim.schedule(function()
-		vim.cmd("wincmd p")
-		end)
-	end,
-})
-
 local vim_leader = ","
 vim.keymap.set("n", vim_leader .. "ce", "<plug>(vimtex-env-surround-line)")
 vim.keymap.set("v", vim_leader .. "ce", "<Plug>(vimtex-env-surround-visual)")
 
 vim.keymap.set("n", vim_leader .. "cf", "<Plug>(vimtex-compile)")
+vim.keymap.set("n", vim_leader .. "css", "<Plug>(vimtex-compile-ss)")
 
 vim.keymap.set("n", vim_leader .. "cc", "<Plug>(vimtex-cmd-create)")
 vim.keymap.set("v", vim_leader .. "cc", "<Plug>(vimtex-cmd-create)")
@@ -45,22 +39,3 @@ vim.keymap.set("v", vim_leader .. "tb", "<Plug>(vimtex-delim-toggle-modifier)")
 
 vim.keymap.set("n", vim_leader .. "tsc", "<Plug>(vimtex-cmd-toggle-star)")
 vim.keymap.set("n", vim_leader .. "tse", "<Plug>(vimtex-env-toggle-star)")
-
--- vim.g.vimtex_compiler_generic = { "command": "lualatex --shell-escape" }
-
--- vim.cmd [[
---
---     nnoremap ,ce <Plug>(vimtex-env-surround-line)
---     vnoremap ,ce <Plug>(vimtex-env-surround-visual)
---
---     nnoremap ,cf <Plug>(vimtex-compile)
---
---     nnoremap ,cc <Plug>(vimtex-cmd-create)
---     vnoremap ,cc <Plug>(vimtex-cmd-create)
---
---     nnoremap ,cd <Plug>(vimtex-cmd-delete)
---     vnoremap ,cd <Plug>(vimtex-cmd-delete)
---
---     nnoremap ,tb <Plug>(vimtex-delim-toggle-modifier)
---     vnoremap ,tb <Plug>(vimtex-delim-toggle-modifier)
--- ]]

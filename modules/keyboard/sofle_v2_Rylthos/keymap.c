@@ -14,10 +14,13 @@ uint32_t oled_timer = 0;
 // clang-format off
 enum LAYERS { _BASE, _GAME, _SYMBOL, _CTRL, _RGB  };
 
-const key_override_t home_left_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_LEFT, KC_HOME, 1 << _CTRL);
-const key_override_t end_right_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_RGHT, KC_END, 1 << _CTRL);
-const key_override_t pagedn_down_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_DOWN, KC_PGDN, 1 << _CTRL);
-const key_override_t pageup_up_arrow = ko_make_with_layers(MOD_MASK_CTRL, KC_UP, KC_PGUP, 1 << _CTRL);
+#define ARROW_OVERRIDE_MOD (MOD_MASK_CTRL | MOD_MASK_SHIFT)
+#define ARROW_OVERRIDE_LAYER (1 << _CTRL)
+
+const key_override_t home_left_arrow   = ko_make_with_layers(ARROW_OVERRIDE_MOD, KC_LEFT, KC_HOME, ARROW_OVERRIDE_LAYER);
+const key_override_t end_right_arrow   = ko_make_with_layers(ARROW_OVERRIDE_MOD, KC_RGHT, KC_END,  ARROW_OVERRIDE_LAYER);
+const key_override_t pagedn_down_arrow = ko_make_with_layers(ARROW_OVERRIDE_MOD, KC_DOWN, KC_PGDN, ARROW_OVERRIDE_LAYER);
+const key_override_t pageup_up_arrow   = ko_make_with_layers(ARROW_OVERRIDE_MOD, KC_UP,   KC_PGUP, ARROW_OVERRIDE_LAYER);
 
 const key_override_t* key_overrides[] = {
     &home_left_arrow,

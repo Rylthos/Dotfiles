@@ -117,6 +117,9 @@ return {
         "lervag/vimtex",
         lazy = false,
     },
+    {
+        "barreiroleo/ltex_extra.nvim",
+    },
 
     {
         "stevearc/vim-arduino",

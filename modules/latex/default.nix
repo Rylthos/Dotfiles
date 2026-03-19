@@ -8,6 +8,7 @@ in {
             texlab
             texlive.combined.scheme-full
             tex-fmt
+            ltex-ls-plus
         ];
 
         home.file.".indentconfig.yaml".source = (pkgs.formats.yaml {}).generate "" {

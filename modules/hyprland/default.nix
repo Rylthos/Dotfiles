@@ -153,8 +153,6 @@ in {
                 };
 
                 windowrule = [
-                    "match:float true, center on"
-
                     "match:initial_class GLFW, float on"
                     "match:initial_class GLFW, render_unfocused on"
 
@@ -178,8 +176,8 @@ in {
 
                         float = "on";
                         pin = "on";
-                        move = "(0.8*monitor_w) (0.05*monitor_h)";
-                        persistent_size = "on";
+                        move = "(0.7*monitor_w-5) (0.05*monitor_h+5)";
+                        size = "(0.3*monitor_w) (0.3*monitor_h)";
                     }
 
                     {

@@ -19,7 +19,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 	callback = function(event)
 		local opts = {buffer = event.buf}
 		vim.keymap.set("n", "K",  vim.lsp.buf.hover, opts)
+		vim.keymap.set("n", "<leader>ca",  vim.lsp.buf.code_action, opts)
 		vim.keymap.set("n", "<leader>K",  vim.diagnostic.open_float, opts)
+		vim.keymap.set("n", "<leader>dd",  vim.diagnostic.setqflist, opts)
 	end
 })
 
@@ -57,6 +59,7 @@ local lsps = {
 	"cssls",
 	"glsl_analyzer",
 	"jdtls",
+	"ltex_plus",
 	"lua_ls",
 	"marksman",
 	"nixd",
@@ -111,6 +114,29 @@ vim.lsp.config("slangd", {
 			},
 		},
 	},
+})
+
+vim.lsp.config("ltex_plus", {
+	capabilities = lsp_capabilities,
+	cmd = { "ltex-ls-plus" },
+	on_attach = function()
+		require('ltex_extra').setup {
+			load_langs = { "en-GB" },
+			init_check = true,
+			path = vim.fn.expand('~') .. '/.local/share/ltex',
+		}
+	end,
+	settings = {
+		ltex = {
+			language = "en-GB",
+			enabled = { "latex", "tex", "gitcommit" },
+			-- additionalRules = {
+			-- 	enablePickyRules = true,
+			-- },
+		},
+	},
+	filetypes = { "bib", "tex", "gitcommit" },
+	flags = { debounce_text_changes = 300 },
 })
 
 vim.lsp.enable(lsps)

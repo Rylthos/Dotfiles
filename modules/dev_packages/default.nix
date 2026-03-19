@@ -23,6 +23,7 @@ in {
             tracy
             kdePackages.kcachegrind
             gnumake
+            gf # GDB frontend
 
             ## Graphics
             glslang

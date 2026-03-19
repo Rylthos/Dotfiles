@@ -36,6 +36,7 @@ in {
                     "fzf"
                     "starship"
                     "direnv"
+                    "per-directory-history"
                 ];
 
                 theme = "robbyrussell";
