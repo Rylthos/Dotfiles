@@ -5,7 +5,7 @@ in {
     options.modules.gui_packages = { enable = mkEnableOption "gui_packages"; };
     config = mkIf cfg.enable {
         home.packages = with pkgs; [
-            kicad
+            kicad-unstable
             freecad
             krita
             inkscape
@@ -29,7 +29,7 @@ in {
 
             wayfarer
 
-            wineWowPackages.waylandFull
+            # wineWow64Packages.waylandFull
 
             kdePackages.kate
             gparted

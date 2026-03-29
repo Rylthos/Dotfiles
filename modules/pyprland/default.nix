@@ -21,7 +21,7 @@ in {
             ];
         };
 
-        xdg.configFile."hypr/pyprland.toml".source = (pkgs.formats.toml {}).generate "something" {
+        xdg.configFile."pypr/config.toml".source = (pkgs.formats.toml {}).generate "pypr_config" {
             pyprland = {
                 plugins = [
                     "scratchpads"

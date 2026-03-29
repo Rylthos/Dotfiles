@@ -225,6 +225,8 @@
         };
     };
 
+    services.gnome.gcr-ssh-agent.enable = false;
+
     programs.gpu-screen-recorder.enable = true;
 
     programs.mosh.enable = true;
