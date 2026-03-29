@@ -253,6 +253,12 @@ in {
                 temperature = {
                     interval = 5;
                     format = "{icon} {temperatureC}°C";
+                    thermal-zone = (
+                        if hostname == "desktop" then
+                            1
+                        else
+                            0
+                    );
                     format-icons = [
                         ""
                     ];

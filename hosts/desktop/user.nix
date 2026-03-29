@@ -10,9 +10,11 @@
         # fish.enable = true;
         git.enable = true;
         gui_packages.enable = true;
-        # hypridle.enable = true;
         hyprland.enable = true;
-        hyprlock.enable = true;
+        hyprlock = {
+            enable = true;
+            muteOnLock = false;
+        };
         keyboard.enable = true;
         latex.enable = true;
         mako.enable = true;

@@ -4,12 +4,40 @@
 
     username = "aaron";
 
+    lockScript = pkgs.pkgs.writeShellScriptBin "lock" (
+        ''
+            grim -l 0 /tmp/current_screen.png &
+        '' + (lib.optionalString cfg.muteOnLock) ''
+            wpctl set-mute @DEFAULT_AUDIO_SINK@ 1 &
+        '' + ''
+            playerctl --all-players stop &
+            sudo /run/current-system/sw/bin/pkill evtest
+            wait &&
+            hyprlock
+        ''
+    );
 in {
-    options.modules.hyprlock = { enable = mkEnableOption "hyprlock"; };
+
+    options.modules.hyprlock = {
+        enable = mkEnableOption "hyprlock";
+        muteOnLock = lib.mkOption {
+            type = lib.types.bool;
+            default = true;
+            description = "Whether to enable muteOnLock";
+            example = true;
+        };
+
+        lockScript = lib.mkOption {
+            type = lib.types.package;
+            default = lockScript;
+            readOnly = true;
+        };
+    };
+
     config = mkIf cfg.enable {
         wayland.windowManager.hyprland.settings = {
             bind = [
-                "SUPER ALT_L, L, exec, $NIXOS_SCRIPTS_DIR/hyprlock.sh"
+                "SUPER ALT_L, L, exec, ${lockScript}/bin/lock"
             ];
         };
 

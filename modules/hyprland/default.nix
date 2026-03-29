@@ -8,9 +8,9 @@ let
       swww-daemon &
 
       sleep 1
-
+    '' + (lib.optionalString config.modules.hypridle.enable) ''
       hypridle &
-
+    '' + ''
       $NIXOS_SCRIPTS_DIR/RandomBackgroundLoop.sh &
     '' + (lib.optionalString (hostname == "laptop") ''
         hyprshade on custom-vibrance &

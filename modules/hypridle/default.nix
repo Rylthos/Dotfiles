@@ -1,6 +1,7 @@
 { pkgs, lib, config, ... }:
     with lib;
     let cfg = config.modules.hypridle;
+    lockScript = config.modules.hyprlock.lockScript;
 in {
     options.modules.hypridle = { enable = mkEnableOption "hypridle"; };
     config = mkIf cfg.enable {
@@ -8,7 +9,7 @@ in {
             enable = true;
             settings = {
                 general = {
-                    lock_cmd = "pidof hyprlock || $NIXOS_SCRIPTS_DIR/hyprlock.sh";
+                    lock_cmd = "pidof hyprlock || ${lockScript}/bin/lock";
                     before_sleep_cmd = "loginctl lock-session";
                     after_sleep_cmd = "hyprctl dispatch dpms on";
                 };
