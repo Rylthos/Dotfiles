@@ -1,2 +1,2 @@
 require("rylthos.core")
-require("rylthos.lazy")
+require("rylthos.plugins")
