@@ -17,7 +17,6 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        # 0.51.1
         hyprland.url = "github:hyprwm/Hyprland/v0.53.0?submodules=1";
         hy3 = {
             url = "github:outfoxxed/hy3/hl0.53.0";
