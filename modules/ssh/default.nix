@@ -4,6 +4,7 @@ let cfg = config.modules.ssh;
 in {
     options.modules.ssh = { enable = mkEnableOption "ssh"; };
     config = mkIf cfg.enable {
+        home.packages = [ pkgs.rsync ];
         programs.ssh = {
             enable = true;
             enableDefaultConfig = false;
