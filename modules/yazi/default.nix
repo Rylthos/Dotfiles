@@ -6,6 +6,7 @@ in {
     config = mkIf cfg.enable {
         programs.yazi = {
             enable = true;
+            shellWrapperName = "y";
         };
     };
 }

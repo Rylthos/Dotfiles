@@ -38,6 +38,7 @@
         wireshark.enable = true;
         wlogout.enable = true;
         wofi.enable = true;
+        yazi.enable = true;
         zsh.enable = true;
     };
 
