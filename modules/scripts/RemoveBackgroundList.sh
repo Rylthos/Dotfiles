@@ -1,5 +1,5 @@
 #!/bin/sh
 
-backgroundQueue="$HOME/.dotfiles/scripts/.backgroundQueue"
+backgroundQueue="$NIXOS_SCRIPTS_DIR/.backgroundQueue"
 
 rm $backgroundQueue

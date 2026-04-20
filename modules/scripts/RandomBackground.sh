@@ -1,17 +1,12 @@
 #!/bin/sh
 
-wallpapersDir="$(xdg-user-dir PICTURES)/Wallpapers"
 backgroundQueue="$NIXOS_SCRIPTS_DIR/.backgroundQueue"
 
 selectedWallpaper=""
-currentBackground=$(swww query | grep -oP "image: \K.*")
 
 # Load in all wallpapers
 load_wallpapers() {
-    wallpapers=("$wallpapersDir"/*.png)
-    wallpapers+=("$wallpapersDir"/*/*.png)
-    wallpapers+=("$wallpapersDir"/*.jpg)
-    wallpapers+=("$wallpapersDir"/*/*.jpg)
+    wallpapers=($($NIXOS_SCRIPTS_DIR/ListBackground.sh))
 }
 
 # If the file exists then load in what is contained in that file
@@ -37,5 +32,4 @@ wallpapers=("${wallpapers[@]:0:$wallpaperIndex}" "${wallpapers[@]:$wallpaperInde
 # Save the new list
 echo ${wallpapers[*]} > ${backgroundQueue}
 
-swww img "$selectedWallpaper" --transition-type any --transition-fps 90 --transition-duration 5 --transition-bezier .42,0,1,1 --resize crop
-# swww img "$selectedWallpaper" --transition-type simple --transition-fps 90 --transition-duration 2 --transition-bezier .42,0,.58,1
+$($NIXOS_SCRIPTS_DIR/ChangeBackground.sh $selectedWallpaper)
