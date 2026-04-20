@@ -46,6 +46,7 @@ in {
             kdePackages.ark
 
             gimp
+            gphoto2
         ];
     };
 }
