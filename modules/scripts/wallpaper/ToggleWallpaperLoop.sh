@@ -9,6 +9,6 @@ if [[ -f /tmp/BackgroundLoop.pid ]]; then
     fi
 else
     notify-send "Enabling background loop"
-    $NIXOS_SCRIPTS_DIR/RandomBackgroundLoop.sh &
+    $NIXOS_SCRIPTS_DIR/wallpaper/RandomWallpaperLoop.sh &
     echo $! > /tmp/BackgroundLoop.pid
 fi

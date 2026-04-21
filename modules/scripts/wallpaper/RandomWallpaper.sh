@@ -1,6 +1,6 @@
 #!/bin/sh
 
-backgroundQueue="$NIXOS_SCRIPTS_DIR/.backgroundQueue"
+backgroundQueue="$NIXOS_SCRIPTS_DIR/wallpaper/.wallpaperQueue"
 
 selectedWallpaper=""
 

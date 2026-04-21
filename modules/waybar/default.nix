@@ -358,9 +358,9 @@ in {
                 "custom/background" = {
                     format = "󰲍 ";
                     tooltip = false;
-                    on-click = "$NIXOS_SCRIPTS_DIR/RandomBackground.sh";
-                    on-click-middle = "$NIXOS_SCRIPTS_DIR/BackgroundPicker.sh";
-                    on-click-right = "$NIXOS_SCRIPTS_DIR/ToggleBackgroundLoop.sh";
+                    on-click = "$NIXOS_SCRIPTS_DIR/wallpaper/RandomWallpaper.sh";
+                    on-click-middle = "$NIXOS_SCRIPTS_DIR/wallpaper/WallpaperPicker.sh";
+                    on-click-right = "$NIXOS_SCRIPTS_DIR/wallpaper/ToggleWallpaperLoop.sh";
                 };
 
                 "custom/padding" = {

@@ -11,7 +11,7 @@ let
     '' + (lib.optionalString config.modules.hypridle.enable) ''
       hypridle &
     '' + ''
-      $NIXOS_SCRIPTS_DIR/RandomBackgroundLoop.sh &
+      $NIXOS_SCRIPTS_DIR/wallpaper/RandomWallpaperLoop.sh &
       echo $! > /tmp/BackgroundLoop.pid
     '' + (lib.optionalString (hostname == "laptop") ''
         hyprshade on custom-vibrance &
