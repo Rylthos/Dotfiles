@@ -17,6 +17,7 @@
         };
         keyboard.enable = true;
         latex.enable = true;
+        lutris.enable = true;
         mako.enable = true;
         neovim.enable = true;
         nvibrant.enable = true;

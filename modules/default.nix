@@ -17,6 +17,7 @@
         ./hyprlock
         ./keyboard
         ./latex
+        ./lutris
         ./mako
         ./neovim
         ./nvibrant
