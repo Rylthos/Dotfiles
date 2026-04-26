@@ -4,7 +4,7 @@ let
     cfg = config.modules.hyprland;
 
     startupScript = pkgs.pkgs.writeShellScriptBin "start" (''
-      $NIXOS_SCRIPTS_DIR/waybar_start.sh &
+      $NIXOS_SCRIPTS_DIR/WaybarStart.sh &
       swww-daemon &
 
       sleep 1
