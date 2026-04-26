@@ -8,7 +8,7 @@ in {
     config = mkIf cfg.enable {
         home.packages = with pkgs; [
             pamixer
-            pavucontrol
+            pwvucontrol
         ];
 
         programs.waybar = {
@@ -71,7 +71,7 @@ in {
                     };
                     scroll-step = 5;
                     on-click = "pamixer -t";
-                    on-click-right = "pavucontrol";
+                    on-click-right = "pwvucontrol";
                 };
 
                 bluetooth = {

@@ -196,7 +196,7 @@ in {
                     {
                         name = "Position Pavu control";
 
-                        "match:class" = "(org.pulseaudio.pavucontrol)";
+                        "match:class" = "(com.saivert.pwvucontrol)";
 
                         float = "on";
                         center = "on";
