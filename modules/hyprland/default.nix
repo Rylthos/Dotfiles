@@ -63,7 +63,6 @@ in {
 
                 "$terminal" = "alacritty";
                 "$fileManager" = "thunar";
-                "$menu" = "wofi --show drun -M multi-contains";
 
                 debug = {
                     disable_logs = false;
@@ -265,7 +264,7 @@ in {
                     "SUPER, X, exec, xournalpp"
                     "SUPER, S, exec, firefox"
                     "SUPER, E, exec, $fileManager"
-                    "SUPER, R, exec, $menu"
+                    "SUPER, R, exec, $NIXOS_SCRIPTS_DIR/AppLauncher.sh"
 
                     "SUPER SHIFT, Q, killactive"
                     "SUPER, SPACE, togglefloating"
