@@ -1,5 +1,5 @@
 modules/waybar/.venv/*
-modules/scripts/.backgroundQueue
+modules/scripts/wallpaper/.wallpaperQueue
 .waybar_log
 modules/neovim/nvim/parser/*
 modules/neovim/nvim/init.lua

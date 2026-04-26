@@ -6,7 +6,7 @@ selectedWallpaper=""
 
 # Load in all wallpapers
 load_wallpapers() {
-    wallpapers=($($NIXOS_SCRIPTS_DIR/ListBackground.sh))
+    wallpapers=($($NIXOS_SCRIPTS_DIR/wallpaper/ListWallpapers.sh))
 }
 
 # If the file exists then load in what is contained in that file
@@ -32,4 +32,4 @@ wallpapers=("${wallpapers[@]:0:$wallpaperIndex}" "${wallpapers[@]:$wallpaperInde
 # Save the new list
 echo ${wallpapers[*]} > ${backgroundQueue}
 
-$($NIXOS_SCRIPTS_DIR/ChangeBackground.sh $selectedWallpaper)
+$($NIXOS_SCRIPTS_DIR/wallpaper/ChangeWallpaper.sh $selectedWallpaper)
