@@ -71,6 +71,7 @@ in {
                     };
                     scroll-step = 5;
                     on-click = "pamixer -t";
+                    on-click-middle = "$NIXOS_SCRIPTS_DIR/SelectAudio.sh";
                     on-click-right = "pwvucontrol";
                 };
 
