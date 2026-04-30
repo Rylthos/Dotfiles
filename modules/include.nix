@@ -19,15 +19,16 @@
       ];
       imports = (mapNixos modules) ++ [
         {
-          imports = [ inputs.home-manager.nixosModules.home-manager ];
+          imports = [
+            inputs.home-manager.nixosModules.home-manager
+            ./options.nix
+          ];
 
-          home-manager.users.${username}.imports = [
-            (
-             { osConfig, ... }: {
-               home.stateVersion = "26.05";
-             }
-            )
-          ] ++ (builtins.map (module: config.flake.modules.homeManager.${module} or {}) modules);
+          home-manager.users.${username} = {
+            imports = [
+              ({ osConfig, ... }: { home.stateVersion = "26.05"; })
+            ] ++ (mapHM modules);
+          };
         }
       ];
     };
