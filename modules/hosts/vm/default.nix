@@ -2,6 +2,7 @@
   modules = [
     "base"
     "terminal-neovim"
+    "terminal-tmux"
   ];
 in {
   flake.nixosConfigurations.vm = inputs.nixpkgs.lib.nixosSystem {
