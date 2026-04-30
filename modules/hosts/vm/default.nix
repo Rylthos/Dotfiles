@@ -1,6 +1,7 @@
 { self, inputs, config, ... }: let
   modules = [
     "base"
+    "terminal-neovim"
   ];
 in {
   flake.nixosConfigurations.vm = inputs.nixpkgs.lib.nixosSystem {
