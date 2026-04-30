@@ -7,6 +7,7 @@
       base-firewall
       base-fonts
       base-locale
+      base-network
       base-nix
       base-pipewire
       base-security
