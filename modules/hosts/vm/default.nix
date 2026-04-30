@@ -2,6 +2,7 @@
   modules = [
     "base"
     "terminal-neovim"
+    "terminal-zsh"
     "terminal-tmux"
   ];
 in {
