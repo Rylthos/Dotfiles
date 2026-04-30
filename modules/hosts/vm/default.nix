@@ -5,6 +5,7 @@
     "terminal-zsh"
     "terminal-starship"
     "terminal-tmux"
+    "desktop-hyprland"
   ];
 in {
   flake.nixosConfigurations.vm = inputs.nixpkgs.lib.nixosSystem {
