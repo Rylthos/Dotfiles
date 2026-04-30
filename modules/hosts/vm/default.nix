@@ -3,6 +3,7 @@
     "base"
     "terminal-neovim"
     "terminal-zsh"
+    "terminal-starship"
     "terminal-tmux"
   ];
 in {
