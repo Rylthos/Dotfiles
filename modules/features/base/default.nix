@@ -1,18 +1,20 @@
-{ self, config, ... }: {
-  flake.modules.nixos.base = { ... }: {
-    imports = with self.modules.nixos; [
-      base-bluetooth
-      base-boot
-      base-environment
-      base-firewall
-      base-fonts
-      base-locale
-      base-network
-      base-nix
-      base-pipewire
-      base-security
-      base-ssh
-      base-system
-    ];
-  };
+{ self, config, ... }: let
+  modules = [
+      "base-bluetooth"
+      "base-boot"
+      "base-environment"
+      "base-firewall"
+      "base-fonts"
+      "base-hardware"
+      "base-locale"
+      "base-network"
+      "base-nix"
+      "base-pipewire"
+      "base-security"
+      "base-services"
+      "base-ssh"
+      "base-system"
+  ];
+in {
+  flake.modules = self.lib.groupPackages config modules "base";
 }

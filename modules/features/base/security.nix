@@ -1,6 +1,7 @@
 { self, ... }: {
   flake.modules.nixos.base-security = { ... }: {
     security = {
+      polkit.enable = true;
       sudo = {
         enable = true;
         extraRules = [

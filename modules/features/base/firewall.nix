@@ -1,5 +1,9 @@
 { self, ... }: {
   flake.modules.nixos.base-firewall = { ... }: {
-    networking.firewall.enable = true;
+    networking.firewall = {
+      enable = true;
+
+      allowedTCPPorts = [ 22 ];
+    };
   };
 }
