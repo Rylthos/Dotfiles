@@ -2,6 +2,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    # Fix Lutris
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
+
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 
@@ -12,7 +15,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland/v0.53.0?submodules=1";
+    hyprland = {
+      url = "github:hyprwm/Hyprland/v0.53.0?submodules=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hy3 = {
       url = "github:outfoxxed/hy3/hl0.53.0";
       inputs.hyprland.follows = "hyprland";
