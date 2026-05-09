@@ -6,7 +6,10 @@
     "terminal-starship"
     "terminal-tmux"
     "desktop-hyprland"
+
+    "desktop-tuigreet"
   ];
+  user = "vm";
 in {
   flake.nixosConfigurations.vm = inputs.nixpkgs.lib.nixosSystem {
     modules = [
@@ -19,8 +22,9 @@ in {
   flake.modules.nixos.vm-options = { ... }: {
     configuration.machine.hostname = "vm";
     configuration.machine.host = "vm";
+    configuration.user = user;
   };
 
   flake.modules.nixos.vm-modules = { ... }:
-    config.flake.lib.loadNixosAndHM config modules "vm";
+    config.flake.lib.loadNixosAndHM config modules user;
 }
