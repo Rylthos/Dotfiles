@@ -1,4 +1,8 @@
 { self, ... }: {
+  flake.modules.nixos.terminal-zsh = { ... }: {
+    programs.zsh.enable = true;
+  };
+
   flake.modules.homeManager.terminal-zsh = { pkgs, ... }: {
     home.packages = with pkgs; [
       eza
