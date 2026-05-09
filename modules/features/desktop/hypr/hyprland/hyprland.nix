@@ -1,21 +1,19 @@
-{ self, config, inputs, lib, ... }: {
-  flake.modules.nixos.desktop-hyprland = { pkgs, ... }: {
+{ self, inputs, lib, ... }: {
+  flake.modules.nixos.desktop-hyprland-standalone = { pkgs, ... }: {
+    programs.hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages.x86_64-linux.hyprland;
+      xwayland.enable = true;
+    };
+
     xdg = {
       portal = {
         enable = true;
-        extraPortals = with pkgs; [
-          xdg-desktop-portal-hyprland
-            xdg-desktop-portal-gtk
-            kdePackages.xdg-desktop-portal-kde
-        ];
-        config.hyprland = {
-          default = [ "hyprland" "gtk" ];
-        };
       };
     };
   };
 
-  flake.modules.homeManager.desktop-hyprland = { pkgs, config, osConfig, ... }: let
+  flake.modules.homeManager.desktop-hyprland-standalone = { pkgs, config, osConfig, ... }: let
     startupScript = pkgs.pkgs.writeShellScriptBin "start" (
       ''
         $NIXOS_SCRIPTS_DIR/WaybarStart.sh &
@@ -30,8 +28,6 @@
       '') + (lib.optionalString (osConfig.configuration.machine.host == "desktop") ''
         hyprshade on custom-vibrance-desktop &
       '')
-      # '' + (lib.optionalString config.modules.hypridle.enable) ''
-      # hypridle &
       );
   in {
     home.file."${config.xdg.configHome}/hypr" = {
@@ -41,7 +37,6 @@
 
     home.packages = with pkgs; [
       awww
-      hypridle
       hyprshade
       brightnessctl
 
@@ -67,10 +62,11 @@
         inputs.hyprsplit.packages.x86_64-linux.hyprsplit
       ];
 
-      package = inputs.hyprland.packages.x86_64-linux.hyprland;
+      package = null;
+      portalPackage = null;
 
       settings = {
-        exec-once = [
+        exec-once = lib.mkAfter [
           "${startupScript}/bin/start"
         ];
 
