@@ -314,7 +314,7 @@ in {
           return-type = "json";
           interval = 1;
           on-click = "$NIXOS_SCRIPTS_DIR/ToggleScreenReplay.sh";
-          on-click-middle = "$NIXOS_SCRIPTS_DIR/screen_recorder/save_replay.sh";
+          on-click-middle = "$NIXOS_SCRIPTS_DIR/screenRecorder/save_replay.sh";
         };
 
 

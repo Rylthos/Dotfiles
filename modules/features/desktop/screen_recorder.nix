@@ -14,7 +14,7 @@
       settings = {
         bind = [
           "SUPER SHIFT, XF86Launch8, exec, $NIXOS_SCRIPTS_DIR/ToggleScreenReplay.sh" # F13
-          "SUPER SHIFT, XF86Launch9, exec, $NIXOS_SCRIPTS_DIR/screen_recorder/save_replay.sh" # F14
+          "SUPER SHIFT, XF86Launch9, exec, $NIXOS_SCRIPTS_DIR/screenRecorder/save_replay.sh" # F14
         ];
       };
     };
