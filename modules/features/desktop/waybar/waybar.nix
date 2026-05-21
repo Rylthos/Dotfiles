@@ -1,15 +1,18 @@
-{ self, lib, config, ... }: let
-    currentPath = "$NIXOS_MODULES_DIR/features/desktop/waybar/";
+{ self, inputs, lib, config, ... }: let
     colorScheme = config.colorScheme;
 in {
-  flake.modules.homeManager.desktop-waybar = { pkgs, config, osConfig, ... }: {
+  flake.modules.homeManager.desktop-waybar = { pkgs, config, osConfig, ... }: let
+    currentPath = "${osConfig.configuration.dotfilesPath}/modules/features/desktop/waybar/";
+  in {
     home.packages = with pkgs; [
       pamixer
-        pwvucontrol
+      pwvucontrol
     ];
 
     programs.waybar = {
       enable = true;
+
+      package = inputs.waybar.packages.x86_64-linux.waybar;
 
       settings = [{
         layer = "top";
@@ -532,7 +535,7 @@ window#waybar {
 @import "/home/aaron/.config/waybar/styles/padding.css";
     ''; };
 
-    xdg.configFile."waybar/styles/padding.css".source =  config.lib.file.mkOutOfStoreSymlink "/home/aaron/.dotfiles/modules/waybar/padding.css";
-    xdg.configFile."waybar/styles/mediaplayer_style.css".source =  config.lib.file.mkOutOfStoreSymlink "/home/aaron/.dotfiles/modules/waybar/waybar-mediaplayer/src/style.css";
+    xdg.configFile."waybar/styles/padding.css".source =  config.lib.file.mkOutOfStoreSymlink "${currentPath}/padding.css";
+    xdg.configFile."waybar/styles/mediaplayer_style.css".source =  config.lib.file.mkOutOfStoreSymlink "${currentPath}/waybar-mediaplayer/src/style.css";
   };
 }

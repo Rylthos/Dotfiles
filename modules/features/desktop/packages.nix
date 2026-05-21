@@ -22,7 +22,9 @@
 
       kdePackages.ark
 
-      vesktop
+      # vesktop
+
+      proton-vpn
     ];
   };
 }

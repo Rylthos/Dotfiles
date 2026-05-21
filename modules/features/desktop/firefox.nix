@@ -22,7 +22,7 @@
           isDefault = true;
           settings = {
             "browser.newtabpage.activity-stream.feeds.section.highlights" = false;
-            "browser.newtabpage.activity-stream.newtabWallpapers.wallpaper" = "dark-fox-anniversery";
+            "browser.newtabpage.activity-stream.newtabWallpapers.wallpaper" = "dark-fox-anniversary";
             "browser.startup.homepage" = "https://nixos.org";
             "sidebar.verticalTabs" = true;
           };

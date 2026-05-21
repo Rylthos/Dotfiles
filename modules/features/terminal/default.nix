@@ -5,6 +5,7 @@
     "terminal-git"
     "terminal-latex"
     "terminal-packages"
+    "terminal-python"
     "terminal-neovim"
     "terminal-ssh"
     "terminal-starship"

@@ -1,20 +1,16 @@
-{ self, config, lib, ... }: {
-  flake.modules.homeManager.desktop-pyprland = { pkgs, ... }: {
-    home.packages = with pkgs; [
-      pyprland
+{ self, inputs, config, lib, ... }: {
+  flake.modules.nixos.desktop-pyprland = { config, ... }: {
+    config.configuration.hyprlandLua = lib.mkAfter [
+      "hl.on('hyprland.start', function() hl.exec_cmd('pypr') end)"
+      "hl.bind('SUPER + T', hl.dsp.exec_cmd('pypr toggle term'))"
+      "hl.bind('SUPER + C', hl.dsp.exec_cmd('pypr toggle calc'))"
     ];
+  };
 
-    wayland.windowManager.hyprland.settings = {
-      exec-once = lib.mkAfter [
-        "pypr"
-      ];
-
-      bind = [
-        "SUPER, T, exec, pypr toggle term"
-        "SUPER, P, exec, pypr toggle spotify_tui"
-        "SUPER, C, exec, pypr toggle calc"
-      ];
-    };
+  flake.modules.homeManager.desktop-pyprland = { pkgs, ... }: {
+    home.packages = [
+      inputs.pyprland.packages.x86_64-linux.pyprland
+    ];
 
     xdg.configFile."pypr/config.toml".source = (pkgs.formats.toml {}).generate "pypr_config" {
       pyprland = {
@@ -36,18 +32,6 @@
           lazy = true;
         };
 
-        spotify_tui = {
-          animation = "fromTop";
-          command = "alacritty --class spotify-tui-dropdown -e spotify_player";
-          class = "spotify-tui-dropdown";
-          size = "75% 60%";
-          max_size = "1920px 100%";
-          margin = 50;
-          unfocus = "hide";
-          hysteresis = 0.4;
-          lazy = true;
-        };
-
         calc = {
           animation = "fromRight";
           command = "alacritty --class octave-calculator -e octave -q";
@@ -55,19 +39,6 @@
           size = "30% 50%";
           max_size = "1920px 100%";
           margin = 50;
-# unfocus = "hide";
-          hysteresis = 0.4;
-          lazy = true;
-        };
-
-        spotify = {
-          animation = "fromTop";
-          command = "spotify --class spotify-dropdown";
-          class = "spotify-dropdown";
-          size = "75% 60%";
-          max_size = "1920px 100%";
-          margin = 50;
-          unfocus = "hide";
           hysteresis = 0.4;
           lazy = true;
         };

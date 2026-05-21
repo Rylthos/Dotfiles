@@ -4,6 +4,7 @@
       obs-studio-plugins.wlrobs
         obs-studio
         rnnoise-plugin
+        gifski
         (kdePackages.kdenlive.overrideAttrs (prevAttrs: {
                                              nativeBuildInputs = (prevAttrs.nativeBuildInputs or [ ]) ++ [ makeBinaryWrapper ];
                                              postInstall = (prevAttrs.postInstall or "") + ''

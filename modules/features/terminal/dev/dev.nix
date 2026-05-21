@@ -18,6 +18,7 @@
       tracy
       kdePackages.kcachegrind
       gnumake
+      clang-tools
       gf # GDB frontend
 
 ## Graphics

@@ -1,0 +1,5 @@
+require("lua.animations")
+require("lua.binds")
+require("lua.generic")
+require("lua.input")
+require("lua.window_rules")

@@ -23,7 +23,7 @@
     };
 
     xdg.configFile."nvim/lua" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles_new/modules/features/terminal/neovim/nvim/lua";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/modules/features/terminal/neovim/nvim/lua";
       recursive = true;
     };
 

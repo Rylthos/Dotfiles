@@ -24,11 +24,21 @@
       default = true;
     };
 
+    dotfilesPath = lib.mkOption {
+      type = lib.types.str;
+      default = "/home/aaron/.dotfiles";
+    };
+
     lockScript = lib.mkOption {
       type = lib.types.package;
       default = pkgs.writeShellScriptBin "lock" ''
         inotify "Unimplemented Lock script"
       '';
+    };
+
+    hyprlandLua = lib.mkOption {
+      type = lib.types.listOf lib.types.lines;
+      default = [];
     };
   };
 }

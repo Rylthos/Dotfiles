@@ -15,17 +15,26 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    waybar = {
+      url = "github:Alexays/Waybar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.53.0?submodules=1";
+      url = "github:hyprwm/Hyprland/v0.55.2?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hy3 = {
-      url = "github:outfoxxed/hy3/hl0.53.0";
+      url = "github:outfoxxed/hy3/hl0.55.0";
       inputs.hyprland.follows = "hyprland";
     };
     hyprsplit = {
-      url = "github:shezdy/hyprsplit/v0.53.0";
+      url = "github:shezdy/hyprsplit";
       inputs.hyprland.follows = "hyprland";
+    };
+    pyprland = {
+      url = "github:hyprland-community/pyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

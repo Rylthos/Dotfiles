@@ -1,12 +1,17 @@
 { self, ... }: {
   flake.modules.nixos.base-services = { ... }: {
     services = {
+      dbus.enable = true;
+
       gvfs.enable = true;
       udisks2.enable = true;
       devmon.enable = true;
 
       libinput.enable = true;
-      blueman.enable = true;
+      blueman = {
+        enable = true;
+        withApplet = false;
+      };
 
       power-profiles-daemon.enable = false;
 
@@ -29,5 +34,9 @@
       #   };
       # };
     };
+  };
+
+  flake.modules.homeManager.base-services = { ... }: {
+    services.blueman-applet.enable = true;
   };
 }

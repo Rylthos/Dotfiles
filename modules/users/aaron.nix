@@ -10,6 +10,7 @@
         "video"
         "dialout"
         "wireshark"
+        "plugdev"
       ];
       shell = pkgs.zsh;
     };

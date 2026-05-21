@@ -15,18 +15,16 @@
         );
   in {
     config.configuration.lockScript = lockScript;
+
+    config.configuration.hyprlandLua = lib.mkAfter [
+        "hl.bind('SUPER + ALT_L + L', hl.dsp.exec_cmd('${config.configuration.lockScript}/bin/lock'))"
+    ];
   };
 
   flake.modules.homeManager.desktop-hyprlock = { pkgs, osConfig, ... }: {
     home.packages = with pkgs; [
       grim
     ];
-
-    wayland.windowManager.hyprland.settings = {
-      bind = [
-        "SUPER ALT_L, L, exec, ${osConfig.configuration.lockScript}/bin/lock"
-      ];
-    };
 
     programs.hyprlock = {
       enable = true;
