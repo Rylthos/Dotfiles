@@ -55,7 +55,7 @@ in {
           format = "{bandwidthUpBytes} {bandwidthDownBytes}";
           tooltip = true;
           tooltip-format-wifi = "{essid} {signalStrength}󱉸";
-          on-click-right = "nm-connection-editor";
+          on-click-right = "hyprctl dispatch 'hl.dsp.exec_cmd(\"nm-connection-editor\")'";
         };
 
         pulseaudio = {
@@ -72,7 +72,7 @@ in {
           scroll-step = 5;
           on-click = "pamixer -t";
           on-click-middle = "$NIXOS_SCRIPTS_DIR/SelectAudio.sh";
-          on-click-right = "pwvucontrol";
+          on-click-right = "hyprctl dispatch 'hl.dsp.exec_cmd(\"pwvucontrol\")'";
         };
 
         bluetooth = {
@@ -84,7 +84,7 @@ in {
           tooltip-format = "{status} {device_alias}";
 
           on-click = "$NIXOS_SCRIPTS_DIR/ToggleBluetooth.sh";
-          on-click-right = "blueman-manager";
+          on-click-right = "hyprctl dispatch 'hl.dsp.exec_cmd(\"blueman-manager\")'";
         };
 
         battery = {
@@ -210,10 +210,10 @@ in {
             "load"
             "temperature"
             "disk"
-            "custom/previous_song"
-            "custom/play_pause_song"
-            "custom/next_song"
-            "mpris"
+            # "custom/previous_song"
+            # "custom/play_pause_song"
+            # "custom/next_song"
+            # "mpris"
             "custom/dome-right"
         ];
 
@@ -222,7 +222,6 @@ in {
         ] ++ (lib.optionals (osConfig.configuration.enableScreenRecorder) [
             "custom/toggle_screen_replay"
         ]) ++ [
-        "custom/toggle_rotation"
           "custom/toggle_keyboard"
           "idle_inhibitor"
           "custom/background"
@@ -271,40 +270,40 @@ in {
           format = " {specific_free:0.1f}{specific_total:0.1f} GB";
           unit = "GB";
         };
-
-        "custom/previous_song" = {
-          format = "";
-          tooltip = false;
-          on-click = "playerctl previous";
-        };
-
-        "custom/play_pause_song" = {
-          exec = "${currentPath}/get_playerctl_playing_icon.py";
-          interval = 2;
-          format = "{}";
-          tooltip = false;
-          on-click = "playerctl play-pause";
-        };
-
-        "custom/next_song" = {
-          format = "";
-          tooltip = false;
-          on-click = "playerctl next";
-        };
-
-        mpris = {
-          format = "<b>{dynamic}</b>";
-          format-paused = "<b>{dynamic}</b>";
-          dynamic-order = [ "title" "position" "length" ];
-          ignored-players = [ "firefox" ];
-          dynamic-len = 50;
-          player-icons =  {
-            default = "▶";
-          };
-          status-icons = {
-            paused = "⏸";
-          };
-        };
+        #
+        # "custom/previous_song" = {
+        #   format = "";
+        #   tooltip = false;
+        #   on-click = "playerctl previous";
+        # };
+        #
+        # "custom/play_pause_song" = {
+        #   exec = "${currentPath}/get_playerctl_playing_icon.py";
+        #   interval = 2;
+        #   format = "{}";
+        #   tooltip = false;
+        #   on-click = "playerctl play-pause";
+        # };
+        #
+        # "custom/next_song" = {
+        #   format = "";
+        #   tooltip = false;
+        #   on-click = "playerctl next";
+        # };
+        #
+        # mpris = {
+        #   format = "<b>{dynamic}</b>";
+        #   format-paused = "<b>{dynamic}</b>";
+        #   dynamic-order = [ "title" "position" "length" ];
+        #   ignored-players = [ "firefox" ];
+        #   dynamic-len = 50;
+        #   player-icons =  {
+        #     default = "▶";
+        #   };
+        #   status-icons = {
+        #     paused = "⏸";
+        #   };
+        # };
 
         "custom/toggle_screen_replay" = {
           format = "{icon}";
@@ -320,19 +319,6 @@ in {
           on-click-middle = "$NIXOS_SCRIPTS_DIR/screenRecorder/save_replay.sh";
         };
 
-
-        "custom/toggle_rotation" = {
-          format = "{icon}";
-          format-icons = {
-            "rotated" = "";
-            "normal" = "";
-          };
-          tooltip = false;
-          exec = "$NIXOS_SCRIPTS_DIR/ToggleScreenRotation.sh icon";
-          return-type = "json";
-          interval = 1;
-          on-click = "$NIXOS_SCRIPTS_DIR/ToggleScreenRotation.sh";
-        };
 
         "custom/toggle_keyboard" = {
           format = "{icon}";
@@ -411,7 +397,6 @@ window#waybar {
 #custom-next_song:hover,
 #custom-previous_song:hover,
 #custom-background:hover,
-#custom-toggle_rotation:hover,
 #custom-toggle_keyboard:hover,
 #idle_inhibitor:hover {
   background: #${colorScheme.palette.base03};
@@ -479,7 +464,6 @@ window#waybar {
 #custom-next_song,
 #mpris,
 #custom-toggle_screen_replay,
-#custom-toggle_rotation,
 #custom-toggle_keyboard,
 #idle_inhibitor,
 #custom-background {
@@ -505,7 +489,6 @@ window#waybar {
 #custom-next_song,
 #mpris,
 #custom-toggle_screen_replay,
-#custom-toggle_rotation,
 #custom-toggle_keyboard,
 #idle_inhibitor,
 #custom-background {
