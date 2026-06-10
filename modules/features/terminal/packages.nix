@@ -4,7 +4,6 @@
       feh
       imv
 
-      fastfetch
       btop
       p7zip
       wget
@@ -28,6 +27,8 @@
       dua
 
       mosh
+
+      dateutils
     ];
   };
 }

@@ -2,6 +2,7 @@
   modules =[
     "terminal-dev-packages"
     "terminal-direnv"
+    "terminal-fastfetch"
     "terminal-git"
     "terminal-latex"
     "terminal-packages"
