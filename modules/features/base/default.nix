@@ -8,6 +8,7 @@
       "base-hardware"
       "base-locale"
       "base-network"
+      "base-nix-ld"
       "base-nix"
       "base-pipewire"
       "base-security"
