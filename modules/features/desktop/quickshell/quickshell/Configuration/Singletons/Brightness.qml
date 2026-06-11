@@ -18,6 +18,16 @@ Singleton {
     return icons[index]
   }
 
+  function setPercent(percent: real) {
+    Quickshell.execDetached(["brightnessctl", "set", percent + "%"])
+  }
+
+  function modify(increase: bool) {
+    var value = increase ? "+5%" : "5%-"
+
+    Quickshell.execDetached(["brightnessctl", "set", value])
+  }
+
   Process {
     id: proc_udev_brightness
     command: [ "udevadm", "monitor", "--subsystem-match=backlight" ]

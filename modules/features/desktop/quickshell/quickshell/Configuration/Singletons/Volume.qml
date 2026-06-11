@@ -15,16 +15,39 @@ Singleton {
     volume > 100 ? 100 : volume
   }
 
+  readonly property bool muted: {
+    Pipewire.defaultAudioSink.audio.muted
+  }
+
+  function setPercent(percent: real) {
+    Pipewire.defaultAudioSink.audio.volume = percent / 100
+  }
+
+  function modify(increase: bool) {
+    var value = increase ? 0.05 : -0.05
+
+    var newValue = Pipewire.defaultAudioSink.audio.volume + value
+    Pipewire.defaultAudioSink.audio.volume = Math.max(0, Math.min(1, newValue))
+  }
+
+  function toggleMute() {
+    Pipewire.defaultAudioSink.audio.muted = !Pipewire.defaultAudioSink.audio.muted
+  }
+
+  function openContext() {
+    Quickshell.execDetached(["pwvucontrol"])
+  }
+
   function getIcon() {
     var volume = root.volume
     if (volume >= 60) {
-      return "󰕾 "
+      return "󰕾"
     } else if (volume >= 20) {
-      return "󰖀 "
+      return "󰖀"
     } else if (volume >= 0) {
-      return "󰕿 "
+      return "󰕿"
     } else if (volume == -1){
-      return "󰖁 "
+      return "󰖁"
     }
   }
 
