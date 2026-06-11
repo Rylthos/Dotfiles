@@ -19,6 +19,8 @@
     "desktop-screen-recorder"
     "desktop-wireshark"
 
+    "desktop-quickshell"
+
     "laptop-options"
   ];
   user = "aaron";
