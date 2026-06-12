@@ -8,7 +8,7 @@
     "desktop-theme"
     "desktop-thunar"
     "desktop-tuigreet"
-    "desktop-waybar"
+    "desktop-quickshell"
     "desktop-wlogout"
     "desktop-wofi"
   ];

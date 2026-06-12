@@ -1,5 +1,5 @@
 { self, ... }: {
-  flake.modules.nixos.base-security = { ... }: {
+  flake.modules.nixos.base-security = { pkgs, ... }: {
     security = {
       polkit.enable = true;
       sudo = {
@@ -9,7 +9,7 @@
           groups = [ "wheel" ];
           commands = [
           {
-            command = "/etc/profiles/per-user/aaron/bin/evtest";
+            command = "${pkgs.evtest}";
             options = [ "NOPASSWD" ];
           }
           {
@@ -22,4 +22,4 @@
       };
     };
   };
-               }
+}

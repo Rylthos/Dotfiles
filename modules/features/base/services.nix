@@ -10,7 +10,6 @@
       libinput.enable = true;
       blueman = {
         enable = true;
-        withApplet = false;
       };
 
       power-profiles-daemon.enable = false;
