@@ -28,6 +28,13 @@ Scope {
         left: true
         right: true
       }
+
+      margins {
+        top: 5
+        left: 5
+        right: 5
+      }
+
       implicitHeight: 30
 
       Rectangle {
@@ -66,7 +73,6 @@ Scope {
 
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
-        anchors.margins: Config.Spacing.margin
 
         implicitWidth: workspaces.implicitWidth + Config.Spacing.margin * 2
         implicitHeight: 30
@@ -87,7 +93,6 @@ Scope {
 
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
-        anchors.margins: Config.Spacing.margin
 
         implicitWidth: {
           icons.implicitWidth + Config.Spacing.margin * 2

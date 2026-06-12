@@ -22,8 +22,8 @@ Singleton {
         var total = items[0]
         var avail = items[1]
 
-        root.percentage = ((total - avail) / total) * 100
-        root.value = ((total-avail) / (1024.)).toFixed(2)
+        root.percentage = (avail / total) * 100
+        root.value = (avail / (1024.)).toFixed(2)
       }
     }
   }

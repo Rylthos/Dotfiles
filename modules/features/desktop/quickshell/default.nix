@@ -6,8 +6,14 @@ in {
   in {
     programs.quickshell = {
       enable = true;
+      package = pkgs.quickshell;
       systemd.enable = false;
     };
+
+    home.packages = with pkgs; [
+      pamixer
+      pwvucontrol
+    ];
 
     xdg.configFile."quickshell/shell.qml" = {
       source =  config.lib.file.mkOutOfStoreSymlink "${currentPath}/quickshell/shell.qml";
