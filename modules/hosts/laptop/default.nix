@@ -14,6 +14,7 @@
     "desktop-discord"
     "desktop-nvibrant"
     "desktop-photography"
+    "desktop-protonvpn"
     "desktop-pureref"
     "desktop-recording"
     "desktop-screen-recorder"
