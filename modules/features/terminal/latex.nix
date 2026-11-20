@@ -2,7 +2,7 @@
   flake.modules.homeManager.terminal-latex = { pkgs, config, ... }: {
     home.packages = with pkgs; [
       texlab
-      texlive.combined.scheme-full
+      texliveSmall
       tex-fmt
       ltex-ls-plus
     ];

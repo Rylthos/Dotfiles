@@ -12,13 +12,14 @@
     "desktop-art"
     "desktop-cad"
     "desktop-discord"
-    "desktop-nvibrant"
+    # "desktop-nvibrant"
     "desktop-photography"
     "desktop-protonvpn"
-    "desktop-pureref"
     "desktop-recording"
     "desktop-screen-recorder"
     "desktop-wireshark"
+
+    "desktop-unity"
 
     "desktop-options"
   ];
@@ -39,6 +40,12 @@ in {
 
     configuration.muteOnLock = false;
     configuration.screenTimeout = false;
+  };
+
+  flake.modules.homeManager.desktop-options = { ... }: {
+    programs.zsh.shellAliases = {
+      coding = "cd $HOME/Documents/Coding/";
+    };
   };
 
   flake.modules.nixos.desktop-modules = { ... }:

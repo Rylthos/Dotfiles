@@ -21,11 +21,11 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.55.2?submodules=1";
+      url = "github:hyprwm/Hyprland/v0.57.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hy3 = {
-      url = "github:outfoxxed/hy3/hl0.55.0";
+      url = "github:outfoxxed/hy3/hl0.57.0";
       inputs.hyprland.follows = "hyprland";
     };
     hyprsplit = {

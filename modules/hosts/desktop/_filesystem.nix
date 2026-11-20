@@ -35,6 +35,8 @@
     options = [
       "users"
       "exec"
+      "uid=1000"
+      "gid=1000"
     ];
   };
 

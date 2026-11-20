@@ -1,16 +1,13 @@
 { self, lib, ... }: {
   flake.modules.nixos.desktop-hypridle = { pkgs, config, ... }: {
-      config.configuration.hyprlandLua = lib.mkAfter [
-        "hl.on('hyprland.start', function() hl.exec_cmd('${pkgs.hypridle}/bin/hypridle') end)"
-      ];
+      config.configuration.hyprlandLua = lib.mkAfter (
+          if config.configuration.screenTimeout then [
+            "hl.on('hyprland.start', function() hl.exec_cmd('${pkgs.hypridle}/bin/hypridle') end)"
+          ] else []);
   };
 
   flake.modules.homeManager.desktop-hypridle = { osConfig, ... }: let
   in {
-    # wayland.windowManager.hyprland.settings = {
-    #   exec-once = lib.mkAfter [ "hypridle &" ];
-    # };
-
     services.hypridle = {
       enable = true;
       settings = {

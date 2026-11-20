@@ -1,7 +1,8 @@
 { self, ... }: let
-  filePath = "$NIXOS_MODULES_DIR/features/keyboard/";
 in {
-  flake.modules.homeManager.keyboard-keyboard = { pkgs, config, ... }: {
+  flake.modules.homeManager.keyboard-keyboard = { pkgs, config, ... }: let
+    filePath = "${config.home.homeDirectory}/.dotfiles/modules/features/keyboard/";
+  in {
     home.packages = with pkgs; [
       qmk
     ];

@@ -7,6 +7,7 @@
       "base-fonts"
       "base-hardware"
       "base-locale"
+      "base-man"
       "base-network"
       "base-nix-ld"
       "base-nix"

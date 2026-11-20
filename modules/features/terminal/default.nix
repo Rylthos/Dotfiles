@@ -4,7 +4,6 @@
     "terminal-direnv"
     "terminal-fastfetch"
     "terminal-git"
-    "terminal-latex"
     "terminal-packages"
     "terminal-python"
     "terminal-neovim"

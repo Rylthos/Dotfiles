@@ -11,6 +11,7 @@
                                     ppkgs.pillow
                                     ppkgs.opencv-python
                                     ppkgs.ipython
+                                    ppkgs.exif
       ]))
     ];
   };

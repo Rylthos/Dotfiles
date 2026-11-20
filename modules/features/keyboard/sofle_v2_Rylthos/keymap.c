@@ -66,9 +66,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_SYMBOL] = LAYOUT(
            KC_NO,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                             KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
-           KC_NO,  KC_GRV, KC_NUHS, KC_LCBR, KC_RCBR,   KC_NO,                           KC_PPLS,    KC_7,    KC_8,    KC_9,   KC_NO,  KC_F12,
-         KC_TRNS,   KC_NO, KC_QUOT, KC_LPRN, KC_RPRN,   KC_NO,                            KC_EQL,    KC_4,    KC_5,    KC_6,    KC_0,   KC_NO,
-         KC_TRNS,   KC_NO, KC_NUBS, KC_LBRC, KC_RBRC,   KC_NO, KC_TRNS,         KC_TRNS, KC_MINS,    KC_1,    KC_2,    KC_3,   KC_NO,   KC_NO,
+           KC_NO,  KC_GRV, KC_NUHS, KC_LCBR, KC_RCBR,   KC_NO,                           KC_PPLS,   KC_P7,   KC_P8,   KC_P9,KC_NUM_LOCK,KC_F12,
+         KC_TRNS,   KC_NO, KC_QUOT, KC_LPRN, KC_RPRN,   KC_NO,                            KC_EQL,   KC_P4,   KC_P5,   KC_P6,   KC_P0,   KC_NO,
+         KC_TRNS,   KC_NO, KC_NUBS, KC_LBRC, KC_RBRC,   KC_NO, KC_TRNS,         KC_TRNS, KC_MINS,   KC_P1,   KC_P2,   KC_P3,   KC_NO,   KC_NO,
                            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS,MO(_RGB), KC_TRNS, KC_TRNS, KC_TRNS
     ),
 
@@ -91,36 +91,36 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 // clang-format on
 
-void keyboard_pre_init_user(void)
-{
-    // Disable power LEDs
-    gpio_set_pin_output(24);
-    gpio_write_pin_high(24);
+void keyboard_pre_init_user(void) {
+  // Disable power LEDs
+  gpio_set_pin_output(24);
+  gpio_write_pin_high(24);
+
+  tap_code(KC_NUM_LOCK);
 }
 
 void render_oled_left(void);
 void render_oled_right(void);
 
-bool oled_task_user()
-{
-    if (is_keyboard_left()) {
-        render_oled_left();
-    } else {
-        render_oled_right();
-    }
+bool oled_task_user() {
+  if (is_keyboard_left()) {
+    render_oled_left();
+  } else {
+    render_oled_right();
+  }
 
-    if (oled_timer == 0) {
-        oled_timer = timer_read32();
-    }
+  if (oled_timer == 0) {
+    oled_timer = timer_read32();
+  }
 
-    if (get_current_wpm() > 0) {
-        oled_on();
-        oled_timer = timer_read32();
-    } else if (timer_elapsed32(oled_timer) > OLED_TIMEOUT) {
-        oled_off();
-    }
+  if (get_current_wpm() > 0) {
+    oled_on();
+    oled_timer = timer_read32();
+  } else if (timer_elapsed32(oled_timer) > OLED_TIMEOUT) {
+    oled_off();
+  }
 
-    return false;
+  return false;
 }
 
 #include "oled_render.c"

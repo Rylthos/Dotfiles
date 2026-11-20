@@ -29,7 +29,7 @@
     ];
 
     programs.hyprlock = {
-      enable = osConfig.configuration.screenTimeout;
+      enable = true;
       settings = {
         background = [
           {

@@ -4,6 +4,7 @@
       kicad
       freecad
       blender
+      prusa-slicer
     ];
   };
 }
